@@ -12,6 +12,8 @@ Each *skill* is an AI capability module for a specific interest or learning scen
   - Features: supports single choice, multiple choice, true/false questions and tutoring-style explanations, with adaptive difficulty.
   - Directory: see the `pracmo-practice-everything/` folder (for example `SKILL.md` inside it) for more detailed design and usage notes.
 
+![Practice flow – question & feedback](docs/img/pracmo-practice-everything-en.png)
+
 ### Validation & tooling
 
 - **Verified environment**: these skills are currently verified in **ClaudeCode**.  

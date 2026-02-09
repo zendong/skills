@@ -12,6 +12,8 @@
   - 特点：支持单选、多选、判断题以及对话式讲解，并根据用户表现自适应调整难度。
   - 目录：详见 `pracmo-practice-everything/` 下的说明文件（如 `SKILL.md`）以获取更详细的设计与使用说明。
 
+![Practice flow – question & feedback](docs/img/pracmo-practice-everything-zh.png)
+
 ### 验证环境与交互依赖
 
 - **已完成验证的环境**：当前 Skills 已在 **ClaudeCode** 中完成验证。  
