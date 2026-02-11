@@ -5,6 +5,12 @@
 **本仓库用于存放「璞奇（Pracmo）」 App 相关的 Skills（技能）服务配置与实现示例。**  
 每一个 Skill 都是针对某类兴趣或学习场景的 AI 能力模块，可在支持的开发环境中单独使用或扩展。
 
+### 推荐安装方式
+
+```bash
+npx skills add https://github.com/zendong/skills
+```
+
 ### 已包含的 Skills
 
 - **`pracmo-practice-everything`**

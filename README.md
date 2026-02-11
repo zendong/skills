@@ -5,6 +5,12 @@
 **This repository contains the skill service definitions used by the Pracmo (璞奇) app.**  
 Each *skill* is an AI capability module for a specific interest or learning scenario. Skills can be called by the app conceptually and, in some environments, reused or extended by developers.
 
+### Recommended installation
+
+```bash
+npx skills add https://github.com/zendong/skills
+```
+
 ### Included skills
 
 - **`pracmo-practice-everything`**
