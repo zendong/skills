@@ -20,15 +20,15 @@ Skill 源码与说明见对应子目录（路径均为 `skills/<skill-name>/`）
 
 ![练习问答示例](docs/img/pracmo-practice-everything-zh.png)
 
-- **`pracmo-flow-create`**（`skills/pracmo-flow-create/`）
-  - **作用**：在用户希望「把当前内容做成流炼练习」「练一下」「根据上文出题」等场景下，将对话上下文整理为流炼练习草案，并在用户确认题型与题量后，调用开放平台接口创建练习并返回分享链接。
+- **`pracmo-create`**（`skills/pracmo-create/`）
+  - **作用**：在用户希望「把当前内容做成流炼练习」「练一下」「根据上文出题」「记一下」「存成笔记」等场景下，将对话上下文整理为**流炼练习草案**或**笔记内容**：流炼场景会在用户确认题型与题量后调用开放平台接口创建练习并返回分享链接；笔记场景会先获取笔记本列表、按用户选择写入或先创建笔记本再写入。
   - **特点**：运行前需检测环境变量 **`PRACMO_APIKEY`**；若未配置，会引导用户前往 [API Key 页面](https://www.zendong.com.cn/app/api-key) 获取并配置，不会伪造已创建成功。
-  - **说明**：详见 `skills/pracmo-flow-create/SKILL.md`。
+  - **说明**：详见 `skills/pracmo-create/SKILL.md`。
 
 ### 验证环境与交互依赖
 
 - **已完成验证的环境**：当前 Skills 已在 **ClaudeCode** 中完成验证。
-- **交互依赖**：`pracmo-practice-everything` 中的练习交互依赖 **AskUserQuestion** 工具展示题目、收集作答并反馈，具体规则见 `skills/pracmo-practice-everything/SKILL.md`。`pracmo-flow-create` 侧重 API 与上下文整理，以各 Skill 内文档为准。
+- **交互依赖**：`pracmo-practice-everything` 中的练习交互依赖 **AskUserQuestion** 工具展示题目、收集作答并反馈，具体规则见 `skills/pracmo-practice-everything/SKILL.md`。`pracmo-create` 侧重开放平台 API、笔记本与上下文整理，以各 Skill 内文档为准。
 - **其他场景**：在其他运行环境或工具链中的行为尚未完全验证，欢迎你在不同场景中试用并通过 Issue 反馈使用体验。
 
 ### 与「璞奇」App 的关系
@@ -51,9 +51,9 @@ Skill 源码与说明见对应子目录（路径均为 `skills/<skill-name>/`）
 
 如果你是开发者，希望在自己的环境中使用或扩展这些 Skills，可以：
 
-- 进入对应 Skill 子目录（如 `skills/pracmo-practice-everything/`、`skills/pracmo-flow-create/`），阅读其中的 `SKILL.md`，了解交互协议、环境变量与接口约定。
+- 进入对应 Skill 子目录（如 `skills/pracmo-practice-everything/`、`skills/pracmo-create/`），阅读其中的 `SKILL.md`，了解交互协议、环境变量与接口约定。
 - 在集成 `pracmo-practice-everything` 时，在 AI 代理或工具链中接入 **AskUserQuestion** 或等价的结构化出题能力。
-- 在集成 `pracmo-flow-create` 时，正确配置 **`PRACMO_APIKEY`** 并遵守 Skill 中的接口与安全说明（勿在聊天中泄露密钥）。
+- 在集成 `pracmo-create` 时，正确配置 **`PRACMO_APIKEY`** 并遵守 Skill 中的接口与安全说明（勿在聊天中泄露密钥）。
 - 在保持隐私与安全前提下，结合你自己的模型与数据源进行定制。
 
 ### 反馈与贡献
