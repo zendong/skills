@@ -30,4 +30,9 @@ if rg -n "\\b(GET|POST)\\b" "$SKILL_MD" >"$TMP_ROOT/http.err"; then
   fail "SKILL.md should route API access through scripts, not raw GET/POST instructions"
 fi
 
+if rg -n "materialId|material 接口|material-create|material-prepare|material-get|oss-config|oss-sts" "$SKILL_MD" >"$TMP_ROOT/non-current-flow.err"; then
+  cat "$TMP_ROOT/non-current-flow.err" >&2
+  fail "SKILL.md should not mention non-current material/API helper flows"
+fi
+
 echo "pracmo skill doc tests passed"

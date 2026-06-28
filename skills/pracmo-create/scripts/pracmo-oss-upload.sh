@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Upload a local material/practice asset file to the account-scoped Pracmo OSS prefix.
+# Upload a local practice asset file to the account-scoped Pracmo OSS prefix.
 #
 # Requirements:
 #   - PRACMO_APIKEY
@@ -9,10 +9,8 @@
 set -euo pipefail
 
 BASE_URL="https://apis.zendong.com.cn/open/v1"
-CATEGORY="practice-assets"
 OBJECT_KEY=""
 CONTENT_TYPE=""
-MAX_SOURCE_BYTES=$((1024 * 1024))
 MAX_ASSET_BYTES=$((10 * 1024 * 1024))
 
 die() { echo "pracmo-oss-upload: $*" >&2; exit 1; }
@@ -26,10 +24,10 @@ usage() {
   pracmo-oss-upload.sh [选项] <local-file>
 
 选项:
-  --category <source|practice-assets|bilibili-cover|material>
-      默认 practice-assets。source 用于资料原文件；practice-assets 用于题干/选项/解析图片。
+  --category <practice-assets>
+      可选；仅支持 practice-assets，用于题干、选项、解析中的图片。
   --object-key <key>
-      可选。必须位于服务端返回的 material/{accountId}/ 前缀下。
+      可选。必须位于服务端返回的账号 OSS 前缀下。
   --content-type <mime>
       可选。不传时用 file --mime-type 推断，仍为空则使用 application/octet-stream。
   -h, --help
@@ -38,7 +36,6 @@ usage() {
   JSON: {"objectKey":"...","url":"https://...","contentType":"...","sizeBytes":123}
 
 示例:
-  pracmo-oss-upload.sh --category source ./notes.pdf
   pracmo-oss-upload.sh --category practice-assets --content-type image/png ./diagram.png
 EOF
 }
@@ -91,21 +88,11 @@ sanitize_name() {
   basename "$1" | tr -cs 'A-Za-z0-9._-' '-' | sed 's/^-//; s/-$//'
 }
 
-category_json_key() {
-  case "$1" in
-    source) echo "source" ;;
-    practice-assets) echo "practiceAssets" ;;
-    bilibili-cover) echo "bilibiliCover" ;;
-    material) echo "material" ;;
-    *) die "未知 category: $1" ;;
-  esac
-}
-
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --category)
       [[ $# -ge 2 ]] || die "--category 缺少值"
-      CATEGORY="$2"
+      [[ "$2" == "practice-assets" ]] || die "只支持 practice-assets 分类"
       shift 2
       ;;
     --object-key)
@@ -140,10 +127,7 @@ require_tools
 
 size_bytes="$(stat_size "$LOCAL_FILE")"
 [[ "$size_bytes" =~ ^[0-9]+$ && "$size_bytes" -gt 0 ]] || die "文件为空或无法读取大小"
-if [[ "$CATEGORY" == "source" && "$size_bytes" -gt "$MAX_SOURCE_BYTES" ]]; then
-  die "source 资料原文件超过 1MB，当前后端 material 登记会拒绝该 sizeBytes"
-fi
-if [[ "$CATEGORY" != "source" && "$size_bytes" -gt "$MAX_ASSET_BYTES" ]]; then
+if [[ "$size_bytes" -gt "$MAX_ASSET_BYTES" ]]; then
   die "图片/练习资产超过 10MB"
 fi
 
@@ -155,12 +139,11 @@ sts_json="$(api_get "oss/stsToken")"
 
 bucket="$(echo "$config_json" | jq -r '.data.bucketName // .bucketName // empty')"
 endpoint="$(echo "$config_json" | jq -r '.data.ossEndpoint // .ossEndpoint // empty')"
-material_prefix="$(echo "$config_json" | jq -r '.data.objectKeyPrefix // .objectKeyPrefix // empty')"
-prefix_key="$(category_json_key "$CATEGORY")"
-category_prefix="$(echo "$config_json" | jq -r --arg k "$prefix_key" '.data.objectKeyPrefixes[$k] // .objectKeyPrefixes[$k] // empty')"
+account_prefix="$(echo "$config_json" | jq -r '.data.objectKeyPrefix // .objectKeyPrefix // empty')"
+category_prefix="$(echo "$config_json" | jq -r '.data.objectKeyPrefixes.practiceAssets // .objectKeyPrefixes.practiceAssets // empty')"
 [[ -n "$bucket" && -n "$endpoint" ]] || die "OSS config 缺少 bucketName/ossEndpoint"
-[[ -n "$material_prefix" ]] || die "OSS config 缺少 objectKeyPrefix，请确认 server 已更新"
-[[ -n "$category_prefix" ]] || category_prefix="$material_prefix"
+[[ -n "$account_prefix" ]] || die "OSS config 缺少 objectKeyPrefix，请确认 server 已更新"
+[[ -n "$category_prefix" ]] || category_prefix="$account_prefix"
 
 if [[ -z "$OBJECT_KEY" ]]; then
   stamp="$(date -u +%Y%m%dT%H%M%SZ)"
@@ -170,8 +153,8 @@ if [[ -z "$OBJECT_KEY" ]]; then
 fi
 
 case "$OBJECT_KEY" in
-  "$material_prefix"*) ;;
-  *) die "object key 必须位于账号 material 前缀下: $material_prefix" ;;
+  "$account_prefix"*) ;;
+  *) die "object key 必须位于账号 OSS 前缀下: $account_prefix" ;;
 esac
 [[ "$OBJECT_KEY" != /* && "$OBJECT_KEY" != *".."* ]] || die "object key 不能包含绝对路径或 .."
 

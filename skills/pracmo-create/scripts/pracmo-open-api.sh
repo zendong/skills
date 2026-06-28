@@ -6,11 +6,6 @@
 #   export PRACMO_APIKEY="..."   # 勿将 Key 写入仓库或粘贴到聊天
 #   skills/pracmo-create/scripts/pracmo-open-api.sh learning-track-exercise path/to/body.json
 #   cat body.json | skills/pracmo-create/scripts/pracmo-open-api.sh learning-track-exercise -
-#   skills/pracmo-create/scripts/pracmo-open-api.sh material-create path/to/material.json
-#   skills/pracmo-create/scripts/pracmo-open-api.sh material-prepare path/to/material.json
-#   skills/pracmo-create/scripts/pracmo-open-api.sh material-get 123
-#   skills/pracmo-create/scripts/pracmo-open-api.sh oss-config
-#   skills/pracmo-create/scripts/pracmo-open-api.sh oss-sts
 #
 #   skills/pracmo-create/scripts/pracmo-open-api.sh get 'learning-tracks?keyword=线性代数'
 #   skills/pracmo-create/scripts/pracmo-open-api.sh get 'learning-tracks/track_xxx/timeline?nodeType=exercise&pageSize=20'
@@ -19,12 +14,7 @@
 #
 # 子命令：
 #   learning-track-exercise <file|-   POST /open/v1/learning-tracks/with-exercise，请求体为 JSON 文件或 stdin（-）
-#   material-create <file|-          POST /open/v1/material，请求体为 JSON 文件或 stdin（-）
-#   material-prepare <file|-         POST /open/v1/material/prepare，查重或创建 material
-#   material-get <materialId>         GET /open/v1/material/<materialId>
-#   oss-config                       GET /open/v1/oss/config
-#   oss-sts                          GET /open/v1/oss/stsToken
-#   get <path>               GET /open/v1/<path>（path 勿含前导斜杠，如 learning-tracks?keyword=线性代数）
+#   get <path>               GET /open/v1/learning-tracks...（仅限甲程相关查询）
 #   dismiss-node <nodeId>    POST /open/v1/learning-tracks/nodes/<nodeId>/dismiss
 #
 # 选项：
@@ -53,6 +43,14 @@ curl_json_get() {
   code=$(echo "$out" | tail -n1)
   out=$(echo "$out" | sed '$d')
   _emit "$out" "$code"
+}
+
+validate_get_path() {
+  local path="${1#\/}"
+  case "$path" in
+    learning-tracks|learning-tracks\?*|learning-tracks/*) ;;
+    *) die "get 仅支持 learning-tracks 相关查询" ;;
+  esac
 }
 
 curl_json_post_file() {
@@ -117,11 +115,6 @@ usage() {
 用法:
   export PRACMO_APIKEY="..."
   pracmo-open-api.sh learning-track-exercise <json-file|->
-  pracmo-open-api.sh material-create <json-file|->
-  pracmo-open-api.sh material-prepare <json-file|->
-  pracmo-open-api.sh material-get <materialId>
-  pracmo-open-api.sh oss-config
-  pracmo-open-api.sh oss-sts
   pracmo-open-api.sh get 'learning-tracks?keyword=线性代数'
   pracmo-open-api.sh get 'learning-tracks/track_xxx/timeline?nodeType=exercise&pageSize=20'
   pracmo-open-api.sh get 'learning-tracks/track_xxx/concepts?limit=50'
@@ -131,10 +124,6 @@ usage() {
 
 示例:
   pracmo-open-api.sh learning-track-exercise ./payload.json
-  pracmo-open-api.sh material-create ./material.json
-  pracmo-open-api.sh material-prepare ./material.json
-  pracmo-open-api.sh material-get 123
-  pracmo-open-api.sh --pretty oss-config
   cat payload.json | pracmo-open-api.sh learning-track-exercise -
 EOF
 }
@@ -158,34 +147,10 @@ case "$1" in
     [[ $# -ge 1 ]] || die "用法: ... learning-track-exercise <json-file|->"
     curl_json_post_file "learning-tracks/with-exercise" "$1"
     ;;
-  material-create)
-    shift
-    [[ $# -ge 1 ]] || die "用法: ... material-create <json-file|->"
-    curl_json_post_file "material" "$1"
-    ;;
-  material-prepare)
-    shift
-    [[ $# -ge 1 ]] || die "用法: ... material-prepare <json-file|->"
-    curl_json_post_file "material/prepare" "$1"
-    ;;
-  material-get)
-    shift
-    [[ $# -ge 1 ]] || die "用法: ... material-get <materialId>"
-    material_id="${1#/}"
-    [[ -n "$material_id" ]] || die "materialId 不能为空"
-    curl_json_get "material/${material_id}"
-    ;;
-  oss-config)
-    shift
-    curl_json_get "oss/config"
-    ;;
-  oss-sts)
-    shift
-    curl_json_get "oss/stsToken"
-    ;;
   get)
     shift
-    [[ $# -ge 1 ]] || die "用法: ... get <path>  例如 learning-tracks?keyword=线性代数"
+    [[ $# -ge 1 ]] || die "用法: ... get <learning-tracks path>  例如 learning-tracks?keyword=线性代数"
+    validate_get_path "$1"
     curl_json_get "$1"
     ;;
   dismiss-node)
@@ -196,6 +161,6 @@ case "$1" in
     curl_json_post_empty "learning-tracks/nodes/${node_id}/dismiss"
     ;;
   *)
-    die "未知子命令: $1。可用: learning-track-exercise | material-create | material-prepare | material-get | oss-config | oss-sts | get | dismiss-node"
+    die "未知子命令: $1。可用: learning-track-exercise | get | dismiss-node"
     ;;
 esac
