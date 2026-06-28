@@ -1,65 +1,80 @@
-## 璞奇（Pracmo）Skills 仓库
+# 璞奇（Pracmo）Skills
 
-**本仓库用于存放「璞奇（Pracmo）」 App 相关的 Skills（技能）服务配置与实现示例。**  
-每一个 Skill 都是针对某类兴趣或学习场景的 AI 能力模块，可在支持的开发环境中单独使用或扩展。Skill 定义位于仓库根目录下的 **`skills/`** 目录中。
+本仓库是璞奇对外发布的 Agent Skills 仓库。目前只保留最新的 `pracmo-create`：
 
-### 推荐安装方式
+- 路径：`skills/pracmo-create/`
+- 作用：把当前对话、资料、Markdown、术语清单或学习目标创建为璞奇甲程练习。
+- 能力：支持新建甲程 + 首个完整练习，或向已有甲程队尾追加一组完整练习。
+
+## 安装
 
 ```bash
-npx skills add https://github.com/zendong/skills
+npx skills add https://github.com/zendong/skills --skill pracmo-create
 ```
 
-### 已包含的 Skills
+## 使用前准备
 
-Skill 源码与说明见对应子目录（路径均为 `skills/<skill-name>/`）。
+`pracmo-create` 通过璞奇开放 API 创建甲程练习。使用前需要配置 API Key：
 
-- **`pracmo-practice-everything`**（`skills/pracmo-practice-everything/`）
-  - **作用**：将任意学习目标（考试、面试、编程、语言、兴趣爱好等）转化为「提问 → 作答 → 反馈 → 继续练习」的循环。
-  - **特点**：支持单选、多选、判断题以及对话式讲解，并根据用户表现自适应调整难度；交互需通过 **AskUserQuestion** 工具呈现题目与选项。
-  - **说明**：详见 `skills/pracmo-practice-everything/SKILL.md`。
+```bash
+export PRACMO_APIKEY="你的_API_Key"
+```
 
-![练习问答示例](docs/img/pracmo-practice-everything-zh.png)
+API Key 获取入口：
 
-- **`pracmo-create`**（`skills/pracmo-create/`）
-  - **作用**：在用户希望「把当前内容做成流炼练习」「练一下」「根据上文出题」「记一下」「存成笔记」等场景下，将对话上下文整理为**流炼练习草案**或**笔记内容**：流炼场景会在用户确认题型与题量后调用开放平台接口创建练习并返回分享链接；笔记场景会先获取笔记本列表、按用户选择写入或先创建笔记本再写入。
-  - **特点**：运行前需检测环境变量 **`PRACMO_APIKEY`**；若未配置，会引导用户前往 [API Key 页面](https://www.zendong.com.cn/app/api-key) 获取并配置，不会伪造已创建成功。
-  - **说明**：详见 `skills/pracmo-create/SKILL.md`。
+```text
+https://www.zendong.com.cn/app/api-key
+```
 
-### 验证环境与交互依赖
+不要把 API Key 粘贴到聊天里，也不要提交到仓库。
 
-- **已完成验证的环境**：当前 Skills 已在 **ClaudeCode** 中完成验证。
-- **交互依赖**：`pracmo-practice-everything` 中的练习交互依赖 **AskUserQuestion** 工具展示题目、收集作答并反馈，具体规则见 `skills/pracmo-practice-everything/SKILL.md`。`pracmo-create` 侧重开放平台 API、笔记本与上下文整理，以各 Skill 内文档为准。
-- **其他场景**：在其他运行环境或工具链中的行为尚未完全验证，欢迎你在不同场景中试用并通过 Issue 反馈使用体验。
+## 当前 Skill
 
-### 与「璞奇」App 的关系
+### `pracmo-create`
 
-- **App 中并没有直接内置本仓库的 `SKILL.md` 文件**，本仓库中的 Skills 更接近于一套可复用、可阅读的「实现方案与规范示例」。
-- 这些 Skills 仅覆盖了 App 中部分能力相关的 **逻辑与交互模式**，实际 App 内还包含更多产品能力（UI、数据管理、流炼、宝典等完整流程）。
-- 若你希望体验更完整、更顺滑的兴趣练习与成长过程，**建议下载 App 直接使用**。
+适用表达：
 
-### 在「璞奇」App 中使用
+- “练一下”
+- “把这段内容做成练习”
+- “围绕这个建个甲程练一下”
+- “根据这段内容出题”
+- “创建甲程和第一个练习”
+- “给已有甲程再补一组”
 
-如果你是普通用户，只需在 App 中使用这些能力，无需关心仓库细节：
+核心流程：
 
-1. 在手机上下载并安装 **「璞奇」App**：  
-   - iOS: [在 App Store 下载「璞奇」（Pracmo）](https://apps.apple.com/cn/app/%E7%92%9E%E5%A5%87/id6744847459)
-2. 按照 App 内指引开始练习或与 AI 互动；本仓库中的部分设计思想与交互规范在 App 中已有落地，但 App **并不**在运行时依赖本仓库文件。
+1. 检查 `PRACMO_APIKEY`。
+2. 判断是新建甲程还是复用已有甲程。
+3. 提炼稳定知识点和可测命题。
+4. 由 Agent 生成完整题目、选项、答案、解析和 Bloom 层级。
+5. 通过 `scripts/pracmo-open-api.sh` 创建或追加甲程练习。
+6. 使用本地 `cache/` 记录来源到甲程映射和创建请求台账，辅助后续补练与超时恢复。
 
-> 说明：不同版本的 App 所提供的功能与体验可能有所差异，以 App 内实际展示为准。
+详细规则见：
 
-### 在开发 / 集成场景下使用
+```text
+skills/pracmo-create/SKILL.md
+```
 
-如果你是开发者，希望在自己的环境中使用或扩展这些 Skills，可以：
+## 目录结构
 
-- 进入对应 Skill 子目录（如 `skills/pracmo-practice-everything/`、`skills/pracmo-create/`），阅读其中的 `SKILL.md`，了解交互协议、环境变量与接口约定。
-- 在集成 `pracmo-practice-everything` 时，在 AI 代理或工具链中接入 **AskUserQuestion** 或等价的结构化出题能力。
-- 在集成 `pracmo-create` 时，正确配置 **`PRACMO_APIKEY`** 并遵守 Skill 中的接口与安全说明（勿在聊天中泄露密钥）。
-- 在保持隐私与安全前提下，结合你自己的模型与数据源进行定制。
+```text
+skills/
+  pracmo-create/
+    SKILL.md
+    cache/
+    scripts/
+```
 
-### 反馈与贡献
+`cache/` 下的运行缓存不会提交到仓库。
 
-- **问题反馈**：如果发现 Skill 行为或文档存在问题，欢迎通过 Issue 进行反馈。
-- **使用反馈**：尤其欢迎你在非 ClaudeCode 场景中的使用反馈，帮助我们改进适配性与文档说明。
-- **新增 Skill**：如有适合纳入本仓库的 Skill 设计，也欢迎提交 PR 或在 Issue 中讨论。
+## 反馈
 
-本仓库会与「璞奇（Pracmo）」 App 及相关工具链一同演进，帮助更多用户围绕兴趣构建系统化的练习与创作能力。
+如果你在使用 `pracmo-create` 时遇到问题，欢迎通过 Issue 反馈：
+
+- 你使用的 Agent / 运行环境
+- 触发 skill 的原始请求
+- 是否已配置 `PRACMO_APIKEY`
+- 失败时的错误信息或终端输出
+
+本仓库会随璞奇开放 API 和 Agent 使用方式持续更新。

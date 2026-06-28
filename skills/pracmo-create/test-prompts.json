@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "把这段内容做成一个甲程练习：稀缺是经济学的基础事实，因为人的需求会升级，而同一资源会被多人竞争。帮我直接创建。",
+    "expected": "在未检测到 PRACMO_APIKEY 时立即停止，只提示如何设置 API Key；不得继续提炼 concepts、生成题目、查询甲程或输出创建草案。"
+  },
+  {
+    "id": 2,
+    "prompt": "我已设置 PRACMO_APIKEY。请围绕这段资料创建甲程《经济学中的稀缺概念》，直接创建首组练习：稀缺来自资源竞争和需求升级，经济学研究的是如何在约束下取舍。题型用单选、判断，10题。",
+    "expected": "按 Agent-authored 主路径处理：不走 material-first；提炼稳定 concepts；生成 10 道完整 questions，每题包含 concept、testableClaim、bloomLevel、evidence；生成稳定 clientRequestId；创建前写 ledger-start；调用 learning-track-exercise；成功后 ledger-success 并记录 source mapping。"
+  },
+  {
+    "id": 3,
+    "prompt": "把下面这组知识点补充到已有甲程 track_linear_alg_001，先给我看题，确认后再创建：矩阵乘法的维度匹配、线性相关与线性无关、单位矩阵的作用。",
+    "expected": "复用已有甲程前先查询 timeline 和 concepts；不得编造 conceptId；生成完整题目清单供用户审核；用户确认前不得调用 learning-track-exercise；题目应围绕已有/新增 concepts，并标注 Bloom 层级和可测命题。"
+  }
+]
