@@ -1,0 +1,49 @@
+{
+  "publicActionId": "tNyCno13ONcl1CLWQr1sf",
+  "title": "发出那条拖延的消息",
+  "description": "选一条该确认、请求、拒绝或跟进的消息，先核对对象、事实和语气，再在五分钟内发送；不鼓励情绪激动时冲动沟通。",
+  "iconCode": "chat",
+  "colorCode": "blue",
+  "category": "work",
+  "tags": [
+    "沟通闭环",
+    "拖延清理",
+    "职场沟通",
+    "5分钟",
+    "行动力"
+  ],
+  "template": {
+    "title": "发出那条拖延的消息",
+    "description": "选一条该确认、请求、拒绝或跟进的消息，先核对对象、事实和语气，再在五分钟内发送；不鼓励情绪激动时冲动沟通。",
+    "iconCode": "chat",
+    "colorCode": "blue",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "17:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "self_directed"
+  },
+  "actionType": "self_directed",
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/tNyCno13ONcl1CLWQr1sf/cover/6ceb9c40bc814b52057e302d3d059ee8e425ef43108b2ca8dc5a493dd7dd3ac4.jpg",
+  "clientRequestId": "public-action-27-send-delayed-message-20260812-v1",
+  "payloadHash": "858f361e5986555ece2228120ba2a27ed940b03cf79160a7b61d201bdc1f8366",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/tNyCno13ONcl1CLWQr1sf/cover/6ceb9c40bc814b52057e302d3d059ee8e425ef43108b2ca8dc5a493dd7dd3ac4.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 139504,
+      "sha256": "6ceb9c40bc814b52057e302d3d059ee8e425ef43108b2ca8dc5a493dd7dd3ac4"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

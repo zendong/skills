@@ -1,0 +1,144 @@
+{
+  "publicActionId": "19nC7YaVsS3RFJJBkQgh7o",
+  "title": "阅读专注力进阶",
+  "description": "从五分钟无干扰阅读开始，逐步练习一句话概括、边注关键词和结构复述，最后形成带问题的二十分钟完整阅读。",
+  "iconCode": "reading",
+  "colorCode": "blue",
+  "category": "reading",
+  "tags": [
+    "专注阅读",
+    "阅读习惯",
+    "复述",
+    "进阶训练",
+    "跟练计划"
+  ],
+  "template": {
+    "title": "阅读专注力进阶",
+    "description": "从五分钟无干扰阅读开始，逐步练习一句话概括、边注关键词和结构复述，最后形成带问题的二十分钟完整阅读。",
+    "iconCode": "reading",
+    "colorCode": "blue",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":4}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "五分钟看见分心",
+          "description": "先观察注意力变化，不急着追求完全不分心。",
+          "targetSessions": 4,
+          "promotionCriterion": "完成四次五分钟阅读，并能简单记录最常见的分心来源。",
+          "estMinutes": 6,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "选择难度适中的材料，移开非必要通知并设定五分钟。阅读时每次发现分心，只在纸上画一个点，然后温和回到当前句子，不展开自责。结束后记录分心大致来自环境、念头还是材料难度。"
+            }
+          ]
+        },
+        {
+          "title": "十分钟一句话概括",
+          "description": "把注意力从读过转向读懂一个核心意思。",
+          "targetSessions": 5,
+          "promotionCriterion": "能在十分钟阅读后，不看原文用一句话说清本段主要内容。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "连续阅读十分钟。合上材料，用一句话回答：作者这一段最想说明什么？再回看原文，检查是否遗漏对象、条件或结论。概括不是复制原句，也不要求覆盖全部细节。"
+            }
+          ]
+        },
+        {
+          "title": "段落边注关键词",
+          "description": "用少量标记捕捉段落功能与信息关系。",
+          "targetSessions": 5,
+          "promotionCriterion": "能为连续三到五个段落各写一个有区分度的关键词或短边注。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "每读完一段，只写一个关键词或五字以内边注，例如“提出问题”“原因一”“反例”“转折”。不要整段划线。读完后只看边注，尝试说出内容如何向前推进；若多个边注都写成“重点”，重新区分它们的作用。"
+            }
+          ]
+        },
+        {
+          "title": "十五分钟复述结构",
+          "description": "从记住细节进阶到看见问题、论点与支持关系。",
+          "targetSessions": 6,
+          "promotionCriterion": "不看原文时，能说清核心问题、主要观点以及至少两个支持部分的关系。",
+          "estMinutes": 18,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "阅读十五分钟后合上材料，用“它在回答什么问题—给出什么主要观点—如何支持”复述结构。允许漏掉细节，但不要把自己的看法混成作者观点。复述后回看标题、开头、转折和结尾，校正结构。"
+            }
+          ]
+        },
+        {
+          "title": "二十分钟带问题阅读",
+          "description": "完成一轮较完整阅读，并提出值得继续追问的问题。",
+          "targetSessions": 8,
+          "promotionCriterion": "能稳定完成二十分钟阅读，复述主要结构，并提出一个基于材料而非泛泛而谈的问题。",
+          "estMinutes": 23,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "开始前写下一个想弄清的问题，阅读二十分钟。结束后先复述核心问题和主要结构，再判断原问题得到了解答、被修改还是需要继续查证。最后提出一个具体追问，说明它来自材料中的哪处条件、证据或空白。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 1,
+          "title": "能概括重点",
+          "description": "阅读后能用自己的话说出一个核心意思。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 3,
+          "title": "能复述结构",
+          "description": "不看原文时能说清材料的核心问题与主要结构。",
+          "isKey": true
+        },
+        {
+          "levelIndex": 4,
+          "title": "形成主动追问",
+          "description": "能够依据材料提出一个具体、可继续探索的问题。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "actionType": "follow_along",
+  "planSummary": {
+    "levelCount": 5,
+    "targetSessions": 28,
+    "estMinutes": 451
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/19nC7YaVsS3RFJJBkQgh7o/cover/c5cdbbb85ebfd70604e754eb6b229351ba018c953607949a1856914123bbf841.jpg",
+  "clientRequestId": "public-action-20-reading-focus-progression-20260811-v1",
+  "payloadHash": "46ed439a8864d9a163001d0c23c46e8cc76c8943fd302f6ee8e47ee6ecfb674d",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/19nC7YaVsS3RFJJBkQgh7o/cover/c5cdbbb85ebfd70604e754eb6b229351ba018c953607949a1856914123bbf841.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 153239,
+      "sha256": "c5cdbbb85ebfd70604e754eb6b229351ba018c953607949a1856914123bbf841"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

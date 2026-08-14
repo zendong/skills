@@ -1,0 +1,55 @@
+{
+  "publicActionId": "GPKv9guCvTIaYy3JFeU93",
+  "title": "每天懂一点睡眠",
+  "description": "每天用三到五分钟理解一个睡眠常识，认识原理、个体差异和可尝试的小行动，不把科普当作诊断。",
+  "iconCode": "moon",
+  "colorCode": "blue",
+  "category": "fitness",
+  "tags": [
+    "睡眠常识",
+    "健康阅读",
+    "每日一读",
+    "科学生活",
+    "轻阅读"
+  ],
+  "template": {
+    "title": "每天懂一点睡眠",
+    "description": "每天用三到五分钟理解一个睡眠常识，认识原理、个体差异和可尝试的小行动，不把科普当作诊断。",
+    "iconCode": "moon",
+    "colorCode": "blue",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "reading",
+      "instruction": "生成一期中文睡眠轻阅读。优先结合甲程目标和当前状态，从睡眠节律、光照、咖啡因、运动、午睡、睡前环境、周末补觉、睡眠记录中选择一个单一主题，并避开近期内容。正文500—800字，依次包含：今天的问题、核心原理、一个日常例子、可选择尝试的小行动、适用边界。区分较稳定常识、存在个体差异的建议和不能据此判断的医学问题；不编造研究机构、统计数字或专家引语，不诊断、不承诺改善疾病。建议应低风险且可在当天实践，持续明显不适者应咨询合格专业人士。标题具体克制。输出前检查因果链是否清楚、内容是否自包含、是否与近期摘要重复。"
+    }
+  },
+  "actionType": "puki_reading",
+  "planSummary": {},
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/GPKv9guCvTIaYy3JFeU93/cover/0e19d9c463a67cc50440f20fff1389c35da04be493b7a12a34c35f348168d384.jpg",
+  "clientRequestId": "public-action-07-daily-sleep-insight-20260811-v1",
+  "payloadHash": "db5b20e71565bce7d2232a738e11536ed0a69098b493de9e2e2bf292fab1fab5",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/GPKv9guCvTIaYy3JFeU93/cover/0e19d9c463a67cc50440f20fff1389c35da04be493b7a12a34c35f348168d384.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 181447,
+      "sha256": "0e19d9c463a67cc50440f20fff1389c35da04be493b7a12a34c35f348168d384"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100000,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

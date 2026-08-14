@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-47-emotional-granularity-20260812-v1",
+  "catalog": {
+    "category": "mind",
+    "tags": [
+      "情绪颗粒度",
+      "自我觉察",
+      "情绪词典",
+      "心智训练",
+      "跟练计划"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "人物面孔经过不同颜色玻璃呈现细微情绪层次"
+    }
+  },
+  "template": {
+    "title": "情绪颗粒度训练",
+    "description": "用六个练阶从愉快度与能量开始，逐步分辨相近情绪、身体线索、情境与需要，建立个人情绪词典。",
+    "iconCode": "meditate",
+    "colorCode": "purple",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "21:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "愉快度与能量",
+          "description": "先用两个简单维度描述当下状态。",
+          "targetSessions": 4,
+          "estMinutes": 4,
+          "promotionCriterion": "能连续四次用愉快或不愉快、能量高或低描述当下，并允许回答不确定。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "停下来观察一分钟，分别判断此刻更接近愉快还是不愉快、能量更高还是更低，可使用中间或不确定。写下一个可观察依据，例如呼吸、动作速度或注意力方向。不要解释人格，也不要求改变状态。本练习只帮助描述，不替代专业心理评估。"
+            }
+          ]
+        },
+        {
+          "title": "从大类到具体词",
+          "description": "把模糊的好或不好展开成较具体的词。",
+          "targetSessions": 5,
+          "estMinutes": 6,
+          "promotionCriterion": "能为至少三次状态各列出2—3个候选词，并选出暂时最贴近的一个。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从开心、难过、生气、害怕、惊讶、厌恶等大类开始，再列出2—3个更具体的候选，例如安心、满足、失落、委屈、烦躁或担忧。使用“我暂时更接近”而不是“我就是”。如果没有合适词，可以描述感受而不强行命名。"
+            }
+          ]
+        },
+        {
+          "title": "分辨相近情绪",
+          "description": "通过对象、期待和行动倾向区分相近词。",
+          "targetSessions": 5,
+          "estMinutes": 8,
+          "promotionCriterion": "能比较一组相近词，并说出对象、未满足期待或行动倾向中的至少一个差异。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "每次选择一组相近词，例如紧张与兴奋、愧疚与羞耻、嫉妒与羡慕、孤独与独处。分别问：感受指向谁或什么、我原本期待什么、身体想靠近还是远离、我想修复什么。答案可以重叠，不把词典定义当成唯一标准。"
+            }
+          ]
+        },
+        {
+          "title": "加入身体线索",
+          "description": "观察身体变化，但不把单一感觉直接等同于某种情绪。",
+          "targetSessions": 5,
+          "estMinutes": 8,
+          "promotionCriterion": "能记录至少三个身体线索，并同时列出两种可能解释而不急于下结论。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从呼吸、心跳、肩颈、胃部、手部温度和动作冲动中选择可安全观察的线索。写下感觉的位置、强度和变化，再列出两种可能解释，例如疲劳、环境温度或某种情绪。身体症状明显、持续或令人担忧时，应停止练习并寻求合格医疗帮助，不自行诊断。"
+            }
+          ]
+        },
+        {
+          "title": "连接情境与需要",
+          "description": "把感受放回具体情境，探索可能的需要和选择。",
+          "targetSessions": 6,
+          "estMinutes": 10,
+          "promotionCriterion": "能用“发生了什么—我感到什么—我可能在意什么—下一步可选什么”完成四句记录。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "只描述一个具体事件，区分可观察事实与自己的解释。写下最贴近的情绪候选，再探索自己可能在意的安全、尊重、连接、掌控、休息或成长等需要，最后列出一个低风险选择。需要不是对他人的命令；不要用情绪词证明自己一定正确。"
+            }
+          ]
+        },
+        {
+          "title": "建立个人情绪词典",
+          "description": "整理自己的常用词、线索、情境和有效回应。",
+          "targetSessions": 8,
+          "estMinutes": 12,
+          "promotionCriterion": "能形成至少12个词条，每个包含个人含义、常见线索、易混淆词和一种温和回应。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "回看前五阶，从真实记录中选择至少12个常见词。每个词写下：它对我通常意味着什么、常见但非必然的身体或情境线索、容易混淆的词、一个可选择的温和回应。词典允许随经历修改，不用于给他人贴标签。若练习引发强烈或持续不适，可以暂停并联系可信任的人或合格专业人士。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 2,
+          "title": "能分辨相近情绪",
+          "description": "能分辨相近情绪",
+          "isKey": false
+        },
+        {
+          "levelIndex": 4,
+          "title": "连接情境与需要",
+          "description": "连接情境与需要",
+          "isKey": true
+        },
+        {
+          "levelIndex": 5,
+          "title": "形成个人情绪词典",
+          "description": "形成个人情绪词典",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "人物面孔经过不同颜色玻璃呈现细微情绪层次"
+    }
+  ]
+}

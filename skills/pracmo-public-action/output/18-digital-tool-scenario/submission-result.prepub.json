@@ -1,0 +1,60 @@
+{
+  "publicActionId": "6pjMKyRyXucBXN8VSUBjHx",
+  "title": "数字工具场景题",
+  "description": "工作日完成一道真实信息处理场景题，在效率、可恢复性、隐私和协作成本之间识别更稳妥的操作策略。",
+  "iconCode": "terminal",
+  "colorCode": "cyan",
+  "category": "skill",
+  "tags": [
+    "数字技能",
+    "工具选择",
+    "场景题",
+    "效率",
+    "单选题"
+  ],
+  "template": {
+    "title": "数字工具场景题",
+    "description": "工作日完成一道真实信息处理场景题，在效率、可恢复性、隐私和协作成本之间识别更稳妥的操作策略。",
+    "iconCode": "terminal",
+    "colorCode": "cyan",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "18:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成数字工具与信息处理的场景单选题。每题描述一个真实任务，如协作修订、批量重命名、数据核对、资料检索、会议纪要、密码管理、文件备份或AI辅助检查，让用户选择更稳妥的策略。设置4个看似可行的选项，唯一最佳答案同时考虑效率、可恢复性、隐私和协作成本；错误项体现真实但有风险的捷径。解释要比较关键取舍，不只重复答案。不要依赖某软件的最新菜单位置，不编造产品功能；涉及敏感数据时明确最小披露、权限控制和人工复核。批次内任务类型不得重复。",
+      "quickQa": {
+        "questionType": "single_choice"
+      }
+    }
+  },
+  "actionType": "puki_quick_qa",
+  "planSummary": {
+    "questionType": "single_choice"
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/6pjMKyRyXucBXN8VSUBjHx/cover/76d8e47bf999fb08131725dc3e37078d19ce595f301f1fcfa1c66ddc5d61b7d5.jpg",
+  "clientRequestId": "public-action-18-digital-tool-scenario-20260811-v1",
+  "payloadHash": "c7f3cb4238c1dd86d27a9a04798e27082114aa79901790903e39a52a2966b2c3",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/6pjMKyRyXucBXN8VSUBjHx/cover/76d8e47bf999fb08131725dc3e37078d19ce595f301f1fcfa1c66ddc5d61b7d5.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 163992,
+      "sha256": "76d8e47bf999fb08131725dc3e37078d19ce595f301f1fcfa1c66ddc5d61b7d5"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

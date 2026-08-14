@@ -1,0 +1,49 @@
+{
+  "publicActionId": "2IDLLOzVX7umm35LGimY6a",
+  "title": "办公室三分钟舒展",
+  "description": "工作间隙用三分钟温和活动颈肩、胸背、手腕或髋踝，不追求幅度；完成一轮舒适动作即可，出现疼痛、眩晕或异常不适时立即停止。",
+  "iconCode": "fitness",
+  "colorCode": "cyan",
+  "category": "fitness",
+  "tags": [
+    "久坐活动",
+    "办公室运动",
+    "舒展",
+    "3分钟",
+    "低强度"
+  ],
+  "template": {
+    "title": "办公室三分钟舒展",
+    "description": "工作间隙用三分钟温和活动颈肩、胸背、手腕或髋踝，不追求幅度；完成一轮舒适动作即可，出现疼痛、眩晕或异常不适时立即停止。",
+    "iconCode": "fitness",
+    "colorCode": "cyan",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "15:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "self_directed"
+  },
+  "actionType": "self_directed",
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/2IDLLOzVX7umm35LGimY6a/cover/e4547d9be1752e796b380be4eca126906bbe74bf6982a1fe59dd3203e44f21fd.jpg",
+  "clientRequestId": "public-action-26-three-minute-office-stretch-20260812-v1",
+  "payloadHash": "d7105b3b8945056b18d0a267365ec475401b01d550fcf587c91bedbbb7db00bd",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/2IDLLOzVX7umm35LGimY6a/cover/e4547d9be1752e796b380be4eca126906bbe74bf6982a1fe59dd3203e44f21fd.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 154088,
+      "sha256": "e4547d9be1752e796b380be4eca126906bbe74bf6982a1fe59dd3203e44f21fd"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

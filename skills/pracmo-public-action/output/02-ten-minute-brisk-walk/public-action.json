@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-02-ten-minute-brisk-walk-20260811-v1",
+  "catalog": {
+    "category": "fitness",
+    "tags": [
+      "散步",
+      "轻运动",
+      "10分钟",
+      "户外",
+      "零基础"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "在绿荫步道上进行舒适强度的轻快步行"
+    }
+  },
+  "template": {
+    "title": "十分钟轻快走",
+    "description": "每周完成五次十分钟舒适步行，不追求步数或速度；选择安全环境，留意身体感受，不适时及时停止。",
+    "iconCode": "walk",
+    "colorCode": "forest",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":5}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "21:00",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "self_directed"
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "在绿荫步道上进行舒适强度的轻快步行"
+    }
+  ]
+}

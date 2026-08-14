@@ -1,0 +1,60 @@
+{
+  "publicActionId": "4dXlrZGOjO8PFqcV9RUFE6",
+  "title": "英语情境怎么说",
+  "description": "每天面对一个具体生活或工作情境，用一两句自然英文表达，再比较简洁、礼貌和口语化说法。",
+  "iconCode": "chat",
+  "colorCode": "blue",
+  "category": "language",
+  "tags": [
+    "英语口语",
+    "情境表达",
+    "每日一句",
+    "简答",
+    "实用英语"
+  ],
+  "template": {
+    "title": "英语情境怎么说",
+    "description": "每天面对一个具体生活或工作情境，用一两句自然英文表达，再比较简洁、礼貌和口语化说法。",
+    "iconCode": "chat",
+    "colorCode": "blue",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "19:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成A2—B1难度英语情境表达简答题，并根据甲程目标适当调整。每题给一个具体生活或工作情境，如请求帮助、礼貌拒绝、确认时间、表达不同意见或说明迟到原因，让用户写1—2句自然英文。参考答案提供一种简洁说法和一种更礼貌或更口语的变体，并解释一个关键词、语气或句型差异。判定允许多种正确表达，重点看意思是否清楚、语气是否适合、基本语法是否影响理解，不因细小拼写错误直接判错。避免文化刻板印象、罕见俚语和依赖特定地区的冷知识；批次内情境不得重复。输出前检查情境自包含、难度合适、参考答案自然且评分标准开放。",
+      "quickQa": {
+        "questionType": "short_answer"
+      }
+    }
+  },
+  "actionType": "puki_quick_qa",
+  "planSummary": {
+    "questionType": "short_answer"
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/4dXlrZGOjO8PFqcV9RUFE6/cover/fe8d153c9a9e094f13bd3745d11ee111a5376d8f5869314bce8a81d20ddce463.jpg",
+  "clientRequestId": "public-action-16-english-in-context-20260811-v1",
+  "payloadHash": "7b7118b795e33341ff4f2be15d851dfaa43935c0f9d338b24a6696b6448d848f",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/4dXlrZGOjO8PFqcV9RUFE6/cover/fe8d153c9a9e094f13bd3745d11ee111a5376d8f5869314bce8a81d20ddce463.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 170107,
+      "sha256": "fe8d153c9a9e094f13bd3745d11ee111a5376d8f5869314bce8a81d20ddce463"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100000,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

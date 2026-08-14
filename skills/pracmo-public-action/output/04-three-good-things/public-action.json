@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-04-three-good-things-20260811-v1",
+  "catalog": {
+    "category": "mind",
+    "tags": [
+      "三件好事",
+      "感恩记录",
+      "积极心理",
+      "每日复盘",
+      "5分钟"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "在本子里记录一天中的三件好事"
+    }
+  },
+  "template": {
+    "title": "每日三件好事",
+    "description": "写下今天发生的三件具体好事，并为其中至少一件补充它为什么会发生；小到一杯热茶也可以。",
+    "iconCode": "heart",
+    "colorCode": "coral",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "22:00",
+    "gracePolicy": "next_day_noon",
+    "completionMode": "text",
+    "contentMode": "self_directed"
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "在本子里记录一天中的三件好事"
+    }
+  ]
+}

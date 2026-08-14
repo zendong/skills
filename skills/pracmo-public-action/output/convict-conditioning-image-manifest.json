@@ -1,0 +1,26 @@
+{
+  "pushups": [
+    {"index": 1, "slug": "wall-pushup", "title": "墙壁俯卧撑", "cue": "身体一线|慢下稳推", "note": "不塌腰，不耸肩", "sets": "2-3组", "reps": "留2-3次余力", "tempo": "吸气靠墙，呼气推回"},
+    {"index": 2, "slug": "incline-pushup", "title": "上斜俯卧撑", "cue": "撑稳桌边|身体成线", "note": "桌椅稳固，不塌腰", "sets": "2-3组", "reps": "8-15次", "tempo": "慢下，稳推"},
+    {"index": 3, "slug": "kneeling-pushup", "title": "跪姿俯卧撑", "cue": "头膝一线|胸口下沉", "note": "髋不后坐，肩不耸", "sets": "2-3组", "reps": "8-15次", "tempo": "慢下，呼气推起"},
+    {"index": 4, "slug": "half-pushup", "title": "半程俯卧撑", "cue": "半程一致|核心收紧", "note": "不用弹震，不塌腰", "sets": "2-3组", "reps": "6-12次", "tempo": "下到半程再推回"},
+    {"index": 5, "slug": "full-pushup", "title": "标准俯卧撑", "cue": "全身成线|胸口靠近", "note": "不塌腰，不抢速", "sets": "2-3组", "reps": "5-12次", "tempo": "2秒下，2秒起"},
+    {"index": 6, "slug": "close-pushup", "title": "窄距俯卧撑", "cue": "手距收窄|肘贴身体", "note": "手腕痛就放宽", "sets": "2组", "reps": "5-10次", "tempo": "慢下稳推"},
+    {"index": 7, "slug": "uneven-pushup", "title": "偏重俯卧撑", "cue": "一侧主力|身体不旋", "note": "左右都练，辅助不抢力", "sets": "左右各2组", "reps": "5-8次", "tempo": "慢下，主力推回"},
+    {"index": 8, "slug": "half-one-arm-pushup", "title": "半程单臂俯卧撑", "cue": "单手支撑|只做半程", "note": "骨盆别转，别硬撑", "sets": "左右各2组", "reps": "3-6次", "tempo": "小范围慢控"},
+    {"index": 9, "slug": "lever-pushup", "title": "杠杆俯卧撑", "cue": "主手发力|辅手伸远", "note": "辅助手只稳平衡", "sets": "左右各2组", "reps": "3-6次", "tempo": "慢下，主手推起"},
+    {"index": 10, "slug": "one-arm-pushup", "title": "单臂俯卧撑", "cue": "单臂主推|全身抗旋", "note": "少量高质量，不扭身", "sets": "左右各1-2组", "reps": "1-5次", "tempo": "慢下，稳推"}
+  ],
+  "squats": [
+    {"index": 1, "slug": "shoulderstand-squat", "title": "肩倒立深蹲", "cue": "轻柔屈伸|别压颈部", "note": "颈不适立即停止", "sets": "2-3组", "reps": "10-20次", "tempo": "慢屈膝，慢伸直"},
+    {"index": 2, "slug": "jackknife-squat", "title": "折刀深蹲", "cue": "扶稳支撑|臀向后坐", "note": "手只辅助，不硬拉", "sets": "2-3组", "reps": "10-20次", "tempo": "慢蹲，稳起"},
+    {"index": 3, "slug": "supported-squat", "title": "辅助深蹲", "cue": "轻扶门框|膝随脚尖", "note": "脚跟踩稳，不内扣", "sets": "2-3组", "reps": "8-15次", "tempo": "慢下，稳起"},
+    {"index": 4, "slug": "half-squat", "title": "半程深蹲", "cue": "半程控制|膝髋同向", "note": "不塌腰，不内扣", "sets": "2-3组", "reps": "8-15次", "tempo": "下到半程再站起"},
+    {"index": 5, "slug": "full-squat", "title": "标准深蹲", "cue": "臀向后下|胸口打开", "note": "脚跟稳，膝不内扣", "sets": "2-3组", "reps": "8-15次", "tempo": "慢蹲，呼气站起"},
+    {"index": 6, "slug": "close-squat", "title": "窄距深蹲", "cue": "双脚收窄|动作慢控", "note": "踝不适就减深度", "sets": "2组", "reps": "6-12次", "tempo": "慢下，稳起"},
+    {"index": 7, "slug": "uneven-squat", "title": "偏重深蹲", "cue": "主脚发力|辅脚平衡", "note": "左右都练，不歪髋", "sets": "左右各2组", "reps": "5-10次", "tempo": "慢蹲，主腿站起"},
+    {"index": 8, "slug": "half-one-leg-squat", "title": "半程单腿深蹲", "cue": "单脚站稳|只做半程", "note": "膝盖别内扣", "sets": "左右各2组", "reps": "3-8次", "tempo": "慢下，稳起"},
+    {"index": 9, "slug": "assisted-one-leg-squat", "title": "辅助单腿深蹲", "cue": "轻扶支撑|主腿发力", "note": "扶手不硬拉", "sets": "左右各2组", "reps": "3-8次", "tempo": "慢下，稳起"},
+    {"index": 10, "slug": "one-leg-squat", "title": "单腿深蹲", "cue": "单腿下蹲|全程控稳", "note": "失控就退阶", "sets": "左右各1-2组", "reps": "1-5次", "tempo": "慢下，稳起"}
+  ]
+}

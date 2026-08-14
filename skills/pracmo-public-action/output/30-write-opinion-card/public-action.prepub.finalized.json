@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-30-write-opinion-card-20260812-v1",
+  "catalog": {
+    "category": "writing",
+    "tags": [
+      "观点写作",
+      "卡片笔记",
+      "结构表达",
+      "8分钟",
+      "思考记录"
+    ],
+    "coverImage": {
+      "objectKey": "material/100004/action-assets/staging/cover/20260814T132209Z-c6c64923b2-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260814T132209Z-c6c64923b2-cover.jpg",
+      "alt": "三张由红线连接的观点卡片摆在深绿色书桌上"
+    }
+  },
+  "template": {
+    "title": "今天写一张观点卡",
+    "description": "围绕一个小问题写下自己的判断、主要理由和一个支持或反驳例子，形成一张可修订的观点卡；三部分完整即可，不要求首次就正确。",
+    "iconCode": "writing",
+    "colorCode": "forest",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "21:00",
+    "gracePolicy": "none",
+    "completionMode": "text",
+    "contentMode": "self_directed"
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "三张由红线连接的观点卡片摆在深绿色书桌上",
+      "objectKey": "material/100004/action-assets/staging/cover/20260814T132209Z-c6c64923b2-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260814T132209Z-c6c64923b2-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 293160,
+      "sha256": "c68e5687d26a4baa837c9c16b0b31badd7f4b86b915df3e57fb86b06e90def25"
+    }
+  ]
+}

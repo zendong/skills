@@ -1,0 +1,29 @@
+{
+  "skill_name": "pracmo-public-action",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我做一个每天记录三件好事的公开行动，完成时要写文字，并准备投稿。",
+      "expected_output": "Creates a v2 self_directed Action with text completion, mind category, useful tags, one local cover, no generatedContentConfig/followPlan, and stops before submission unless authorized and authenticated.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "创建一个每天由小璞生成商业模型深度分析的公开行动，内容要避免重复和编造数据。",
+      "expected_output": "Creates a v2 puki_generated reading Action whose one_tap completion and <=1000-character instruction specify structure, variation, factual boundaries, tradeoffs, and no quickQa/followPlan.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "给我做一个从墙推到标准俯卧撑的公开跟练行动，要有练阶、进阶条件、动作图和安全提醒。",
+      "expected_output": "Creates a v2 follow_along Action with repeated progressive levels, content asset references, safety limits, one_tap completion, compressed images <=512 KiB, and no generatedContentConfig.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "把这个公开行动的 Markdown 改一改，然后直接从 Markdown 投稿。",
+      "expected_output": "Explains that Markdown is generated review output, edits the authoritative JSON instead, regenerates Markdown, validates, preflights the server category, finalizes assets, and submits JSON only when explicitly authorized.",
+      "files": []
+    }
+  ]
+}

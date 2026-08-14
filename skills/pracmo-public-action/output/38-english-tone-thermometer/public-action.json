@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-38-english-tone-thermometer-20260812-v1",
+  "catalog": {
+    "category": "language",
+    "tags": [
+      "英语语气",
+      "情境口语",
+      "礼貌表达",
+      "每日一题",
+      "语言感觉"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "两个人在冷暖光线交界处自然交谈"
+    }
+  },
+  "template": {
+    "title": "英语语气温度计",
+    "description": "每天在具体关系和场景中比较几种英语表达，练习判断直接、自然、礼貌和过度正式之间的语气差别。",
+    "iconCode": "chat",
+    "colorCode": "coral",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成A2—B2难度的英语语气单选题，并根据甲程目标与当前状态调节词汇和情境。每题给出双方关系、沟通目的和一个具体生活或工作场景，再提供4种语法基本正确但语气不同的英语说法，让用户选最合适的一项。轮换请求、拒绝、提醒、不同意见、道歉和确认等任务，避开近期句型。解释指出礼貌标记、直接程度、正式度和关系线索，并给一种可接受变体；承认地区和关系差异，不把单一表达说成绝对正确。避免罕见俚语、文化刻板印象和需要实时知识的场景。输出前检查答案有充分情境依据且四项长度接近。",
+      "quickQa": {
+        "questionType": "single_choice"
+      }
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "两个人在冷暖光线交界处自然交谈"
+    }
+  ]
+}

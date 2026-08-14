@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-43-three-quick-dishes-20260812-v1",
+  "catalog": {
+    "category": "skill",
+    "tags": [
+      "快手菜",
+      "做饭入门",
+      "生活技能",
+      "跟练计划",
+      "零基础"
+    ],
+    "coverImage": {
+      "objectKey": "material/100000/action-assets/staging/cover/20260811T161147Z-f932b0404c-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100000/action-assets/staging/cover/20260811T161147Z-f932b0404c-cover.jpg",
+      "alt": "三道适合新手完成的家常快手菜摆在明亮餐桌上"
+    }
+  },
+  "template": {
+    "title": "从零做出三道快手菜",
+    "description": "用五个可重复练阶掌握厨房安全、免火组合、一锅完成和基础翻炒，最终形成三道能按设备与饮食限制调整的快手菜。",
+    "iconCode": "spark",
+    "colorCode": "orange",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "19:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "安全备菜",
+          "description": "先建立干净、稳定、不过度追求速度的备菜流程。",
+          "targetSessions": 3,
+          "estMinutes": 12,
+          "promotionCriterion": "能独立完成洗手、台面清理、稳定砧板、食材清洗与生熟分开，并在结束后关闭设备。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "开始前洗手并清理台面，用湿布或防滑垫固定砧板；只选择熟悉、常见的食材和完整工具。练习把食材、调味、垃圾容器按使用顺序摆好，生熟食材和工具分开。刀具始终在视线内，切配动作放慢，结束后确认火源、电源和水龙头。未成年人需由监护人陪同；不处理野生食材、来源不明食材或高风险生食。"
+            }
+          ]
+        },
+        {
+          "title": "免火组合",
+          "description": "不用开火完成一道有主食、蛋白质和蔬果的简单组合。",
+          "targetSessions": 3,
+          "estMinutes": 10,
+          "promotionCriterion": "能按一份主食、一份可直接食用蛋白质和一份蔬果完成组合，并说清保质与过敏原注意事项。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "选择包装标明可直接食用且在保质期内的食材，例如全麦面包、酸奶、熟制豆制品、罐装豆类或洗净蔬果。用酸、咸、香和少量油脂调出一种简单味型，先少量添加再尝味。检查个人过敏原和储存要求，冷藏食材不要长时间留在室温。完成一份颜色和口感有变化的冷拌或组合餐。"
+            }
+          ]
+        },
+        {
+          "title": "一锅完成",
+          "description": "用一只锅完成一份有明确先后顺序的热食。",
+          "targetSessions": 4,
+          "estMinutes": 20,
+          "promotionCriterion": "能在不过度拥挤锅具的情况下完成一次煮制，食材熟度合适、设备已关闭且台面恢复安全。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "选择粥、面、汤饭或蔬菜豆腐锅等低门槛方案。先阅读食材包装的加热和保存说明，再按耐煮到易熟的顺序下锅；锅柄朝内，水量不超过安全容量。试味时使用独立小勺，避免直接接触蒸汽。肉、蛋和海鲜必须充分加热；不确定熟度时使用食品温度计或选择更保守的熟制方案。"
+            }
+          ]
+        },
+        {
+          "title": "基础翻炒",
+          "description": "学习控制锅温、少量分批和安全翻动。",
+          "targetSessions": 5,
+          "estMinutes": 20,
+          "promotionCriterion": "能完成一道不粘连、不过度焦糊的蔬菜或熟制蛋白质翻炒，并能在失控前主动调低或关闭火力。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "先把所有食材切配完成再开火，锅具保持干燥，油量适中。使用中小火练习判断锅温，先下较难熟食材，分批加入并用锅铲翻动，不做抛锅动作。油烟明显或食材快速焦黑时立即调低或关闭火力。使用来源可靠、适合彻底加热的食材；避免把冷冻含水食材直接投入热油。"
+            }
+          ]
+        },
+        {
+          "title": "三菜自由组合",
+          "description": "把前三阶方法组合成自己的三道快手菜清单。",
+          "targetSessions": 6,
+          "estMinutes": 30,
+          "promotionCriterion": "能在三十分钟左右安全完成三道结构不同的菜，并写下设备、食材与时间的可替代方案。",
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从免火组合、一锅完成和基础翻炒中各选一道，先列出共同食材和操作顺序，减少重复清洗与等待。根据现有设备、饮食限制、过敏原和可用时间替换食材，不追求复杂摆盘。完成后记录每道菜最容易失控的一步和下次调整。出现火情时先切断热源，油锅起火不要用水，无法安全处理时立即撤离并求助。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 1,
+          "title": "完成第一道菜",
+          "description": "完成第一道菜",
+          "isKey": false
+        },
+        {
+          "levelIndex": 3,
+          "title": "掌握基础热加工",
+          "description": "掌握基础热加工",
+          "isKey": true
+        },
+        {
+          "levelIndex": 4,
+          "title": "形成三道菜清单",
+          "description": "形成三道菜清单",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "三道适合新手完成的家常快手菜摆在明亮餐桌上",
+      "objectKey": "material/100000/action-assets/staging/cover/20260811T161147Z-f932b0404c-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100000/action-assets/staging/cover/20260811T161147Z-f932b0404c-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 320623,
+      "sha256": "6fa2c85040fbb4465b9a8f2b4f958b6a949bd61db3a933d05d92759ffde0ed4a"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-34-name-one-emotion-20260812-v1",
+  "catalog": {
+    "category": "mind",
+    "tags": [
+      "情绪词汇",
+      "自我觉察",
+      "心理常识",
+      "每日一读",
+      "温和练习"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "不同颜色和形态的透明玻璃投下细腻光影"
+    }
+  },
+  "template": {
+    "title": "今天认识一种情绪",
+    "description": "每天认识一种常见情绪或混合感受，理解它可能出现的体验和需要，用更准确且不评判的词描述自己。",
+    "iconCode": "heart",
+    "colorCode": "coral",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "21:00",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "reading",
+      "instruction": "生成一期中文情绪词汇轻阅读。结合甲程目标，从常见且非诊断性的情绪或混合感受中选一个，避开近期词语。正文450—700字，结构为：这种感受可能是什么样、常见但非必然的触发、它可能在提醒或保护什么、两个容易混淆的相近情绪、一个不评判的自我观察句。使用“可能、有人会”等审慎措辞，不替用户断定原因，不进行心理诊断，不承诺治疗效果。不得编造研究、数据或专家引语。若主题可能引发明显不适，提醒用户可暂停并寻求合格专业支持。输出前检查语言温和、边界清楚且没有把情绪分成好坏。"
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "不同颜色和形态的透明玻璃投下细腻光影"
+    }
+  ]
+}

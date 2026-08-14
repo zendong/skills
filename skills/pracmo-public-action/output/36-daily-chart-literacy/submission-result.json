@@ -1,0 +1,55 @@
+{
+  "publicActionId": "1WIXN1ORCxWsYva3pDuLeV",
+  "title": "每天读懂一张图表",
+  "description": "每天阅读一份原创小数据和图表描述，练习查看坐标、口径、比例与限制，判断图表真正能说明什么。",
+  "iconCode": "reading",
+  "colorCode": "mint",
+  "category": "reading",
+  "tags": [
+    "图表阅读",
+    "数据素养",
+    "信息辨别",
+    "阅读训练",
+    "每日一图"
+  ],
+  "template": {
+    "title": "每天读懂一张图表",
+    "description": "每天阅读一份原创小数据和图表描述，练习查看坐标、口径、比例与限制，判断图表真正能说明什么。",
+    "iconCode": "reading",
+    "colorCode": "mint",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:00",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "reading",
+      "instruction": "生成一期中文图表素养轻阅读。结合甲程目标，创建一个不依赖现实新闻的原创小数据集，用Markdown表格清楚给出数据，并说明可想象成柱状图、折线图、散点图或比例图中的一种，避开近期图形与主题。正文500—800字，依次引导：先看标题之外的对象、单位和范围；读坐标或口径；识别主要关系；指出至少一个不能推出的结论；给出更诚实的重画建议。数据必须内部一致、计算简单可核对，不伪装成真实机构统计。输出前复算关键数字，检查是否区分相关与因果、绝对数与比例。"
+    }
+  },
+  "actionType": "puki_reading",
+  "planSummary": {},
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/1WIXN1ORCxWsYva3pDuLeV/cover/49ab3d5521381378e6017b467f4a67c56437df2e37a6a70a6e1b0e98b82fa2a2.jpg",
+  "clientRequestId": "public-action-36-daily-chart-literacy-20260812-v1",
+  "payloadHash": "7cac4f675be3eee8fcb686bc49fd57eb7315af62e22a9dacf4fb653886616a82",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/1WIXN1ORCxWsYva3pDuLeV/cover/49ab3d5521381378e6017b467f4a67c56437df2e37a6a70a6e1b0e98b82fa2a2.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 169435,
+      "sha256": "49ab3d5521381378e6017b467f4a67c56437df2e37a6a70a6e1b0e98b82fa2a2"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100000,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

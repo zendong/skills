@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-sleep-reading-20260811",
+  "catalog": {
+    "category": "fitness",
+    "tags": ["睡眠常识", "轻阅读"],
+    "coverImage": {"localPath": "cover.png", "alt": "安静夜晚与睡眠知识卡"}
+  },
+  "template": {
+    "title": "每天懂一点睡眠",
+    "description": "每天阅读一则可靠、可实践的睡眠常识。",
+    "iconCode": "reading",
+    "colorCode": "blue",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "21:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "reading",
+      "instruction": "生成一篇具体、安全且不重复的睡眠常识轻阅读，不做诊断或疗效承诺。"
+    }
+  },
+  "assets": [
+    {"assetId": "cover", "role": "cover", "localPath": "cover.png", "alt": "安静夜晚与睡眠知识卡"}
+  ]
+}

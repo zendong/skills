@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-12-daily-business-model-20260811-v1",
+  "catalog": {
+    "category": "work",
+    "tags": [
+      "商业模型",
+      "案例分析",
+      "商业思维",
+      "工作成长",
+      "深度阅读"
+    ],
+    "coverImage": {
+      "objectKey": "material/100000/action-assets/staging/cover/20260811T091505Z-6e5ffbbdfc-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100000/action-assets/staging/cover/20260811T091505Z-6e5ffbbdfc-cover.jpg",
+      "alt": "连接用户价值收入成本与增长循环的商业系统"
+    }
+  },
+  "template": {
+    "title": "每日一个商业模型分析",
+    "description": "工作日拆解一个商业模型，从用户价值、收入成本、增长结构到失效条件，练习有约束的商业判断。",
+    "iconCode": "briefcase",
+    "colorCode": "gold",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "18:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "reading",
+      "instruction": "生成一期中文深度商业模型分析。优先结合甲程目标，从订阅、平台撮合、免费增值、剃刀与刀片、低频高客单、规模经济、网络效应、数据飞轮、直销、加盟、按使用付费、内容广告、社区驱动中选一个，避开近期模型和案例。正文900—1400字，按模型定义、用户价值、关键参与者、收入来源、主要成本、增长飞轮或网络结构、护城河成立条件、最易失效环节、一个真实或抽象案例、跨行业迁移问题展开。明确区分公开事实、合理推断和假设；不编造企业数据、内部信息或最新经营结论，不给投资建议。至少指出两个约束或反例，不能只赞美成功案例。结尾提出一道需要比较取舍的思考题，输出前检查结构完整且与近期摘要不重复。"
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "连接用户价值收入成本与增长循环的商业系统",
+      "objectKey": "material/100000/action-assets/staging/cover/20260811T091505Z-6e5ffbbdfc-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100000/action-assets/staging/cover/20260811T091505Z-6e5ffbbdfc-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 154390,
+      "sha256": "93bb96d13b84e7a61a072105c189006e6f5f77553967644f531fa87b39c05262"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[
+  { "code": "habit", "labelZh": "习惯养成", "labelEn": "Habits" },
+  { "code": "reading", "labelZh": "阅读", "labelEn": "Reading" },
+  { "code": "fitness", "labelZh": "健康运动", "labelEn": "Health & fitness" },
+  { "code": "skill", "labelZh": "技能", "labelEn": "Skills" },
+  { "code": "study", "labelZh": "学习备考", "labelEn": "Study & exams" },
+  { "code": "language", "labelZh": "语言学习", "labelEn": "Language learning" },
+  { "code": "writing", "labelZh": "写作表达", "labelEn": "Writing" },
+  { "code": "creative", "labelZh": "创作兴趣", "labelEn": "Creative hobbies" },
+  { "code": "work", "labelZh": "工作成长", "labelEn": "Career growth" },
+  { "code": "mind", "labelZh": "心智修炼", "labelEn": "Mindfulness" },
+  { "code": "other", "labelZh": "其他", "labelEn": "Other" }
+]

@@ -1,0 +1,60 @@
+{
+  "publicActionId": "5J1TWmsOwg5LJpp4ZozPQA",
+  "title": "今日习惯微复盘",
+  "description": "每天回答一个不评判自己的小问题，观察触发点、环境阻力或下一次最小步骤，把复盘变成可执行实验。",
+  "iconCode": "habit",
+  "colorCode": "mint",
+  "category": "habit",
+  "tags": [
+    "习惯复盘",
+    "每日一问",
+    "自我观察",
+    "微行动",
+    "简答"
+  ],
+  "template": {
+    "title": "今日习惯微复盘",
+    "description": "每天回答一个不评判自己的小问题，观察触发点、环境阻力或下一次最小步骤，把复盘变成可执行实验。",
+    "iconCode": "habit",
+    "colorCode": "mint",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "21:00",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "围绕用户当前甲程中的习惯目标，生成简短、非评判式的习惯复盘简答题。每题只聚焦一个变量：触发点、环境阻力、行动大小、中断原因、即时反馈或下一次最小步骤。题干引用用户可观察的具体行为，不推测人格或意志力，不使用羞耻化表达。参考答案不是标准答案，应给出2—3种合格回答方向和一个可执行示例。解释控制在120字内，帮助用户从回答中提炼下一次实验。批次内各题角度不同，并避开近期摘要。不得给心理诊断，也不把连续打卡等同于个人价值。",
+      "quickQa": {
+        "questionType": "short_answer"
+      }
+    }
+  },
+  "actionType": "puki_quick_qa",
+  "planSummary": {
+    "questionType": "short_answer"
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/5J1TWmsOwg5LJpp4ZozPQA/cover/be6b8ed12496d1b0e46e91b3718231d2eff2d9aceac6e3ca868d51cc895e1a8a.jpg",
+  "clientRequestId": "public-action-13-daily-habit-reflection-20260811-v1",
+  "payloadHash": "2d998ecaf04004923e74ef12d38a273728599c7759c9f9158aede4c38e0e68a8",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/5J1TWmsOwg5LJpp4ZozPQA/cover/be6b8ed12496d1b0e46e91b3718231d2eff2d9aceac6e3ca868d51cc895e1a8a.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 122428,
+      "sha256": "be6b8ed12496d1b0e46e91b3718231d2eff2d9aceac6e3ca868d51cc895e1a8a"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

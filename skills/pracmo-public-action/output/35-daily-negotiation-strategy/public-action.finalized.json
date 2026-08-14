@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-35-daily-negotiation-strategy-20260812-v1",
+  "catalog": {
+    "category": "work",
+    "tags": [
+      "谈判",
+      "沟通策略",
+      "职场成长",
+      "边界表达",
+      "案例拆解"
+    ],
+    "coverImage": {
+      "objectKey": "material/100000/action-assets/staging/cover/20260811T161135Z-a110c30ea2-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100000/action-assets/staging/cover/20260811T161135Z-a110c30ea2-cover.jpg",
+      "alt": "两方在桌面共同调整木块并搭出一座桥"
+    }
+  },
+  "template": {
+    "title": "每日一个谈判微策略",
+    "description": "每天从一个工作情境学习谈判策略，理解双方利益、条件交换和适用边界，再练习一句能立即迁移的表达。",
+    "iconCode": "briefcase",
+    "colorCode": "orange",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "18:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "reading",
+      "instruction": "生成一期中文谈判微策略深度轻阅读。结合甲程目标，从澄清利益、条件交换、替代方案、锚定、沉默、总结共识、边界表达中选一个，避开近期策略与场景。正文700—1000字，包含：策略目标、一个双方案例、双方真实关切、可用表达、适用边界、容易失效或伤害关系的情况、今日一句话练习。至少比较两种选择，不把强硬或获胜等同于好结果。禁止欺骗、威胁、操控、歧视或利用权力压迫，不编造企业内幕和实时政策。输出前检查是否兼顾效率、关系和信息透明，案例是否自包含。"
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "两方在桌面共同调整木块并搭出一座桥",
+      "objectKey": "material/100000/action-assets/staging/cover/20260811T161135Z-a110c30ea2-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100000/action-assets/staging/cover/20260811T161135Z-a110c30ea2-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 147133,
+      "sha256": "12bbc72aaa25a576589a97f1574ae33ee6b7dd3a60feb664082fb2de9c9f3cc7"
+    }
+  ]
+}

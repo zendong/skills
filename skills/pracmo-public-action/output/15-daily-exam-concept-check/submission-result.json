@@ -1,0 +1,60 @@
+{
+  "publicActionId": "5uHlOxl0Bjv8Ssm3oqjs9w",
+  "title": "每日考点快判断",
+  "description": "工作日完成一组围绕同一知识核心的短题，从判断依据、适用条件和反例中澄清容易混淆的基础考点。",
+  "iconCode": "exam",
+  "colorCode": "orange",
+  "category": "study",
+  "tags": [
+    "每日一题",
+    "考点",
+    "判断题",
+    "备考",
+    "快速练习"
+  ],
+  "template": {
+    "title": "每日考点快判断",
+    "description": "工作日完成一组围绕同一知识核心的短题，从判断依据、适用条件和反例中澄清容易混淆的基础考点。",
+    "iconCode": "exam",
+    "colorCode": "orange",
+    "scheduleType": "weekdays",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:00",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "根据甲程目标、当前状态和学习要求生成一组短小考点题，优先考查一个基础但容易混淆的概念。可用单选、判断或多选，但同一批次围绕同一知识核心逐步变化，不混入无关学科。题干必须自包含，不依赖未提供的教材页码；选项来自常见概念混淆、条件遗漏或边界误判。解释先给结论，再用2—4句说明判断依据和适用条件，必要时给一个反例。不要编造考试政策、最新大纲或权威出处。若甲程信息不足，选择通用学习能力题，不猜测具体学校、年级或考试。",
+      "quickQa": {
+        "questionType": "auto"
+      }
+    }
+  },
+  "actionType": "puki_quick_qa",
+  "planSummary": {
+    "questionType": "auto"
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/5uHlOxl0Bjv8Ssm3oqjs9w/cover/d00a27cf996201e70a474491dbf64a28f75e2996a9aea55d5e64fd19f683f86d.jpg",
+  "clientRequestId": "public-action-15-daily-exam-concept-check-20260811-v1",
+  "payloadHash": "4b410d8525bf4b3bc5bb37f6c7d10fac54f8b922c8b8056c0161850ef941c7b6",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/5uHlOxl0Bjv8Ssm3oqjs9w/cover/d00a27cf996201e70a474491dbf64a28f75e2996a9aea55d5e64fd19f683f86d.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 134426,
+      "sha256": "d00a27cf996201e70a474491dbf64a28f75e2996a9aea55d5e64fd19f683f86d"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100000,
+  "status": "draft",
+  "reviewStatus": "pending",
+  "viewCount": 0,
+  "importCount": 0,
+  "reusedExisting": false
+}

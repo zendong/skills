@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-reading-question-20260811",
+  "catalog": {
+    "category": "reading",
+    "tags": ["阅读理解", "每日一题"],
+    "coverImage": {"localPath": "cover.png", "alt": "短文和一道阅读问题"}
+  },
+  "template": {
+    "title": "每日阅读理解一题",
+    "description": "每天通过一篇原创短文练习文本理解。",
+    "iconCode": "quiz",
+    "colorCode": "yellow",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成原创中文短文和一道需要依据文本线索回答的阅读理解题。",
+      "quickQa": {"questionType": "single_choice"}
+    }
+  },
+  "assets": [
+    {"assetId": "cover", "role": "cover", "localPath": "cover.png", "alt": "短文和一道阅读问题"}
+  ]
+}
