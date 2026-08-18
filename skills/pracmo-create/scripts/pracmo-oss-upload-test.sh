@@ -1,33 +1,31 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SCRIPT="$SCRIPT_DIR/pracmo-oss-upload.sh"
+SCRIPT="$(cd "$(dirname "$0")" && pwd)/pracmo-oss-upload.sh"
+fail() { echo "FAIL: $*" >&2; exit 1; }
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
 
-fail() {
-  echo "FAIL: $*" >&2
-  exit 1
-}
+help="$($SCRIPT --help)"
+rg -q "learning-track-assets" <<<"$help" || fail "help must document learning-track-assets"
+rg -q "512KB" <<<"$help" || fail "help must document 512KB limit"
+rg -q "request-id" <<<"$help" || fail "help must document request isolation"
 
-TMP_ROOT="$(mktemp -d)"
-trap 'rm -rf "$TMP_ROOT"' EXIT
-
-help_output="$("$SCRIPT" --help)"
-if rg -q "source|bilibili-cover|material|资料原文件" <<<"$help_output"; then
-  fail "help output should only describe practice-assets uploads"
+printf '<svg xmlns="http://www.w3.org/2000/svg"></svg>' >"$tmp/asset.svg"
+if "$SCRIPT" --request-id test-request-v1 --content-type image/svg+xml "$tmp/asset.svg" >/dev/null 2>"$tmp/svg.err"; then
+  fail "SVG should be rejected"
 fi
+rg -q "PNG/JPG" "$tmp/svg.err" || fail "SVG error should explain formats"
 
-asset="$TMP_ROOT/asset.png"
-printf 'fake png bytes' >"$asset"
-
-export PRACMO_APIKEY="test-key"
-export OSSUTIL_BIN="/bin/true"
-
-unsupported_stdout="$TMP_ROOT/unsupported.out"
-unsupported_stderr="$TMP_ROOT/unsupported.err"
-if "$SCRIPT" --category source "$asset" >"$unsupported_stdout" 2>"$unsupported_stderr"; then
-  fail "source category should not be supported"
+dd if=/dev/zero of="$tmp/large.jpg" bs=1024 count=513 >/dev/null 2>&1
+if "$SCRIPT" --request-id test-request-v1 --content-type image/jpeg "$tmp/large.jpg" >/dev/null 2>"$tmp/large.err"; then
+  fail "oversized image should be rejected"
 fi
-rg -q "只支持 practice-assets" "$unsupported_stderr" || fail "unsupported category did not explain allowed category"
+rg -q "512KB" "$tmp/large.err" || fail "oversize error should explain limit"
+
+if "$SCRIPT" --category practice-assets --request-id test-request-v1 "$tmp/large.jpg" >/dev/null 2>"$tmp/category.err"; then
+  fail "legacy category should be rejected"
+fi
+rg -q "learning-track-assets" "$tmp/category.err" || fail "category error should show allowed category"
 
 echo "pracmo-oss-upload tests passed"

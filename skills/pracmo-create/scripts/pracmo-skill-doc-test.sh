@@ -1,38 +1,33 @@
 #!/usr/bin/env bash
 set -euo pipefail
+root="$(cd "$(dirname "$0")/.." && pwd)"
+skill="$root/SKILL.md"
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_DIR="$(cd "$SCRIPT_DIR/.." && pwd -P)"
-SKILL_MD="$SKILL_DIR/SKILL.md"
+for required in \
+  "pracmo-learning-track@v1" \
+  "learning-track.finalized.json" \
+  "learning-tracks/import" \
+  "learning-tracks/imports" \
+  "512 KiB" \
+  "不需要 API Key"; do
+  rg -q "$required" "$skill" || { echo "missing skill contract: $required" >&2; exit 1; }
+done
 
-fail() {
-  echo "FAIL: $*" >&2
+if rg -q "with-exercise|恰好一个练习|复用已有甲程" "$skill"; then
+  echo "legacy instantaneous workflow remains in SKILL.md" >&2
   exit 1
-}
-
-[[ -f "$SKILL_MD" ]] || fail "SKILL.md not found"
-
-TMP_ROOT="$(mktemp -d)"
-trap 'rm -rf "$TMP_ROOT"' EXIT
-
-if rg -n "private-skills/skills/pracmo-create|skills/pracmo-create" "$SKILL_MD" >"$TMP_ROOT/path.err"; then
-  cat "$TMP_ROOT/path.err" >&2
-  fail "SKILL.md should use skill-relative paths such as scripts/..."
 fi
 
-if rg -n "PRACMO_OPEN_API_BASE" "$SKILL_MD" >"$TMP_ROOT/api-base.err"; then
-  cat "$TMP_ROOT/api-base.err" >&2
-  fail "SKILL.md should not mention PRACMO_OPEN_API_BASE"
-fi
-
-if rg -n "\\b(GET|POST)\\b" "$SKILL_MD" >"$TMP_ROOT/http.err"; then
-  cat "$TMP_ROOT/http.err" >&2
-  fail "SKILL.md should route API access through scripts, not raw GET/POST instructions"
-fi
-
-if rg -n "materialId|material 接口|material-create|material-prepare|material-get|oss-config|oss-sts" "$SKILL_MD" >"$TMP_ROOT/non-current-flow.err"; then
-  cat "$TMP_ROOT/non-current-flow.err" >&2
-  fail "SKILL.md should not mention non-current material/API helper flows"
-fi
+for file in \
+  references/learning-track.schema.json \
+  references/learning-track-json-contract.md \
+  references/action-contract.md \
+  scripts/validate_learning_track_json.py \
+  scripts/compress_learning_track_images.py \
+  scripts/finalize_learning_track_assets.py \
+  scripts/learning_track_json_to_markdown.py \
+  scripts/publish_learning_track.py; do
+  test -f "$root/$file" || { echo "missing $file" >&2; exit 1; }
+done
 
 echo "pracmo skill doc tests passed"
