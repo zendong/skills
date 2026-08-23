@@ -1,0 +1,27 @@
+{
+  "clientRequestId": "official-writing-life-story-20260821-v1",
+  "trackId": "2u4zx6eJr7HQCDaYONdHKE",
+  "stateIds": {
+    "baseline": "7fydo9cHHxGJODYClVvQHJ",
+    "detail": "3wXsbae6NCEP1TCSOVj6jg",
+    "independent": "7Lwa2yFR19tQowuNn8arkO",
+    "material": "4zOQAEWUlnKLeqQ6VDKinu",
+    "structure": "6wk2scWw3A7Lz6UTfDAyaz"
+  },
+  "exerciseIds": {
+    "writing-baseline": "7jzcKNUJPI32k6edDKcwsB",
+    "writing-revision": "2SvNyVzbtW18eQYdNadofH",
+    "writing-scene-detail": "3nAtZdrwznNr5thkP7FMNB"
+  },
+  "actionIds": {
+    "daily-life-moment": "3fObghEObkWxzYGP88ypss",
+    "one-essay-follow-plan": "1ep2utxzJAQKUbUEqCbPWL"
+  },
+  "summary": {
+    "stateCount": 5,
+    "exerciseCount": 3,
+    "questionCount": 15,
+    "actionCount": 2
+  },
+  "reusedExisting": false
+}

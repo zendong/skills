@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "convict-conditioning-pullups-v1-prepub-20260820",
+  "catalog": {
+    "category": "fitness",
+    "tags": [
+      "跟练计划",
+      "囚徒健身",
+      "引体向上",
+      "自重训练",
+      "上肢拉力"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "从水平拉、标准引体到辅助单臂引体的循序进阶"
+    }
+  },
+  "template": {
+    "title": "囚徒健身·引体向上十式跟练",
+    "description": "从站姿垂直拉循序推进到单臂引体路线，逐步建立背部拉力、握力和肩胛控制。本计划是原创整理的进阶参考，不是固定处方；训练前必须确认横杠和支撑额定承重且安装牢固，肩、肘、腕出现疼痛、麻木或失控下坠时立即停止。",
+    "iconCode": "fitness",
+    "colorCode": "blue",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "垂直拉",
+          "description": "用站姿低负荷学习拉的轨迹。",
+          "targetSessions": 6,
+          "promotionCriterion": "能完成3组，每组30-40次，肩胛能主动后收。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "面对门框、栏杆或稳固立柱站立，双手抓稳，身体微微后倾。先让肩胛后收，再弯曲手肘把胸口拉向支撑物，随后慢慢回到起点。全程保持脚下稳定。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-01",
+              "caption": "肩胛先收，胸拉向支撑；注意脚下踩稳。"
+            }
+          ]
+        },
+        {
+          "title": "水平拉",
+          "description": "进入倒划船模式，增加背部和手臂负荷。",
+          "targetSessions": 6,
+          "promotionCriterion": "能完成3组，每组20-30次，身体保持直线。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "抓住牢固低杠、稳固桌沿或吊环，身体斜躺成直线，脚踩地。先收紧肩胛，再把胸口拉向支撑点，顶部停顿后慢放。训练前确认支撑物不会翻倒或滑动。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-02",
+              "caption": "身体一线，胸找支撑；注意器械必须稳固。"
+            }
+          ]
+        },
+        {
+          "title": "折刀引体",
+          "description": "用前方脚台分担体重，同时保留明显髋屈角度。",
+          "targetSessions": 7,
+          "promotionCriterion": "能完成3组，每组15-20次，脚只轻辅助且髋部折叠稳定。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双手抓牢横杠，把双脚脚跟放在身体前方的稳固高台上，双腿伸直并保持髋部折叠。肩胛先启动，再把上胸拉向横杠；脚台只分担必要重量，不主动蹬起身体。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-03",
+              "caption": "脚跟前置、髋部折叠，背臂发力；注意不蹬台借力。"
+            }
+          ]
+        },
+        {
+          "title": "半程引体",
+          "description": "训练完整悬挂下的上半程拉力。",
+          "targetSessions": 7,
+          "promotionCriterion": "能完成2-3组，每组8-12次，下降可控。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从手肘约90度的半程位置开始，肩胛收紧，拉到下巴接近横杠，再回到半程。不要突然下坠，专注上半程控制和背部发力。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-04",
+              "caption": "半程起拉，控制下降；注意不要突然下坠。"
+            }
+          ]
+        },
+        {
+          "title": "标准引体",
+          "description": "建立完整范围双臂引体能力。",
+          "targetSessions": 8,
+          "promotionCriterion": "能完成2组，每组8-10次，底部保持肩部主动。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双手抓杠略宽于肩，从主动悬挂开始。肩胛先下沉后收，再弯肘上拉至下巴接近或超过杠。慢慢下降到手臂接近伸直，底部仍保持肩部控制。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-05",
+              "caption": "直臂起始，肩胛下沉；注意底部不耸肩。"
+            }
+          ]
+        },
+        {
+          "title": "窄距引体",
+          "description": "缩小手距，提高手臂和背部协同要求。",
+          "targetSessions": 8,
+          "promotionCriterion": "能完成2组，每组8-10次，肩肘无不适。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双手窄距抓牢横杠，身体保持稳定不摆动。先用肩胛带动，再把身体拉起。下降时保持控制，避免突然坠到底部拉扯肩肘。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-06",
+              "caption": "双手收窄，身体不摆；注意肩肘无痛。"
+            }
+          ]
+        },
+        {
+          "title": "偏重引体",
+          "description": "一侧承担主要拉力，另一侧提供轻辅助。",
+          "targetSessions": 9,
+          "promotionCriterion": "左右两侧都能完成2组，每组6-8次，身体旋转受控。",
+          "estMinutes": 14,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "一手正常抓杠，另一手抓牢固毛巾或更低辅助位置。主力侧承担主要拉力，辅助侧只帮助维持路径。左右交替，身体不要大幅旋转。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-07",
+              "caption": "主侧发力，辅侧轻帮；注意身体少旋转。"
+            }
+          ]
+        },
+        {
+          "title": "半程单臂引体",
+          "description": "进入单臂路线，先练习极小半程。",
+          "targetSessions": 10,
+          "promotionCriterion": "左右两侧都能完成2组，每组3-5次，慢速且无痛。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仅在单臂主动悬挂稳定、肩肘完全无痛时尝试。单手抓牢，从手肘约90度位置完成小范围上拉，再慢慢回到半程。禁止甩腿或摆动借力。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-08",
+              "caption": "单手半程，慢控优先；注意不要甩腿。"
+            }
+          ]
+        },
+        {
+          "title": "辅助单臂引体",
+          "description": "用另一手轻扶主力手腕，完成更完整范围。",
+          "targetSessions": 10,
+          "promotionCriterion": "左右两侧都能完成2组，每组3-5次，辅助逐渐减少。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "主力手抓牢横杠，辅助手轻抓主力手腕或可靠辅助带。先用主力侧启动，辅助侧只补足最困难区间。下降全程保持缓慢，肩胛持续有控制。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-09",
+              "caption": "主手启动，辅手补足；注意慢放到底。"
+            }
+          ]
+        },
+        {
+          "title": "单臂引体",
+          "description": "极高阶目标，要求强握力、背部拉力和肩胛稳定。",
+          "targetSessions": 12,
+          "promotionCriterion": "左右两侧都能完成1-2组，每组1-3次高质量动作，且能安全退出。",
+          "estMinutes": 16,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仅适合长期训练者。单手牢固抓杠，从主动悬挂开始，肩胛先下沉，再拉起身体。全程不甩腿、不耸肩、不突然下坠；任何肩肘不适、握力松脱或失控都立即结束。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-10",
+              "caption": "单手牢握，肩先下沉；注意不适或失控立即停止。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 1,
+          "title": "水平拉达标",
+          "description": "能稳定完成水平拉，肩胛后收和基础拉力已经建立。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 4,
+          "title": "标准引体达标",
+          "description": "完整双臂引体稳定，为窄距和偏重训练打基础。",
+          "isKey": true
+        },
+        {
+          "levelIndex": 6,
+          "title": "单侧拉力准备",
+          "description": "偏重引体左右平衡，进入单臂路线准备。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 9,
+          "title": "引体十式通关",
+          "description": "能安全完成单臂引体路线的高质量尝试，继续在最后练阶巩固。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "从水平拉、标准引体到辅助单臂引体的循序进阶"
+    },
+    {
+      "assetId": "step-01",
+      "role": "content",
+      "localPath": "assets/step-01.jpg",
+      "alt": "垂直拉的起始与拉近阶段"
+    },
+    {
+      "assetId": "step-02",
+      "role": "content",
+      "localPath": "assets/step-02.jpg",
+      "alt": "水平拉的起始与拉近阶段"
+    },
+    {
+      "assetId": "step-03",
+      "role": "content",
+      "localPath": "assets/step-03.jpg",
+      "alt": "脚跟放在前方稳固高台完成折刀引体的起始与上拉阶段"
+    },
+    {
+      "assetId": "step-04",
+      "role": "content",
+      "localPath": "assets/step-04.jpg",
+      "alt": "半程引体的起始与上拉阶段"
+    },
+    {
+      "assetId": "step-05",
+      "role": "content",
+      "localPath": "assets/step-05.jpg",
+      "alt": "标准引体的主动悬挂与上拉阶段"
+    },
+    {
+      "assetId": "step-06",
+      "role": "content",
+      "localPath": "assets/step-06.jpg",
+      "alt": "窄距引体的起始与上拉阶段"
+    },
+    {
+      "assetId": "step-07",
+      "role": "content",
+      "localPath": "assets/step-07.jpg",
+      "alt": "主手抓杠、辅手抓毛巾完成偏重引体"
+    },
+    {
+      "assetId": "step-08",
+      "role": "content",
+      "localPath": "assets/step-08.jpg",
+      "alt": "半程单臂引体的起始与上拉阶段"
+    },
+    {
+      "assetId": "step-09",
+      "role": "content",
+      "localPath": "assets/step-09.jpg",
+      "alt": "辅助手轻抓主手腕完成辅助单臂引体"
+    },
+    {
+      "assetId": "step-10",
+      "role": "content",
+      "localPath": "assets/step-10.jpg",
+      "alt": "单臂引体的主动悬挂与上拉阶段"
+    }
+  ]
+}

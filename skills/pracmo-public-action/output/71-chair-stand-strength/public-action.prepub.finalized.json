@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-71-chair-stand-strength-20260819-v1",
+  "catalog": {
+    "category": "fitness",
+    "tags": [
+      "起身训练",
+      "下肢力量",
+      "居家运动",
+      "中老年",
+      "跟练计划"
+    ],
+    "coverImage": {
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065900Z-88ab6f1a31-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065900Z-88ab6f1a31-cover.jpg",
+      "alt": "中老年人在稳固靠墙椅旁以正确姿势练习可控起身"
+    }
+  },
+  "template": {
+    "title": "椅子起身力量进阶",
+    "description": "面向一般中老年用户的保守居家力量进阶，从稳固支撑和前倾发力开始，逐步减少手部帮助；始终以无痛、无眩晕和保留余力为前提。",
+    "iconCode": "fitness",
+    "colorCode": "forest",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "准备椅子与起身路线",
+          "description": "建立安全环境和脚掌—前倾—站起的基本顺序。",
+          "targetSessions": 5,
+          "promotionCriterion": "能独立检查椅子、防滑地面和通道，并完成10次仅前倾与回坐，动作无疼痛、胸闷或眩晕。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "选择不带轮、不会滑动、有靠背的稳固椅子，最好靠墙放置；清除脚边障碍。坐在椅面前半部，双脚与髋同宽、脚掌着地，胸口向前移到脚上方后再回坐，暂不站起。练2组，每组5次。有人可在侧后方保护但不拉手臂。出现胸痛、明显气短、眩晕或急性疼痛立即停止。"
+            }
+          ]
+        },
+        {
+          "title": "双手辅助起身",
+          "description": "用双手减少负荷，练习完整而安静的站起。",
+          "targetSessions": 6,
+          "promotionCriterion": "能完成3组、每组5–8次，双脚稳定、膝盖方向与脚尖一致，坐下不跌落。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双手扶稳固扶手，或轻放在大腿上辅助。先前倾，脚掌向下发力站起，站稳一瞬，再让髋向后慢慢坐下。每组保留至少2次余力，组间休息。不要憋气、猛推、让膝盖明显内扣或向后跌坐；必要时增加椅垫高度并减少次数。"
+            }
+          ]
+        },
+        {
+          "title": "减少手部帮助",
+          "description": "在动作质量不变的前提下逐步降低辅助。",
+          "targetSessions": 7,
+          "promotionCriterion": "能用更轻的手部接触完成3组、每组6–10次，动作速度均匀且无异常症状。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从双手用力改为指尖轻扶、单手轻扶或双手交叉抱肩，选择当下最稳的版本。只改变一个变量，不同时降低椅高和增加次数。站起时脚跟不抬，坐下时控制最后三分之一。若动作变快、身体扭转或需要借冲力，退回上一种辅助。"
+            }
+          ]
+        },
+        {
+          "title": "可控坐下与起立",
+          "description": "延长下降控制，避免向后跌坐。",
+          "targetSessions": 7,
+          "promotionCriterion": "能用约3秒坐下、自然站起，完成3组、每组8–10次，末次仍能保持控制。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "保持适合自己的手部辅助。站稳后把髋向后送，数3秒慢慢坐下，臀部接触椅面后再放松；下一次仍先前倾再站起。可让陪伴者从侧面观察膝脚方向和椅子稳定。不要用超慢速度憋气，也不要追求酸痛。"
+            }
+          ]
+        },
+        {
+          "title": "稳妥增加重复",
+          "description": "在保护和余力下建立可持续训练量。",
+          "targetSessions": 8,
+          "promotionCriterion": "能在不疼痛、不眩晕且动作稳定的情况下完成2–3组、每组10–15次，并在次日无异常不适。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "在稳固支撑或陪伴者可及处练习，每周只增加每组1–2次，或增加一组，二者不同时进行。始终保留2–3次余力；当天疲劳、睡眠差或身体不适时减少。近期跌倒、术后、正在康复或有不稳定心肺症状者先咨询合格专业人士。本计划不替代医疗或康复方案。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 2,
+          "title": "减少手部辅助",
+          "description": "能在动作稳定时减少部分手部帮助。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 4,
+          "title": "形成稳妥起身训练",
+          "description": "能保守增加训练量并识别停止条件。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "中老年人在稳固靠墙椅旁以正确姿势练习可控起身",
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065900Z-88ab6f1a31-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065900Z-88ab6f1a31-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 177093,
+      "sha256": "f96c5dde95765bececa8850f8a47e2db88c2235491b8c0acf3444c157015c834"
+    }
+  ]
+}

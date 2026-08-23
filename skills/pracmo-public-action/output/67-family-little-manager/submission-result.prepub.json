@@ -1,0 +1,137 @@
+{
+  "publicActionId": "21PWgSOd3gFisiBRi5GvfR",
+  "title": "家庭小管家闯关",
+  "description": "让6–12岁儿童从管理自己的物品开始，逐步学会安全家务、自查与主动协作；进阶依据是理解步骤和求助边界，而不是速度与服从。",
+  "iconCode": "habit",
+  "colorCode": "mint",
+  "category": "habit",
+  "tags": [
+    "儿童家务",
+    "生活自理",
+    "家庭协作",
+    "闯关计划",
+    "跟练计划"
+  ],
+  "template": {
+    "title": "家庭小管家闯关",
+    "description": "让6–12岁儿童从管理自己的物品开始，逐步学会安全家务、自查与主动协作；进阶依据是理解步骤和求助边界，而不是速度与服从。",
+    "iconCode": "habit",
+    "colorCode": "mint",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "找到物品的家",
+          "description": "为常用物品建立固定位置，并练习用后归位。",
+          "targetSessions": 4,
+          "promotionCriterion": "能为三类常用物品说出固定位置，连续三次用后归位，并知道没有位置时先和家人商量。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "选择书包、外套、玩具或文具中的一类，与家人确定一个够得到、不会挡路的固定位置。每次只整理这一类：拿出、使用、归位，再看地面和通道是否安全。不要整理药品、刀具、工具或他人私人物品。常见错误是一次清空整个房间；只做一个小区域。"
+            }
+          ]
+        },
+        {
+          "title": "完成餐前小任务",
+          "description": "承担一项年龄适配、不会接触危险物的餐前或餐后任务。",
+          "targetSessions": 5,
+          "promotionCriterion": "能独立完成同一小任务并自查遗漏，遇到热源、玻璃破损或不确定物品会立即请成人帮助。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从摆放不易碎餐具、收自己的餐垫或擦拭低处安全桌面中选一项。先听成人说明边界，再按“准备—执行—归位—自查”完成。不得接触明火、热锅、锋利刀具、强清洁剂或独自操作电器。常见错误是只求快；保持动作稳、通道清楚。"
+            }
+          ]
+        },
+        {
+          "title": "准备明天用品",
+          "description": "用短清单准备第二天真正需要的物品。",
+          "targetSessions": 5,
+          "promotionCriterion": "能根据第二天安排列出并核对3–6项用品，缺少或不确定时主动询问，不把所有东西都塞进包里。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "先确认第二天的一项安排，再写或画出3–6项用品清单。逐项放入固定区域并打勾，最后检查重量、液体是否密封、是否含不该自行携带的物品。家长只提示遗漏，不替代完成。常见错误是照搬旧清单；每次先看实际安排。"
+            }
+          ]
+        },
+        {
+          "title": "独立完成安全家务",
+          "description": "完成一项符合年龄和家庭规则的完整小家务。",
+          "targetSessions": 6,
+          "promotionCriterion": "能说清步骤、独立完成并检查结果，连续三次不需要成人在中途接手。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "在叠衣物、给植物适量浇水、整理自己的桌面、把轻软物品分类等安全任务中选一项。开始前说出步骤和停止条件，完成后从“是否归位、是否留下水渍或障碍、是否影响他人”自查。不得攀高、搬重物、照护幼儿或宠物，也不使用未知清洁剂。"
+            }
+          ]
+        },
+        {
+          "title": "主动认领家庭小事",
+          "description": "观察家庭需要，并在能力范围内提出和完成一项协作。",
+          "targetSessions": 6,
+          "promotionCriterion": "能先询问是否需要、说明自己会怎样做，并在超出能力时拆小或求助。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "环顾公共区域，找一件低风险、短时间的小事，如归整靠垫、补充纸巾、把自己的物品移出通道。先问家人“这件事现在需要做吗”，确认后完成并反馈。主动不等于包揽，不承担成人照护责任。最后说出下次想更顺手的一步。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 2,
+          "title": "会按清单准备",
+          "description": "能自己准备并核对第二天用品。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 4,
+          "title": "成为家庭小管家",
+          "description": "能安全、自查并主动参与家庭协作。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "actionType": "follow_along",
+  "planSummary": {
+    "levelCount": 5,
+    "targetSessions": 26,
+    "estMinutes": 294
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/21PWgSOd3gFisiBRi5GvfR/cover/a5ed80655620058f12252befbaddcbe4576fec7523641807922ec8140b8588d7.jpg",
+  "clientRequestId": "public-action-67-family-little-manager-20260819-v1",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/21PWgSOd3gFisiBRi5GvfR/cover/a5ed80655620058f12252befbaddcbe4576fec7523641807922ec8140b8588d7.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 292928,
+      "sha256": "a5ed80655620058f12252befbaddcbe4576fec7523641807922ec8140b8588d7"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "viewCount": 0,
+  "importCount": 0,
+  "publicationRequestId": "pr_46sLELDGm7y0qHgXiaKLPJ",
+  "reusedExisting": false
+}

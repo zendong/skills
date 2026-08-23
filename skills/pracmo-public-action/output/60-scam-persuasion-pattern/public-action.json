@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-60-scam-persuasion-pattern-20260819-v1",
+  "catalog": {
+    "category": "skill",
+    "tags": [
+      "反诈",
+      "数字安全",
+      "老年守护",
+      "信息核验",
+      "情境阅读"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "长者面对陌生来电先暂停并使用可信渠道核验，画面有克制的安全提示"
+    }
+  },
+  "template": {
+    "title": "一个骗局的说服套路",
+    "description": "每期识别一种稳定的说服套路，练习暂停、挂断与独立核验。",
+    "iconCode": "terminal",
+    "colorCode": "orange",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":2}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "reading",
+      "instruction": "生成一期“一个骗局的说服套路”中文轻阅读，训练识别稳定的操控结构，不追逐未经核验的“最新骗局”。每期从冒充权威、制造紧迫、要求保密、利益诱惑、恐惧损失、情感操控、真假信息拼接或假客服中选一个套路，并轮换电话、短信、群聊、网页和线下接触场景。最近最多20条记录不得重复“套路+渠道+索取目标”；姓名、机构和金额使用明显虚构值。正文450–700字：原创情境、对方如何逐步施压、三个警示信号、立即停止动作、如何用自己找到的可信渠道复核、怎样和家人说明。不得展示可复用诈骗脚本，不要求点击链接或拨打文中号码，不声称覆盖所有骗局。核心原则是暂停、挂断、独立核验、拒绝因意外联系转账。"
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "长者面对陌生来电先暂停并使用可信渠道核验，画面有克制的安全提示"
+    }
+  ]
+}

@@ -4,9 +4,12 @@
 
 ## 行动信息
 
-- 分类：fitness
+- 分类：健康运动
 - 标签：跟练计划、自重训练、俯卧撑
-- 频率：daily
+- 频率：每日
+- 内容类型：跟练计划
+- 完成方式：一键完成
+
 - 每次预计：12 分钟
 
 ## 跟练计划
@@ -120,4 +123,4 @@
 | 7 | 单侧准备完成 | 偏重俯卧撑左右平衡，为单臂路线建立基础。 | 否 |
 | 10 | 俯卧撑十式通关 | 能完成可控单臂俯卧撑，保留最后练阶继续巩固。 | 是 |
 
-<!-- source: pracmo-public-action@v1 · clientRequestId: convict-conditioning-pushups-v2-optimized-20260809 -->
+<!-- source: pracmo-public-action@v2 · clientRequestId: convict-conditioning-pushups-v3-prepub-cover-20260818 -->

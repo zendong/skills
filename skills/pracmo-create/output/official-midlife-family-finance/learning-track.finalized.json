@@ -1,0 +1,683 @@
+{
+  "schemaVersion": "pracmo-learning-track@v1",
+  "clientRequestId": "official-midlife-family-finance-20260821-v1",
+  "track": {
+    "title": "家庭理财先做对基础：现金流、风险与投资决策",
+    "description": "从家庭资金概览、目标期限到风险、费用和退出条件，形成不依赖具体产品的理财决策流程。",
+    "category": "skill",
+    "goalStatement": "能够梳理家庭资金用途，理解收益、损失、费用、流动性和集中风险，并使用个人检查表作出与家庭目标相匹配的投资决定。",
+    "goalReason": "解决账户与目标零散、只看收益宣传、忽视费用和退出条件，以及投资决定容易受朋友推荐和短期涨跌影响的问题。",
+    "targetUserDescription": "35～55岁，需要同时考虑日常支出、负债、子女教育、父母照护和未来储备的普通家庭成员。",
+    "requirements": "具备基础四则运算能力；本甲程只提供一般性金融教育，不提供个性化投资建议、具体产品推荐或收益预测。"
+  },
+  "path": {
+    "currentStateKey": "baseline",
+    "targetStateKey": "decision",
+    "states": [
+      {
+        "stateKey": "baseline",
+        "title": "资金零散、决定靠印象",
+        "description": "知道家庭有收入、储蓄或投资，但缺少统一概览，遇到推荐时容易先看收益。",
+        "criteria": [
+          {
+            "criterionId": "baseline-1",
+            "description": "能说出家庭至少三类主要资金用途"
+          },
+          {
+            "criterionId": "baseline-2",
+            "description": "尚不能完整说明某项投资的费用、损失和退出条件"
+          }
+        ]
+      },
+      {
+        "stateKey": "overview",
+        "title": "看清家庭资金结构",
+        "description": "能够用类别和大致区间梳理收入、必要支出、负债还款和可动用储备。",
+        "criteria": [
+          {
+            "criterionId": "overview-1",
+            "description": "能形成不含敏感账号信息的家庭财务概览"
+          },
+          {
+            "criterionId": "overview-2",
+            "description": "能识别一个当前最需要补齐的现金流或应急缺口"
+          }
+        ]
+      },
+      {
+        "stateKey": "goals",
+        "title": "按用途和期限分层",
+        "description": "能够区分日常、应急、三年内目标和长期目标，避免混用。",
+        "criteria": [
+          {
+            "criterionId": "goals-1",
+            "description": "能为主要资金写明用途和大致使用时间"
+          },
+          {
+            "criterionId": "goals-2",
+            "description": "能说明短期确定用途为什么不宜承担无法及时恢复的波动"
+          }
+        ]
+      },
+      {
+        "stateKey": "risk",
+        "title": "能读懂主要取舍",
+        "description": "能够解释收益、损失、费用、流动性和集中风险之间的关系。",
+        "criteria": [
+          {
+            "criterionId": "risk-1",
+            "description": "能从宣传材料中主动补问风险、费用和退出条件"
+          },
+          {
+            "criterionId": "risk-2",
+            "description": "能识别保本高收益、制造紧迫和借贷投资等危险信号"
+          }
+        ]
+      },
+      {
+        "stateKey": "decision",
+        "title": "使用检查表独立决策",
+        "description": "能够根据家庭目标和承受力比较方案，并按固定条件复盘，而不是追逐短期涨跌。",
+        "criteria": [
+          {
+            "criterionId": "decision-1",
+            "description": "能使用至少五项问题完成一次一般性投资判断"
+          },
+          {
+            "criterionId": "decision-2",
+            "description": "能说明决定与家庭目标、期限和风险承受之间的对应关系"
+          }
+        ]
+      }
+    ]
+  },
+  "concepts": [
+    {
+      "conceptKey": "cash-flow",
+      "name": "家庭现金流"
+    },
+    {
+      "conceptKey": "emergency-buffer",
+      "name": "应急资金"
+    },
+    {
+      "conceptKey": "goal-horizon",
+      "name": "目标期限与资金用途"
+    },
+    {
+      "conceptKey": "risk-return",
+      "name": "收益、波动与损失风险"
+    },
+    {
+      "conceptKey": "fees-liquidity",
+      "name": "费用与流动性"
+    },
+    {
+      "conceptKey": "diversification",
+      "name": "分散与集中风险"
+    },
+    {
+      "conceptKey": "marketing-redflags",
+      "name": "金融营销危险信号"
+    }
+  ],
+  "exercises": [
+    {
+      "exerciseKey": "finance-overview",
+      "title": "家庭的钱应该先放在哪里",
+      "userRequest": "用虚构家庭案例区分日常、应急和中长期目标。",
+      "difficultyLevel": 4,
+      "allowQuestionTypes": [
+        "multiple_choice",
+        "short_answer",
+        "single_choice",
+        "true_false"
+      ],
+      "questions": [
+        {
+          "questionType": "single_choice",
+          "questionContent": "一个家庭每月收入稳定，但信用卡账单经常到还款日前才发现超出预算。最先应该补齐哪项信息？",
+          "explanation": "先记录稳定收入、必要支出和债务还款，才能判断可调整空间；直接追逐收益无法解决现金流不清。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "cash-flow",
+          "testableClaim": "能识别家庭现金流问题需要先看持续收入、必要支出和债务还款",
+          "options": [
+            {
+              "content": "最近哪只产品涨得最快",
+              "isCorrect": false
+            },
+            {
+              "content": "每月稳定收入、必要支出和债务还款",
+              "isCorrect": true
+            },
+            {
+              "content": "朋友买了什么",
+              "isCorrect": false
+            },
+            {
+              "content": "未来十年的所有市场预测",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "single_choice",
+          "questionContent": "计划六个月后支付一笔确定的学费，这笔钱最需要优先考虑什么？",
+          "explanation": "期限短且用途确定，首要是到期能够使用，而不是追求高波动收益。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "goal-horizon",
+          "testableClaim": "能根据短期确定用途优先考虑安全性和可用性",
+          "options": [
+            {
+              "content": "能否在需要时安全取用",
+              "isCorrect": true
+            },
+            {
+              "content": "短期收益排名是否第一",
+              "isCorrect": false
+            },
+            {
+              "content": "是否有复杂的产品名称",
+              "isCorrect": false
+            },
+            {
+              "content": "销售人员是否很热情",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "multiple_choice",
+          "questionContent": "家庭财务概览中，哪些信息属于基础盘点？",
+          "explanation": "收入、必要支出、负债还款和可动用储备构成基础概览；密码绝不能记录在甲程。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "cash-flow",
+          "testableClaim": "能选择形成家庭财务概览所需的非敏感类别信息",
+          "options": [
+            {
+              "content": "稳定收入的大致区间",
+              "isCorrect": true
+            },
+            {
+              "content": "必要支出和债务还款",
+              "isCorrect": true
+            },
+            {
+              "content": "可动用储备的大致区间",
+              "isCorrect": true
+            },
+            {
+              "content": "银行卡密码",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "true_false",
+          "questionContent": "只要家庭总资产不少，就不需要单独准备能及时使用的应急资金。",
+          "explanation": "错误。资产可能无法及时变现或价格波动；应急准备强调在突发支出时可用。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "emergency-buffer",
+          "testableClaim": "理解资产总额不能替代可及时使用的应急准备",
+          "options": [
+            {
+              "content": "正确",
+              "isCorrect": false
+            },
+            {
+              "content": "错误",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "questionType": "short_answer",
+          "questionContent": "请为一个虚构家庭写出三栏资金用途：日常使用、突发情况、中长期目标。每栏各举一个例子，并说明为什么不能混在一起。",
+          "explanation": "评分依据：三栏例子与用途匹配；能说明混用可能导致日常资金不足、突发时被迫变现或长期目标被提前挪用。不得要求填写真实账户和金额。",
+          "difficultyScore": 5,
+          "bloomLevel": 3,
+          "conceptKey": "goal-horizon",
+          "testableClaim": "能按用途与期限对家庭资金进行基础分层"
+        }
+      ],
+      "stateLink": {
+        "stateKey": "overview",
+        "relationRole": "advance",
+        "criterionIds": [
+          "overview-1",
+          "overview-2"
+        ],
+        "whyNow": "先形成结构，再谈收益和产品。"
+      }
+    },
+    {
+      "exerciseKey": "finance-risk",
+      "title": "高收益背后少说了什么",
+      "userRequest": "练习补齐风险、费用、退出和集中度等容易被忽略的条件。",
+      "difficultyLevel": 6,
+      "allowQuestionTypes": [
+        "multiple_choice",
+        "short_answer",
+        "single_choice",
+        "true_false"
+      ],
+      "questions": [
+        {
+          "questionType": "single_choice",
+          "questionContent": "某产品宣传‘预期年化8%’，但没有说明可能亏损、费用和退出限制。最合理的下一步是什么？",
+          "explanation": "‘预期’不是保证；需要先了解损失可能、费用、期限和退出方式。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "risk-return",
+          "testableClaim": "能在收益宣传缺少风险信息时暂停并补齐关键条件",
+          "options": [
+            {
+              "content": "立即投入，因为写了年化收益",
+              "isCorrect": false
+            },
+            {
+              "content": "先询问风险、全部费用、期限和退出条件",
+              "isCorrect": true
+            },
+            {
+              "content": "只看宣传页上的成功案例",
+              "isCorrect": false
+            },
+            {
+              "content": "借钱参与以免错过",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "single_choice",
+          "questionContent": "投入10万元，一年名义收益3000元，同时支付管理等费用1200元。忽略税费时，费用后的收益是多少？",
+          "explanation": "3000减去1200等于1800元。费用会直接影响最终结果。",
+          "difficultyScore": 4,
+          "bloomLevel": 2,
+          "conceptKey": "fees-liquidity",
+          "testableClaim": "能从名义收益中扣除明确费用计算实际收益",
+          "options": [
+            {
+              "content": "4200元",
+              "isCorrect": false
+            },
+            {
+              "content": "3000元",
+              "isCorrect": false
+            },
+            {
+              "content": "1800元",
+              "isCorrect": true
+            },
+            {
+              "content": "1200元",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "true_false",
+          "questionContent": "把全部可投资资金集中在一个自己非常熟悉的行业，就不存在集中风险。",
+          "explanation": "错误。熟悉可以帮助理解，但不能消除同一行业同时下跌或单一事件带来的集中风险。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "diversification",
+          "testableClaim": "理解熟悉程度不能消除单一行业或资产集中风险",
+          "options": [
+            {
+              "content": "正确",
+              "isCorrect": false
+            },
+            {
+              "content": "错误",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "questionType": "multiple_choice",
+          "questionContent": "下面哪些说法需要提高警惕并暂停决定？",
+          "explanation": "保本高收益、制造紧迫、要求借贷参与都是典型危险信号；允许核对合同不是危险信号。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "marketing-redflags",
+          "testableClaim": "能识别金融营销中的紧迫、保本高收益和借贷投资信号",
+          "options": [
+            {
+              "content": "‘保本而且收益一定高于市场’",
+              "isCorrect": true
+            },
+            {
+              "content": "‘名额十分钟后失效，不能问家人’",
+              "isCorrect": true
+            },
+            {
+              "content": "‘可以先阅读完整合同和费用说明’",
+              "isCorrect": false
+            },
+            {
+              "content": "‘资金不够可以先借款参与’",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "questionType": "short_answer",
+          "questionContent": "一个产品允许随时买入，但提前退出要支付较高费用。请用两三句话说明：为什么‘可以买’不等于‘适合这个家庭目标’？",
+          "explanation": "评分依据：指出可能需要提前用钱、退出费用会降低实际结果、目标期限与产品锁定或退出条件必须匹配；不评价具体产品。",
+          "difficultyScore": 6,
+          "bloomLevel": 4,
+          "conceptKey": "fees-liquidity",
+          "testableClaim": "能把退出条件与家庭目标期限联系起来"
+        }
+      ],
+      "stateLink": {
+        "stateKey": "risk",
+        "relationRole": "advance",
+        "criterionIds": [
+          "risk-1",
+          "risk-2"
+        ],
+        "whyNow": "把注意力从单一收益数字转向完整取舍。"
+      }
+    },
+    {
+      "exerciseKey": "finance-decision",
+      "title": "这项决定匹配家庭目标吗",
+      "userRequest": "使用期限、承受力和检查表处理综合家庭情境。",
+      "difficultyLevel": 7,
+      "allowQuestionTypes": [
+        "multiple_choice",
+        "short_answer",
+        "single_choice",
+        "true_false"
+      ],
+      "questions": [
+        {
+          "questionType": "single_choice",
+          "questionContent": "家庭准备三年后更换住房，同时有人建议把全部首付款投入高波动资产。最关键的冲突是什么？",
+          "explanation": "三年后有明确用途，若届时价格下跌可能无法按计划使用，核心是期限与波动错配。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "goal-horizon",
+          "testableClaim": "能识别确定期限目标与高波动资产之间的错配",
+          "options": [
+            {
+              "content": "产品名称不够新",
+              "isCorrect": false
+            },
+            {
+              "content": "资金用途和时间较确定，却承担了可能无法按时恢复的波动",
+              "isCorrect": true
+            },
+            {
+              "content": "家庭成员人数太多",
+              "isCorrect": false
+            },
+            {
+              "content": "没有每天查看价格",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "multiple_choice",
+          "questionContent": "做一项家庭投资决定前，哪些问题值得写进检查表？",
+          "explanation": "这些问题共同约束适配性；只看他人购买人数不能替代自己的目标与风险判断。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "risk-return",
+          "testableClaim": "能形成覆盖目标、损失、费用和退出的基础检查表",
+          "options": [
+            {
+              "content": "这笔钱何时要用",
+              "isCorrect": true
+            },
+            {
+              "content": "最多能承受多大损失而不影响生活",
+              "isCorrect": true
+            },
+            {
+              "content": "全部费用和退出条件是什么",
+              "isCorrect": true
+            },
+            {
+              "content": "有多少朋友已经买了",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "single_choice",
+          "questionContent": "一个家庭已经有应急资金，并将教育、养老和五年后的大额支出分开记录。下一步更合理的是？",
+          "explanation": "下一步应看各类资金是否过度集中、期限和风险是否匹配，而不是用短期涨跌反复改变所有计划。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "diversification",
+          "testableClaim": "能在目标分层后继续检查整体风险和集中度",
+          "options": [
+            {
+              "content": "每天根据涨跌重做全部计划",
+              "isCorrect": false
+            },
+            {
+              "content": "检查整体集中度、期限匹配和定期复盘规则",
+              "isCorrect": true
+            },
+            {
+              "content": "把所有资金合并，方便看一个数字",
+              "isCorrect": false
+            },
+            {
+              "content": "只购买名字熟悉的产品",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "questionType": "true_false",
+          "questionContent": "一份合格的家庭理财计划应该在任何市场环境中都完全不需要调整。",
+          "explanation": "错误。家庭收入、支出和目标会变化，应按约定周期复盘；但也不应被每次短期涨跌驱动。",
+          "difficultyScore": 3,
+          "bloomLevel": 2,
+          "conceptKey": "risk-return",
+          "testableClaim": "理解家庭计划需要定期复盘但不等于追逐短期波动",
+          "options": [
+            {
+              "content": "正确",
+              "isCorrect": false
+            },
+            {
+              "content": "错误",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "questionType": "short_answer",
+          "questionContent": "请写出一份五问投资决策检查表，必须覆盖资金用途、期限、可能损失、费用和信息核实。不要写具体产品名称。",
+          "explanation": "评分依据：五个方面均被清楚提问；问题能够在决定前实际回答；不包含收益保证、具体买卖指令或对某类产品的绝对判断。",
+          "difficultyScore": 7,
+          "bloomLevel": 4,
+          "conceptKey": "marketing-redflags",
+          "testableClaim": "能独立形成一般性投资决策检查工具"
+        }
+      ],
+      "stateLink": {
+        "stateKey": "decision",
+        "relationRole": "assess",
+        "criterionIds": [
+          "decision-1",
+          "decision-2"
+        ],
+        "whyNow": "确认能否把概念迁移到一般决策流程。"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "actionKey": "household-finance-overview",
+      "title": "完成一张家庭财务概览",
+      "description": "按收入、必要支出、负债还款、可动用储备和中长期目标五类整理大致区间；不要记录账号、密码或身份证信息。",
+      "scheduleType": "weekly_quota",
+      "scheduleConfigJson": "{\"targetCount\":1}",
+      "timezone": "Asia/Shanghai",
+      "startDate": "2026-08-22",
+      "deadlineLocalTime": "20:30",
+      "gracePolicy": "next_day_noon",
+      "completionMode": "rich_media",
+      "reminderConfigJson": "",
+      "contentMode": "self_directed",
+      "stateLink": {
+        "stateKey": "overview",
+        "relationRole": "advance",
+        "criterionIds": [
+          "overview-1",
+          "overview-2"
+        ],
+        "whyNow": "先看清家庭资金结构，再讨论投资取舍。"
+      }
+    },
+    {
+      "actionKey": "weekly-finance-concept",
+      "title": "每周两个理财基础概念",
+      "description": "每周阅读两个与家庭目标相关的基础概念，理解适用条件、常见误区和一个可自查的问题。",
+      "scheduleType": "weekly_quota",
+      "scheduleConfigJson": "{\"targetCount\":2}",
+      "timezone": "Asia/Shanghai",
+      "startDate": "2026-08-22",
+      "deadlineLocalTime": "20:00",
+      "gracePolicy": "next_day_noon",
+      "completionMode": "one_tap",
+      "reminderConfigJson": "",
+      "contentMode": "puki_generated",
+      "stateLink": {
+        "stateKey": "risk",
+        "relationRole": "reinforce",
+        "criterionIds": [
+          "risk-1",
+          "risk-2"
+        ],
+        "whyNow": "用低频稳定阅读补齐风险、费用和流动性认知。"
+      },
+      "generatedContentConfig": {
+        "schemaVersion": 1,
+        "type": "reading",
+        "instruction": "为35至55岁家庭责任较多的普通用户生成一期中文理财基础轻阅读。每期只讲一个概念，轮换现金流、应急资金、目标期限、复利、通胀、波动、回撤、流动性、费用、分散、保险与投资区别、营销危险信号等，避开近期主题。正文500至800字，结构为概念、虚构家庭案例、常见误解、决策前自查问题和适用边界。不得推荐具体产品、证券或买卖时点，不预测市场，不承诺收益，不鼓励借贷投资，不要求用户披露账户和真实资产。数字案例必须可复算并说明假设。"
+      }
+    },
+    {
+      "actionKey": "four-week-finance-foundation",
+      "title": "四周家庭理财基础跟练",
+      "description": "依次完成资金盘点、目标分层、风险检查和个人决策清单；不以购买任何产品作为完成标准。",
+      "scheduleType": "weekly_quota",
+      "scheduleConfigJson": "{\"targetCount\":3}",
+      "timezone": "Asia/Shanghai",
+      "startDate": "2026-08-22",
+      "deadlineLocalTime": "19:30",
+      "gracePolicy": "next_day_noon",
+      "completionMode": "one_tap",
+      "reminderConfigJson": "",
+      "contentMode": "follow_along",
+      "stateLink": {
+        "stateKey": "decision",
+        "relationRole": "advance",
+        "criterionIds": [
+          "decision-1",
+          "decision-2"
+        ],
+        "whyNow": "把零散知识整理成家庭可以重复使用的决策流程。"
+      },
+      "followPlan": {
+        "afterCompletionPolicy": "continue_last_level",
+        "levels": [
+          {
+            "title": "看清收支和负债",
+            "description": "形成家庭收入、必要支出和负债还款的类别概览。",
+            "targetSessions": 2,
+            "promotionCriterion": "能说明每月可调整空间和最需关注的一类负担",
+            "estMinutes": 20,
+            "contentBlocks": [
+              {
+                "blockType": "text",
+                "textContent": "只用类别和大致区间盘点稳定收入、必要支出、债务还款和可动用储备；不填写账号和密码。"
+              }
+            ]
+          },
+          {
+            "title": "分开不同期限目标",
+            "description": "把日常、应急、三年内和长期目标分开。",
+            "targetSessions": 2,
+            "promotionCriterion": "每笔主要资金都有明确用途和大致使用时间",
+            "estMinutes": 20,
+            "contentBlocks": [
+              {
+                "blockType": "text",
+                "textContent": "列出未来可能用钱的目标，标记用途、时间和能否接受波动；先处理用途冲突。"
+              }
+            ]
+          },
+          {
+            "title": "读懂风险、费用和退出",
+            "description": "用三个虚构产品说明风险、费用和流动性的取舍。",
+            "targetSessions": 3,
+            "promotionCriterion": "能指出每个方案至少一个未说明条件和一个主要风险",
+            "estMinutes": 20,
+            "contentBlocks": [
+              {
+                "blockType": "text",
+                "textContent": "面对任何收益表达，依次补问：可能损失什么、全部费用多少、何时能退出、提前退出有什么条件。"
+              }
+            ]
+          },
+          {
+            "title": "检查集中与家庭承受力",
+            "description": "从家庭生活影响而非情绪判断可承受风险。",
+            "targetSessions": 2,
+            "promotionCriterion": "能说明一次明显损失会影响哪些家庭目标并提出分散检查",
+            "estMinutes": 20,
+            "contentBlocks": [
+              {
+                "blockType": "text",
+                "textContent": "假设某类资产短期明显下跌，检查是否会影响日常、应急和确定目标；再看资金是否过度集中。"
+              }
+            ]
+          },
+          {
+            "title": "完成个人决策五问",
+            "description": "形成决定前和定期复盘时都能使用的检查表。",
+            "targetSessions": 2,
+            "promotionCriterion": "检查表覆盖用途、期限、损失、费用、退出和信息核实",
+            "estMinutes": 15,
+            "contentBlocks": [
+              {
+                "blockType": "text",
+                "textContent": "写下自己的决策五问，并约定家庭发生目标变化或到固定复盘日期时重新回答。"
+              }
+            ]
+          }
+        ],
+        "checkpoints": [
+          {
+            "levelIndex": 4,
+            "title": "家庭决策清单检查",
+            "description": "确认清单不依赖具体产品，未来仍可重复使用。",
+            "isKey": true
+          }
+        ]
+      }
+    }
+  ],
+  "assets": [],
+  "metadata": {
+    "language": "zh-CN",
+    "sourceType": "official_track_authoring",
+    "contentVersion": "2026-08-21-v1",
+    "safetyReview": "financial-human-review-required"
+  }
+}

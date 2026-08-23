@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "convict-conditioning-handstand-pushups-v1-prepub-20260820",
+  "catalog": {
+    "category": "fitness",
+    "tags": [
+      "跟练计划",
+      "囚徒健身",
+      "倒立撑",
+      "肩部力量",
+      "身体控制"
+    ],
+    "coverImage": {
+      "objectKey": "material/100004/action-assets/staging/cover/20260820T121912Z-2473efe948-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260820T121912Z-2473efe948-cover.jpg",
+      "alt": "从乌鸦式、靠墙倒立到靠墙倒立撑的循序进阶"
+    }
+  },
+  "template": {
+    "title": "囚徒健身·倒立撑十式跟练",
+    "description": "从手腕承重和平衡练习循序推进到靠墙倒立撑及高阶单侧路线，逐步建立肩部推力、倒立控制与腕肩稳定。本计划是原创整理的进阶参考，不是固定处方；倒立对颈肩手腕、血压和眼压负担较高，有眩晕、高血压、眼压问题、疼痛或康复需求时先咨询医生，高阶练阶必须使用厚垫并有伙伴保护。",
+    "iconCode": "fitness",
+    "colorCode": "cyan",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "靠墙头倒立",
+          "description": "熟悉倒置姿势，但不把重量压到颈部。",
+          "targetSessions": 6,
+          "promotionCriterion": "能稳定保持3组，每组30-60秒，肩部主动且颈部无压力。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "在厚软垫和墙边练习，双手与头部形成稳定三角，轻轻把脚靠到墙上。肩膀主动发力，让双手承担主要重量，头顶只轻触垫面。眩晕、眼部不适或颈部压力出现时立即退出。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-01",
+              "caption": "三角支撑，肩主动推；注意颈部不承重。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121913Z-5a91f39089-step-01.jpg"
+            }
+          ]
+        },
+        {
+          "title": "乌鸦式",
+          "description": "建立手腕承重、肩胛前推和身体平衡。",
+          "targetSessions": 6,
+          "promotionCriterion": "能稳定保持3组，每组30-60秒，并可安全落脚。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双手撑在厚垫上，膝盖靠近上臂，重心慢慢向前。脚尖轻离地后保持平衡，眼睛看前下方。手指抓地、肩背主动撑开，前方留出足够软垫空间。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-02",
+              "caption": "手指抓地，肩背撑开；注意前方留垫、别向前栽。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121915Z-12d6e56a91-step-02.jpg"
+            }
+          ]
+        },
+        {
+          "title": "靠墙倒立",
+          "description": "建立完整倒立支撑能力。",
+          "targetSessions": 7,
+          "promotionCriterion": "能稳定保持3组，每组60秒，肩膀主动且能安全退出。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "在厚垫和伙伴保护下进入靠墙倒立，双手扎稳，双脚轻靠墙。手臂伸直但不锁死，肩膀主动上推，肋骨回收。保持呼吸，退出时一脚一脚安全落地。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-03",
+              "caption": "手臂伸直，脚轻靠墙；注意肩膀不塌并能安全退出。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121916Z-7a633aa89f-step-03.jpg"
+            }
+          ]
+        },
+        {
+          "title": "半程倒立撑",
+          "description": "在靠墙倒立中训练小幅、可控推力。",
+          "targetSessions": 7,
+          "promotionCriterion": "能完成2-3组，每组8-10次，下降幅度一致且头部远离垫面。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "靠墙倒立后，缓慢弯曲手肘，只下降小幅度，头部与厚垫保持明显距离，再推回伸直。肩膀持续主动，每次都控制下降，不使用反弹。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-04",
+              "caption": "直臂起始，只做浅幅下降；注意头部远离垫面、不反弹。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121917Z-d29d7ba1eb-step-04.jpg"
+            }
+          ]
+        },
+        {
+          "title": "标准倒立撑",
+          "description": "完成靠墙完整倒立撑。",
+          "targetSessions": 8,
+          "promotionCriterion": "能完成2组，每组5-8次，底部可控且能安全退出。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "靠墙倒立，弯肘下降到头部接近厚软垫或个人可控深度，再平稳推回顶端。保持身体紧张，不塌腰。底部失控时立即退出并退回半程倒立撑。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-05",
+              "caption": "直臂起始，头近软垫；注意底部可控。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121918Z-3dc21631f0-step-05.jpg"
+            }
+          ]
+        },
+        {
+          "title": "窄距倒立撑",
+          "description": "缩小手距，提高肩臂推力要求。",
+          "targetSessions": 8,
+          "promotionCriterion": "能完成2组，每组5-8次，手腕和肩部无不适。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "靠墙倒立后，把双手间距缩小到仍能保持肩腕舒适的位置。慢慢下降并推起，肘部轨迹保持可控。肩部夹挤或手腕疼痛时立即放宽手距或退阶。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-06",
+              "caption": "双手收窄，肘路可控；注意肩腕无痛。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121920Z-68d2b36ea5-step-06.jpg"
+            }
+          ]
+        },
+        {
+          "title": "偏重倒立撑",
+          "description": "一手主力，一手在稳固低台上辅助。",
+          "targetSessions": 9,
+          "promotionCriterion": "左右两侧都能完成2组，每组3-5次，身体旋转受控。",
+          "estMinutes": 14,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "靠墙倒立，一手撑地为主力，另一手撑在不会滑动的低支撑物上。下降和推起时保持身体尽量不旋转。左右交替，小范围高质量优先。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-07",
+              "caption": "主手撑地，辅手低台；注意支撑稳固、身体少转。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121921Z-8db160220c-step-07.jpg"
+            }
+          ]
+        },
+        {
+          "title": "半程单臂倒立撑",
+          "description": "单臂路线的高难准备，只做很小范围。",
+          "targetSessions": 10,
+          "promotionCriterion": "左右两侧都能完成1-2组，每组2-3次可控小幅动作，并能安全退出。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "只在倒立稳定、肩腕完全无痛，并有伙伴保护时尝试。靠墙倒立后逐渐把重量转到主力手，另一手保持轻触辅助，只做很小幅度下降。始终保留安全退出能力。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-08",
+              "caption": "重心转移，只做小幅；注意伙伴保护与保守退出。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121922Z-ed1848bfc4-step-08.jpg"
+            }
+          ]
+        },
+        {
+          "title": "杠杆倒立撑",
+          "description": "辅助手臂伸远，主力侧承担主要推力。",
+          "targetSessions": 10,
+          "promotionCriterion": "左右两侧都能完成1-2组，每组2-3次，辅助侧不抢力。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "在厚垫和伙伴保护下靠墙倒立，一手为主力，另一手向侧方伸远轻触地面或低支撑。缓慢下降和推起，辅助侧只防止旋转。疲劳、姿势变化或肩腕不适时立即停止。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-09",
+              "caption": "主侧承担，辅侧轻触；注意疲劳即停。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121923Z-0d61efef37-step-09.jpg"
+            }
+          ]
+        },
+        {
+          "title": "单臂倒立撑",
+          "description": "极高阶目标，控制和安全退出高于次数。",
+          "targetSessions": 12,
+          "promotionCriterion": "能在专业保护条件下完成极少量高质量尝试，并保持安全退出。",
+          "estMinutes": 16,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仅适合长期训练者在厚垫、可靠墙面和专业伙伴保护下尝试。靠墙倒立后逐步转移重量到单手，只进行个人可控的小幅动作。任何眩晕、疼痛、麻木、视线异常或失控都立即停止。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-10",
+              "caption": "单手小幅尝试，控制第一；注意保护不可省略、不适立即停止。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121924Z-17f5801fba-step-10.jpg"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 2,
+          "title": "倒立支撑稳定",
+          "description": "靠墙倒立能稳定保持，具备进入倒立撑训练的基础。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 4,
+          "title": "标准倒立撑达标",
+          "description": "能完成可控倒立撑，为窄距和偏重训练打基础。",
+          "isKey": true
+        },
+        {
+          "levelIndex": 6,
+          "title": "单侧推力准备",
+          "description": "偏重倒立撑左右平衡，进入高阶单臂路线准备。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 9,
+          "title": "倒立撑十式通关",
+          "description": "能在保护下安全尝试单臂倒立撑路线，继续在最后练阶巩固。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "从乌鸦式、靠墙倒立到靠墙倒立撑的循序进阶",
+      "objectKey": "material/100004/action-assets/staging/cover/20260820T121912Z-2473efe948-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260820T121912Z-2473efe948-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 221569,
+      "sha256": "57f122a841df43b0f66a1ac96ca65991bd793a41e4eb561f2bdbabae15694b2e"
+    },
+    {
+      "assetId": "step-01",
+      "role": "content",
+      "alt": "靠墙头倒立的准备与稳定阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121913Z-5a91f39089-step-01.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121913Z-5a91f39089-step-01.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 193952,
+      "sha256": "cb18f9817d105b89af9b578f94e045ec4ca64d395cab423b6391e8225d262681"
+    },
+    {
+      "assetId": "step-02",
+      "role": "content",
+      "alt": "乌鸦式的准备与平衡阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121915Z-12d6e56a91-step-02.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121915Z-12d6e56a91-step-02.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 177032,
+      "sha256": "8511c2c71641d458a2c5718ec9ec01ce91c776fc6836e949372085f3d9e63af1"
+    },
+    {
+      "assetId": "step-03",
+      "role": "content",
+      "alt": "靠墙倒立的进入与稳定阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121916Z-7a633aa89f-step-03.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121916Z-7a633aa89f-step-03.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 183582,
+      "sha256": "7be3a4b6f8dfcd3582f92b46f45cc3652b2dab76bf1dc05ab24742ef0b435a5d"
+    },
+    {
+      "assetId": "step-04",
+      "role": "content",
+      "alt": "靠墙半程倒立撑的直臂起始与浅幅下降阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121917Z-d29d7ba1eb-step-04.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121917Z-d29d7ba1eb-step-04.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 178441,
+      "sha256": "0a63bf299f671628e172f61d0c38e07ebfa2ac1b694b2619c72e343853fcd2f3"
+    },
+    {
+      "assetId": "step-05",
+      "role": "content",
+      "alt": "标准倒立撑的起始与底部阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121918Z-3dc21631f0-step-05.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121918Z-3dc21631f0-step-05.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 194234,
+      "sha256": "18eec5d26b06c85273ddc7769cebfea32db08b20cf7573ac26b6146e1ae1a38c"
+    },
+    {
+      "assetId": "step-06",
+      "role": "content",
+      "alt": "窄距倒立撑的起始与下降阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121920Z-68d2b36ea5-step-06.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121920Z-68d2b36ea5-step-06.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 176903,
+      "sha256": "18fecbbef6605cf4d60d87d7224723574daec175d00d64b72dd9a9b7fb92f473"
+    },
+    {
+      "assetId": "step-07",
+      "role": "content",
+      "alt": "一手地面一手低台完成偏重倒立撑",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121921Z-8db160220c-step-07.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121921Z-8db160220c-step-07.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 209632,
+      "sha256": "f0c18834a910ebbcec94763b99ad96d4615bfddf9d699ecac07d36beb9da2492"
+    },
+    {
+      "assetId": "step-08",
+      "role": "content",
+      "alt": "半程单臂倒立撑的重心转移与小幅下降阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121922Z-ed1848bfc4-step-08.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121922Z-ed1848bfc4-step-08.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 183496,
+      "sha256": "74d72cb56bc6ce3b02b24a249916f609c42a753cdcf81dbb243e52878cf27d6d"
+    },
+    {
+      "assetId": "step-09",
+      "role": "content",
+      "alt": "主手支撑、辅助手向侧方伸远的杠杆倒立撑",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121923Z-0d61efef37-step-09.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121923Z-0d61efef37-step-09.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 163795,
+      "sha256": "975676d085e894dff2627eb1c176cf483b9bb7298273ba567571e47a7e2ff929"
+    },
+    {
+      "assetId": "step-10",
+      "role": "content",
+      "alt": "靠墙单臂倒立撑的支撑与小幅尝试阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260820T121924Z-17f5801fba-step-10.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260820T121924Z-17f5801fba-step-10.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 160915,
+      "sha256": "20452bc9fe1ffedf274a2180338238345d490de7c29d1296e3c2db00e4650350"
+    }
+  ]
+}

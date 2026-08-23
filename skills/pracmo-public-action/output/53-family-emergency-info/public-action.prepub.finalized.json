@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-53-family-emergency-info-20260819-v1",
+  "catalog": {
+    "category": "skill",
+    "tags": [
+      "家庭应急",
+      "信息整理",
+      "照护准备",
+      "风险意识",
+      "8分钟"
+    ],
+    "coverImage": {
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065819Z-c2daea87a7-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065819Z-c2daea87a7-cover.jpg",
+      "alt": "家庭成员把联系人、服务电话和物品位置整理进清晰的应急资料夹"
+    }
+  },
+  "template": {
+    "title": "更新一条家庭应急信息",
+    "description": "在家庭认可且安全的位置更新一项应急联系人、常用地址、服务电话或重要物品位置，每次只补一个缺口。不在公开记录里写证件号、密码、验证码或医疗隐私。",
+    "iconCode": "checklist",
+    "colorCode": "orange",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":1}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "text",
+    "contentMode": "self_directed"
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "家庭成员把联系人、服务电话和物品位置整理进清晰的应急资料夹",
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065819Z-c2daea87a7-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065819Z-c2daea87a7-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 191184,
+      "sha256": "655f90e5bdf30072021ffa1c082c25fc948ce5c05894050a5631eca9e859fef1"
+    }
+  ]
+}

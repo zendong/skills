@@ -1,0 +1,150 @@
+{
+  "publicActionId": "1WXBjy24e76b4OAxp7Ml86",
+  "title": "从长文到清晰摘要",
+  "description": "训练从问题、结论、依据和限定条件出发压缩长文，在不同长度与读者之间保持事实忠实。只处理用户有权使用的材料。",
+  "iconCode": "writing",
+  "colorCode": "purple",
+  "category": "writing",
+  "tags": [
+    "摘要写作",
+    "信息压缩",
+    "忠实表达",
+    "长文阅读",
+    "跟练计划"
+  ],
+  "template": {
+    "title": "从长文到清晰摘要",
+    "description": "训练从问题、结论、依据和限定条件出发压缩长文，在不同长度与读者之间保持事实忠实。只处理用户有权使用的材料。",
+    "iconCode": "writing",
+    "colorCode": "purple",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "找到原文的问题",
+          "description": "用一句话说明原文试图回答什么。",
+          "targetSessions": 4,
+          "promotionCriterion": "能写出一个原文真正回答、范围明确且不夹带自己观点的问题。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "选择一篇有权使用的长文，先看标题、开头、结尾和段落结构，再用一句话写“作者试图回答……”。回到原文找至少两处支持；若问题过大，就加入对象、情境或时间范围。常见错误是把主题当问题，例如只写“关于效率”。不要复制原文标题充当答案。"
+            }
+          ]
+        },
+        {
+          "title": "分清结论与依据",
+          "description": "把作者的主张、主要依据和背景信息分层。",
+          "targetSessions": 5,
+          "promotionCriterion": "能标出一个核心结论、2–4条主要依据和必要背景，且每项都能定位到原文。",
+          "estMinutes": 18,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "用三种标记整理：核心结论回答了什么，主要依据为什么支持它，背景帮助读者理解什么。例子若只说明依据可放在次级。对不确定的句子标问号，不自行补因果。常见错误是把有趣细节当主结论，或把作者引用的他人观点误当作者立场。"
+            }
+          ]
+        },
+        {
+          "title": "保留限定条件",
+          "description": "删掉例子与修饰，同时不丢失结论成立的边界。",
+          "targetSessions": 5,
+          "promotionCriterion": "能删减至少三分之一笔记，并保留对象、条件、程度和不确定性等关键限定。",
+          "estMinutes": 20,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "逐条检查笔记：删除重复例子、修辞和旁支，但圈出“在何种情况下、针对谁、到什么程度、作者承认什么未知”。把绝对词与原文对照，不能把“可能、部分、在样本中”改成确定结论。常见错误是为短而去掉所有限制，导致意思反转。"
+            }
+          ]
+        },
+        {
+          "title": "写300字忠实摘要",
+          "description": "让没读原文的人理解问题、结论和关键依据。",
+          "targetSessions": 6,
+          "promotionCriterion": "摘要在300字左右，包含问题、结论、主要依据和限制；逐句能找到原文依据且没有新增观点。",
+          "estMinutes": 25,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "按“问题—结论—依据—限制”写初稿，不按原文段落机械缩写。完成后给每句标注原文位置；找不到依据的句子删除或改成自己的评注并移出摘要。再请读者仅看摘要复述核心意思，检查是否缺少关键连接。避免大段复制原文。"
+            }
+          ]
+        },
+        {
+          "title": "压缩到100字",
+          "description": "在更短篇幅中记录主动舍弃了什么。",
+          "targetSessions": 5,
+          "promotionCriterion": "100字版本仍保留问题、核心结论和至少一个关键限制，并能列出被舍弃的信息及原因。",
+          "estMinutes": 20,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从300字版本重新选择，不直接逐句删词。先写必须保留的三项，再用100字左右连接；另外列出被舍弃的例子、次要依据或背景。比较两版：是否因省略而让因果过强、对象扩大或语气变绝对。必要时宁可少写一个依据，也要保留限制。"
+            }
+          ]
+        },
+        {
+          "title": "为不同读者改开头",
+          "description": "改变进入方式，但不改变事实和结论。",
+          "targetSessions": 5,
+          "promotionCriterion": "能为同学、管理者和普通读者各写一个开头，差异体现在问题入口与信息顺序，而非篡改结论。",
+          "estMinutes": 20,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "基于同一摘要写三种50字开头：同学版先交代概念问题，管理者版先写决策相关结论与限制，普通读者版从可理解场景进入。逐版核对是否新增原文没有的利益、风险或承诺。不要用夸张标题代替读者适配，也不模仿在世作者的独特文风。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 3,
+          "title": "完成忠实摘要",
+          "description": "能写出可回查原文依据的300字摘要。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 5,
+          "title": "掌握多长度摘要",
+          "description": "能在长度与读者变化中保持事实不失真。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "actionType": "follow_along",
+  "planSummary": {
+    "levelCount": 6,
+    "targetSessions": 30,
+    "estMinutes": 588
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/1WXBjy24e76b4OAxp7Ml86/cover/b2466a6f5f3410f69e7656146d39b127c6457fb9b5b17333da3acaceadfe0d3a.jpg",
+  "clientRequestId": "public-action-69-long-text-summary-20260819-v1",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/1WXBjy24e76b4OAxp7Ml86/cover/b2466a6f5f3410f69e7656146d39b127c6457fb9b5b17333da3acaceadfe0d3a.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 208301,
+      "sha256": "b2466a6f5f3410f69e7656146d39b127c6457fb9b5b17333da3acaceadfe0d3a"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "viewCount": 0,
+  "importCount": 0,
+  "publicationRequestId": "pr_j7YQ62Zcwhtupghd6zeaA",
+  "reusedExisting": false
+}

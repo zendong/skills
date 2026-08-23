@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-65-health-info-check-20260819-v1",
+  "catalog": {
+    "category": "fitness",
+    "tags": [
+      "健康信息",
+      "证据判断",
+      "家庭群",
+      "科学素养",
+      "风险识别"
+    ],
+    "coverImage": {
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065847Z-e38d3a7068-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065847Z-e38d3a7068-cover.jpg",
+      "alt": "手机上的健康传言在转发前被暂停并用资料与专业渠道核验"
+    }
+  },
+  "template": {
+    "title": "健康信息别急着转",
+    "description": "在健康说法传播前识别一个证据缺口或行动风险，练习暂停与可信核验。",
+    "iconCode": "fitness",
+    "colorCode": "coral",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成“健康信息别急着转”情境单选题，训练转发或照做前识别证据与风险。题干使用原创、非真实热点的健康说法，轮换饮食、运动、睡眠、体检、保健品、常见症状和康复；每题只考来源是否可追、研究对象是否适用、相关不等于因果、剂量与条件缺失、个案不能代表普遍效果或是否延误就医中的一个关键点。使用最近最多20条记录，避免重复“主题+误导结构+最佳核验动作”。提供4个现实选项，最佳项通常是暂停传播、查原始可信来源或咨询合格专业人士，而不是模型自行诊断。解释题干中的具体警示信号与仍未知信息。不得生成危险偏方细节、个体化治疗建议或保证性结论。",
+      "quickQa": {
+        "questionType": "single_choice"
+      }
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "手机上的健康传言在转发前被暂停并用资料与专业渠道核验",
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065847Z-e38d3a7068-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065847Z-e38d3a7068-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 162000,
+      "sha256": "cfdc13878bb837c5ca58e3db308a56ae29caff0891145bc73966079859d7c189"
+    }
+  ]
+}

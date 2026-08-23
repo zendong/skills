@@ -1,0 +1,150 @@
+{
+  "publicActionId": "5kJ5HbV8lcytu59zcK2fPx",
+  "title": "考前节奏重建计划",
+  "description": "从厘清范围、最小启动到限时小模拟，帮助学生建立可持续的复习闭环；不以熬夜、题量和羞耻驱动进度。",
+  "iconCode": "exam",
+  "colorCode": "blue",
+  "category": "study",
+  "tags": [
+    "考前计划",
+    "学习节奏",
+    "复习闭环",
+    "压力减负",
+    "跟练计划"
+  ],
+  "template": {
+    "title": "考前节奏重建计划",
+    "description": "从厘清范围、最小启动到限时小模拟，帮助学生建立可持续的复习闭环；不以熬夜、题量和羞耻驱动进度。",
+    "iconCode": "exam",
+    "colorCode": "blue",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "看清范围与未知项",
+          "description": "先建立考试地图，不急着把每小时排满。",
+          "targetSessions": 3,
+          "promotionCriterion": "能列出已知范围、待确认信息和三个优先主题，并通过老师、课程平台或可靠资料确认关键未知项。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "收集课程大纲、老师通知和已有复习材料，分成“确定会考、可能涉及、尚未确认”。只列主题，不立刻填满日程；标出最影响准备的三个未知项并安排核实。常见错误是把焦虑写成无限清单。今晚只需得到一张可修改的范围图。"
+            }
+          ]
+        },
+        {
+          "title": "十五分钟最小启动",
+          "description": "用一个很小的单元打破迟迟不开始。",
+          "targetSessions": 5,
+          "promotionCriterion": "能在五次练习中至少四次按时启动，并在结束时留下明确的下一步。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "从一个概念、一页笔记或三道题中选一个15分钟单元。开始前写下完成定义，关闭无关提醒；时间到就停，记录完成了什么和下一步从哪里接。若仍有精力可以休息后再开新单元，不把一次启动变成长时间硬撑。"
+            }
+          ]
+        },
+        {
+          "title": "回忆—核对—补漏",
+          "description": "先从记忆输出，再用资料校正。",
+          "targetSessions": 6,
+          "promotionCriterion": "能独立回忆核心结构，核对后把遗漏压缩成3–5条可再次测试的提示。",
+          "estMinutes": 25,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "合上资料，用白纸写出本主题知道的结构、公式或关键步骤；再打开资料逐项核对，用另一种颜色标出缺口。只为缺口写简短提示，并在当天稍后重新回忆一次。常见错误是边看边抄造成熟悉感；第一步必须不看资料。"
+            }
+          ]
+        },
+        {
+          "title": "给错因分类",
+          "description": "把错误变成下一次可执行的调整。",
+          "targetSessions": 6,
+          "promotionCriterion": "能为十道错题区分知识、理解、粗心和时间分配，并为主要错因指定一个小调整。",
+          "estMinutes": 25,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "抽取本周错题，先不重做，判断主要错因：知识没掌握、理解偏差、步骤粗心或时间分配。每题只选一个最主要原因并写证据，再给占比最高的一类安排修复：重学概念、对比反例、增加检查点或调整顺序。不要把所有错误都归为粗心。"
+            }
+          ]
+        },
+        {
+          "title": "限时小模拟",
+          "description": "用短时段测试节奏并保留恢复时间。",
+          "targetSessions": 5,
+          "promotionCriterion": "能完成一次20–30分钟小模拟，记录时间分配、卡点与恢复状态，并据此调整下一次策略。",
+          "estMinutes": 35,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "选择覆盖2–3个主题的少量题目，设定20–30分钟并模拟正式环境。先写答题顺序和卡题退出规则，结束后休息，再复盘得分之外的节奏：哪里停太久、何时开始慌、哪些题应后做。不得以牺牲睡眠继续加练；出现明显不适应停止。"
+            }
+          ]
+        },
+        {
+          "title": "考前一天清单",
+          "description": "形成一张能降低临场负担的个人清单。",
+          "targetSessions": 4,
+          "promotionCriterion": "能按清单完成资料、物品、时间和恢复准备，并删掉会诱发临时抱佛脚的无效项。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "制作四栏清单：必须确认的考试信息、需要携带的物品、最后只看的一页提示、睡眠和出发安排。把无法在短时间补齐的内容从清单移到考后复盘。预留正常进食和休息，不依赖过量咖啡因或熬夜。每次考试后只修改一两项。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 2,
+          "title": "建立复习闭环",
+          "description": "能用回忆、核对和补漏推进学习。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 5,
+          "title": "形成个人考前节奏",
+          "description": "有可执行、可恢复、可复用的考前流程。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "actionType": "follow_along",
+  "planSummary": {
+    "levelCount": 6,
+    "targetSessions": 29,
+    "estMinutes": 655
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/5kJ5HbV8lcytu59zcK2fPx/cover/346411dbb81882179153835c59be66b9bb0c72c6f48a4642837c197c0759984e.jpg",
+  "clientRequestId": "public-action-68-exam-rhythm-reset-20260819-v1",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/5kJ5HbV8lcytu59zcK2fPx/cover/346411dbb81882179153835c59be66b9bb0c72c6f48a4642837c197c0759984e.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 184607,
+      "sha256": "346411dbb81882179153835c59be66b9bb0c72c6f48a4642837c197c0759984e"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "viewCount": 0,
+  "importCount": 0,
+  "publicationRequestId": "pr_45iBD6W0KxGarhUgE1g4DJ",
+  "reusedExisting": false
+}

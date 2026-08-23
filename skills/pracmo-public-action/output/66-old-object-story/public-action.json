@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-66-old-object-story-20260819-v1",
+  "catalog": {
+    "category": "writing",
+    "tags": [
+      "旧物故事",
+      "口述表达",
+      "回忆写作",
+      "跨代交流",
+      "简答题"
+    ],
+    "coverImage": {
+      "localPath": "assets/cover.jpg",
+      "alt": "长者双手捧着旧物，在温暖桌面上向家人讲述具体片段"
+    }
+  },
+  "template": {
+    "title": "旧物故事讲述题",
+    "description": "围绕一件自选旧物讲清3–6句具体片段，允许换题，不评判记忆与文采。",
+    "iconCode": "writing",
+    "colorCode": "orange",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成“旧物故事讲述题”中文简答练习，邀请用户围绕自选旧物讲清一个具体片段，而不是测试记忆力。题目轮换获得、使用、修理、赠送、搬家、工作、节日、家庭变化和时代生活等角度，并轮换感官细节、人物动作、对话、转折、物件变化和今日意义等目标。使用最近最多20条记录，避免重复“物件类别+时间关系+叙事目标”；不预设用户经历过某个年代、职业或家庭事件。每题要求3–6句，参考答案只示范结构，不虚构用户故事；评分看时间地点是否清楚、细节是否支持主题、读者能否理解，不评价经历大小和文采。允许回答“没有这类物件”并换题，不把遗忘或叙述困难解释为健康问题。",
+      "quickQa": {
+        "questionType": "short_answer"
+      }
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "localPath": "assets/cover.jpg",
+      "alt": "长者双手捧着旧物，在温暖桌面上向家人讲述具体片段"
+    }
+  ]
+}

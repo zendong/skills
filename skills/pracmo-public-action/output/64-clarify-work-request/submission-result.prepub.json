@@ -1,0 +1,59 @@
+{
+  "publicActionId": "1iUPTyXhtE600OMk2fziR3",
+  "title": "把工作要求问清楚",
+  "description": "每题用1–3句合作式提问，优先澄清一个最影响交付的不确定性。",
+  "iconCode": "briefcase",
+  "colorCode": "mint",
+  "category": "work",
+  "tags": [
+    "需求澄清",
+    "职场沟通",
+    "任务拆解",
+    "简答题",
+    "工作成长"
+  ],
+  "template": {
+    "title": "把工作要求问清楚",
+    "description": "每题用1–3句合作式提问，优先澄清一个最影响交付的不确定性。",
+    "iconCode": "briefcase",
+    "colorCode": "mint",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成“把工作要求问清楚”职场简答题。每题给出一个信息不完整但常见的任务委托，让用户写1–3句澄清问题。轮换交付目标、受众、截止时间、优先级、质量标准、决策人、资源、依赖、风险和变更范围；场景轮换办公室、门店、项目协作、客户服务、远程工作和重返职场。使用最近最多20条记录，避免重复“场景+缺失信息+权力关系”。评分接受多种表达，重点看是否抓住最大不确定性、语气是否合作、是否推动下一步；参考答案给直接版和更委婉版。不要把一口气问完所有问题设为最佳答案，也不鼓励越权承诺、甩锅或编造需求。解释为什么该问题优先，而非只评价礼貌。",
+      "quickQa": {
+        "questionType": "short_answer"
+      }
+    }
+  },
+  "actionType": "puki_quick_qa",
+  "planSummary": {
+    "questionType": "short_answer"
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/1iUPTyXhtE600OMk2fziR3/cover/fd796c58f0adcd41afc9488594a11aca2e5b3cfca9239af4503b65b46f843f87.jpg",
+  "clientRequestId": "public-action-64-clarify-work-request-20260819-v1",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/1iUPTyXhtE600OMk2fziR3/cover/fd796c58f0adcd41afc9488594a11aca2e5b3cfca9239af4503b65b46f843f87.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 183840,
+      "sha256": "fd796c58f0adcd41afc9488594a11aca2e5b3cfca9239af4503b65b46f843f87"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "viewCount": 0,
+  "importCount": 0,
+  "publicationRequestId": "pr_Rt17qLdtNYpSZRVdGMHLp",
+  "reusedExisting": false
+}

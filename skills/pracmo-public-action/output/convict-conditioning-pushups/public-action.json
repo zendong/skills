@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "pracmo-public-action@v1",
-  "clientRequestId": "convict-conditioning-pushups-v2-optimized-20260809",
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "convict-conditioning-pushups-v3-prepub-cover-20260818",
   "catalog": {
     "category": "fitness",
     "tags": [
@@ -10,7 +10,7 @@
     ],
     "coverImage": {
       "localPath": "assets/cover.jpg",
-      "alt": "囚徒健身俯卧撑十式跟练封面"
+      "alt": "从墙推、斜板到标准俯卧撑的循序进阶"
     }
   },
   "template": {
@@ -242,12 +242,12 @@
       "assetId": "cover",
       "role": "cover",
       "localPath": "assets/cover.jpg",
-      "alt": "囚徒健身俯卧撑十式跟练封面"
+      "alt": "从墙推、斜板到标准俯卧撑的循序进阶"
     },
     {
       "assetId": "step-01",
       "role": "content",
-      "localPath": "assets/cover.jpg",
+      "localPath": "assets/step-01.jpg",
       "alt": "墙壁俯卧撑起始与靠墙阶段"
     },
     {

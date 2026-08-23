@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "convict-conditioning-leg-raises-v1-prepub-20260819",
+  "catalog": {
+    "category": "fitness",
+    "tags": [
+      "跟练计划",
+      "自重训练",
+      "核心力量",
+      "举腿进阶",
+      "悬垂训练"
+    ],
+    "coverImage": {
+      "objectKey": "material/100004/action-assets/staging/cover/20260818T162744Z-9569060703-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260818T162744Z-9569060703-cover.jpg",
+      "alt": "从坐姿收膝、仰卧直腿举到悬垂直腿举的循序进阶"
+    }
+  },
+  "template": {
+    "title": "举腿十式跟练",
+    "description": "从坐姿收膝循序渐进到悬垂直腿举，建立腹部力量、髋屈控制与骨盆稳定。悬垂前确认横杠和门框牢固；如有腰背、髋部、肩部疼痛或康复需求，请先咨询专业医生或康复师。出现刺痛、麻木、眩晕或关节不适时立即停止。",
+    "iconCode": "fitness",
+    "colorCode": "mint",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "坐姿收膝",
+          "description": "用低负荷坐姿学习骨盆控制和主动收膝。",
+          "targetSessions": 6,
+          "promotionCriterion": "能稳定完成3组，每组30-40次，动作全程可控且腰背无不适。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "坐在稳固椅子的前半部，双手轻扶椅面两侧，躯干微微后倾。双膝弯曲，呼气时慢慢把膝盖向胸口收，吸气时伸回，但不要让双脚完全落地。保持背部和骨盆稳定，不甩腿、不憋气。完成2-3组，每组留2-3次余力。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-01",
+              "caption": "坐稳椅面，主动收膝；注意椅子稳固、不甩腿。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162745Z-08cb03de27-step-01.jpg"
+            }
+          ]
+        },
+        {
+          "title": "仰卧收膝",
+          "description": "在仰卧位训练腹部发力和骨盆稳定。",
+          "targetSessions": 6,
+          "promotionCriterion": "能稳定完成3组，每组25-35次，伸腿时腰部保持可控。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仰卧在垫面，双手平放在身体两侧，不用手抱膝。双膝弯曲、双脚离地，先收紧腹部，再把膝盖向胸口带；随后慢慢伸回起点。保持头颈放松和下背稳定，腰部明显拱起时缩小伸腿范围。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-02",
+              "caption": "双手留在体侧，腹部主动收膝；注意不抱腿、不拱腰。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162746Z-0dfcaf74a1-step-02.jpg"
+            }
+          ]
+        },
+        {
+          "title": "仰卧屈腿举",
+          "description": "增加腿部杠杆，在屈膝状态下建立慢速控制。",
+          "targetSessions": 7,
+          "promotionCriterion": "能稳定完成3组，每组20-30次，伸腿时下背不明显离地。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仰卧，双腿弯曲抬起，双手放在身体两侧。呼气时将双腿向上带回，吸气时缓慢向前下方伸出。保持膝盖弯曲角度相对稳定，腹部持续收紧；下背开始拱起前就停止下降并返回。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-03",
+              "caption": "屈膝控制长杠杆，慢抬慢落；注意腰部稳定。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162748Z-9c4f48d6cd-step-03.jpg"
+            }
+          ]
+        },
+        {
+          "title": "仰卧蛙式举腿",
+          "description": "用逐步伸长的腿部杠杆衔接屈腿与直腿动作。",
+          "targetSessions": 7,
+          "promotionCriterion": "能稳定完成3组，每组15-25次，全程不摆动借力。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仰卧并抬起双腿，起始时膝盖弯曲。抬腿过程中逐渐把双腿伸长，回落时再适度屈膝。保持动作连续、安静，腹部主动控制骨盆；不要用甩腿或腰部弹动制造高度。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-04",
+              "caption": "收膝后逐步伸腿，动作连贯；注意不摆动借力。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162749Z-e900bb9c87-step-04.jpg"
+            }
+          ]
+        },
+        {
+          "title": "仰卧直腿举",
+          "description": "在地面完成完整直腿举，建立直腿杠杆控制。",
+          "targetSessions": 8,
+          "promotionCriterion": "能稳定完成2-3组，每组15-20次，下背保持稳定且无髋部不适。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仰卧，双腿并拢伸直，双手平放体侧。呼气时慢慢抬腿到接近垂直，吸气时缓慢下降到接近地面但不完全放松。保持膝盖伸直和下背稳定；腰部离地或髋部不适时，缩小范围或退回上一练阶。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-05",
+              "caption": "双腿并拢，慢抬慢落；注意下背稳定、不抢速度。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162750Z-d5ddfa6b12-step-05.jpg"
+            }
+          ]
+        },
+        {
+          "title": "悬垂收膝",
+          "description": "进入悬垂训练，同时建立握力、肩部稳定和止摆能力。",
+          "targetSessions": 8,
+          "promotionCriterion": "能稳定完成2-3组，每组10-15次，横杠牢固且身体无明显摆动。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "使用额定承重明确且安装牢固的横杠，训练前先低位试拉。双手抓牢，保持肩部主动稳定，不要完全耸肩悬挂。呼气收腹，把膝盖向胸口抬起；吸气慢慢放下。每次先止住摆动再开始下一次，握力不足时立即落地休息。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-06",
+              "caption": "横杠先检查，主动悬挂后收膝；注意先止摆再开始。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162751Z-38e9216e4b-step-06.jpg"
+            }
+          ]
+        },
+        {
+          "title": "悬垂屈腿举",
+          "description": "在悬垂中延长腿部杠杆，让屈腿抬至接近水平。",
+          "targetSessions": 9,
+          "promotionCriterion": "能稳定完成2组，每组10-15次，双腿长杠杆清晰且下降慢而稳。",
+          "estMinutes": 14,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "确认横杠牢固后主动悬挂，双腿并拢、膝盖只轻微弯曲。保持躯干竖直，呼气时从髋部抬起整条腿，直到大腿接近水平；吸气慢慢下降。脚端始终远离胸口，避免退化成收膝，也不要后仰或摆腿借力。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-07",
+              "caption": "膝仅轻屈，长杠杆抬到水平；注意脚端远离胸口、不摆腿。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162752Z-c9ba393812-step-07.jpg"
+            }
+          ]
+        },
+        {
+          "title": "悬垂蛙式举腿",
+          "description": "在悬垂中逐渐伸长双腿，过渡到直腿举。",
+          "targetSessions": 10,
+          "promotionCriterion": "能稳定完成2组，每组8-12次，躯干稳定且伸腿过程可控。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "主动悬挂后抬起屈曲的双腿，上抬过程中逐渐把双腿伸长；下降时慢慢屈膝回到可控位置。保持腹部持续发力、肩部稳定和躯干安静。若出现明显前后摆荡，先停稳或退回上一练阶。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-08",
+              "caption": "上抬时逐步伸腿，腹部持续发力；注意肩部稳定、腰不前甩。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162753Z-fa9f15b31c-step-08.jpg"
+            }
+          ]
+        },
+        {
+          "title": "部分悬垂直腿举",
+          "description": "用小幅度直腿上抬建立完整悬垂直腿举的起始控制。",
+          "targetSessions": 10,
+          "promotionCriterion": "能稳定完成2组，每组8-10次，双腿保持伸直并能在小幅度内止摆。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "主动悬挂，双腿并拢伸直。收紧腹部，让双腿只从垂直位置向前抬起约30度，再慢慢回到起点。膝盖始终伸直，脚端明显低于髋部；不要追求水平高度，也不要用躯干后仰或摆荡扩大幅度。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-09",
+              "caption": "直腿只抬约30度，脚端低于髋；注意小幅可控、不摆荡。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162755Z-2dcf14a999-step-09.jpg"
+            }
+          ]
+        },
+        {
+          "title": "悬垂直腿举",
+          "description": "举腿路线的主目标，考验直腿杠杆、核心力量和悬垂稳定。",
+          "targetSessions": 12,
+          "promotionCriterion": "能稳定完成2组，每组8-10次，双腿达到水平且上落全程可控。",
+          "estMinutes": 16,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "确认横杠牢固后主动悬挂，双腿并拢伸直。呼气收紧腹部，从髋部把双腿抬到水平或个人可控的更高位置；吸气慢慢下降。全程保持躯干安静、肩部稳定并自然呼吸。动作开始摆荡、握力松脱或姿势失控时立即结束本组。"
+            },
+            {
+              "blockType": "image",
+              "assetId": "step-10",
+              "caption": "直腿抬到水平，全程慢而安静；注意不摆荡、不憋气。",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162756Z-4066826058-step-10.jpg"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 2,
+          "title": "地面核心入门",
+          "description": "仰卧屈腿举稳定，说明腹部和骨盆控制开始建立。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 4,
+          "title": "地面直腿举达标",
+          "description": "能稳定完成仰卧直腿举，为悬垂路线建立直腿杠杆基础。",
+          "isKey": true
+        },
+        {
+          "levelIndex": 6,
+          "title": "悬垂核心稳定",
+          "description": "悬垂屈腿举稳定，握力、肩部和长杠杆控制可承接下一阶段。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 9,
+          "title": "举腿十式通关",
+          "description": "能完成可控的悬垂直腿举，保留最后练阶继续巩固。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "从坐姿收膝、仰卧直腿举到悬垂直腿举的循序进阶",
+      "objectKey": "material/100004/action-assets/staging/cover/20260818T162744Z-9569060703-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260818T162744Z-9569060703-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 197484,
+      "sha256": "bdd995c9d1e86cf1848f9e05cbb8ace8efcddcdabb08d41bac27904995a7a98a"
+    },
+    {
+      "assetId": "step-01",
+      "role": "content",
+      "alt": "坐姿收膝的伸腿与收膝阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162745Z-08cb03de27-step-01.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162745Z-08cb03de27-step-01.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 191696,
+      "sha256": "c335f9dcfb8f8f3a0ff8198204a7650ae6036702b33bfb93bc8fcc1e94e08809"
+    },
+    {
+      "assetId": "step-02",
+      "role": "content",
+      "alt": "双手留在体侧完成仰卧收膝的起止动作",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162746Z-0dfcaf74a1-step-02.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162746Z-0dfcaf74a1-step-02.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 165575,
+      "sha256": "57846cab7f2d78419d3c82e1bba5827a04770a4e2f945c73b739992917e10d8c"
+    },
+    {
+      "assetId": "step-03",
+      "role": "content",
+      "alt": "仰卧屈腿举的起始与上举阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162748Z-9c4f48d6cd-step-03.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162748Z-9c4f48d6cd-step-03.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 176340,
+      "sha256": "9c2105a326a7c2b08926db0c32b09af9bccc1054d53bec011558ed498c0bf47b"
+    },
+    {
+      "assetId": "step-04",
+      "role": "content",
+      "alt": "仰卧蛙式举腿的收膝与伸腿阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162749Z-e900bb9c87-step-04.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162749Z-e900bb9c87-step-04.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 163912,
+      "sha256": "84be508f1e645007a4d6346d2a3eb928781e0c6a50a063ca59f330549b7145c4"
+    },
+    {
+      "assetId": "step-05",
+      "role": "content",
+      "alt": "仰卧直腿举的起始与上举阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162750Z-d5ddfa6b12-step-05.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162750Z-d5ddfa6b12-step-05.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 157532,
+      "sha256": "fc8b36f2c3f06e56fc6e82e068f554442621b24423c70cba4d94b7bd4937fca6"
+    },
+    {
+      "assetId": "step-06",
+      "role": "content",
+      "alt": "悬垂收膝的主动悬挂与收膝阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162751Z-38e9216e4b-step-06.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162751Z-38e9216e4b-step-06.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 168745,
+      "sha256": "0b3a8f1dbb40f2c138c260250ce395ff473d54cf4edb241b5ca9c5f28c5ae154"
+    },
+    {
+      "assetId": "step-07",
+      "role": "content",
+      "alt": "侧视悬垂屈腿举的垂直悬挂与长杠杆水平阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162752Z-c9ba393812-step-07.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162752Z-c9ba393812-step-07.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 145749,
+      "sha256": "0c637990d7d98313313d7b5621ed202b210426771ca6e9e30812dbbec8464e5f"
+    },
+    {
+      "assetId": "step-08",
+      "role": "content",
+      "alt": "悬垂蛙式举腿的起始与逐步伸腿阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162753Z-fa9f15b31c-step-08.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162753Z-fa9f15b31c-step-08.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 172885,
+      "sha256": "2f5786c966c575be5f24226c063da90ffe7fc13bf3d81c9c0f4e95f37fe21061"
+    },
+    {
+      "assetId": "step-09",
+      "role": "content",
+      "alt": "悬垂直腿从垂直位置向前小幅抬起约三十度",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162755Z-2dcf14a999-step-09.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162755Z-2dcf14a999-step-09.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 175636,
+      "sha256": "09309bc75e8ee53c00f0c8ed9096be2827fd2e8daadeb6c3035119a4bcad50d2"
+    },
+    {
+      "assetId": "step-10",
+      "role": "content",
+      "alt": "悬垂直腿举的垂直悬挂与水平上举阶段",
+      "objectKey": "material/100004/action-assets/staging/content/20260818T162756Z-4066826058-step-10.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/content/20260818T162756Z-4066826058-step-10.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 151004,
+      "sha256": "59772b59cb2ee31216b46fe7a9b120d39105239fd272d6bd66f48d85c28d9e7d"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "pracmo-public-action@v2",
+  "clientRequestId": "public-action-63-source-tracking-challenge-20260819-v1",
+  "catalog": {
+    "category": "reading",
+    "tags": [
+      "信息检索",
+      "来源核验",
+      "媒介素养",
+      "证据链",
+      "单选题"
+    ],
+    "coverImage": {
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065843Z-e677aa6098-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065843Z-e677aa6098-cover.jpg",
+      "alt": "多层信息卡片通过放大镜追溯到最接近原始证据的资料"
+    }
+  },
+  "template": {
+    "title": "信息来源追踪赛",
+    "description": "沿原创传播链寻找更接近原始证据的下一步，并识别仍不能确定的信息。",
+    "iconCode": "reading",
+    "colorCode": "blue",
+    "scheduleType": "weekly_quota",
+    "scheduleConfigJson": "{\"quota\":3}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "puki_generated",
+    "generatedContentConfig": {
+      "schemaVersion": 1,
+      "type": "quick_qa",
+      "instruction": "生成“信息来源追踪赛”单选题，训练从转述追到更接近原始证据的来源。每题提供原创信息链，如群聊截图、短视频口播、媒体摘要、机构页面、原始报告或当事方声明，让用户选择下一步最有效的核验动作。轮换健康、校园、消费、公共服务、科技、职场和生活常识，不使用需实时判断的真实突发新闻。使用最近最多20条记录，避免重复“主题+传播链+核验动作”；错误项分别体现只看转发量、只换一个二手来源、搜索结论而非出处、忽略日期或适用范围。解释哪一环最接近原始证据，以及找到原文后仍不能确定什么。不要把机构身份自动等同于结论正确。",
+      "quickQa": {
+        "questionType": "single_choice"
+      }
+    }
+  },
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "alt": "多层信息卡片通过放大镜追溯到最接近原始证据的资料",
+      "objectKey": "material/100004/action-assets/staging/cover/20260819T065843Z-e677aa6098-cover.jpg",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/material/100004/action-assets/staging/cover/20260819T065843Z-e677aa6098-cover.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 261241,
+      "sha256": "c15faaabba54cf854caa48aabb56c7a3f9dbea669ec7ae53d1fd4512ef8bf4b1"
+    }
+  ]
+}

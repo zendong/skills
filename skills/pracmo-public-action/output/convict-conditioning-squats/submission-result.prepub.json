@@ -1,0 +1,344 @@
+{
+  "publicActionId": "219XpPH6t1SNE3AMSMdc5r",
+  "title": "囚徒健身·深蹲十式跟练",
+  "description": "从减重蹲起循序推进到完整单腿深蹲，逐步建立下肢力量、膝髋控制与踝部活动能力。本计划是原创整理的进阶参考，不是固定处方；有膝、髋、踝疼痛或康复需求时请先咨询医生或康复师，出现刺痛、卡顿、明显肿胀或失控时立即停止并退阶。",
+  "iconCode": "fitness",
+  "colorCode": "mint",
+  "category": "fitness",
+  "tags": [
+    "跟练计划",
+    "囚徒健身",
+    "深蹲进阶",
+    "自重训练",
+    "下肢力量"
+  ],
+  "template": {
+    "title": "囚徒健身·深蹲十式跟练",
+    "description": "从减重蹲起循序推进到完整单腿深蹲，逐步建立下肢力量、膝髋控制与踝部活动能力。本计划是原创整理的进阶参考，不是固定处方；有膝、髋、踝疼痛或康复需求时请先咨询医生或康复师，出现刺痛、卡顿、明显肿胀或失控时立即停止并退阶。",
+    "iconCode": "fitness",
+    "colorCode": "mint",
+    "scheduleType": "daily",
+    "scheduleConfigJson": "{}",
+    "timezone": "Asia/Shanghai",
+    "deadlineLocalTime": "20:30",
+    "gracePolicy": "none",
+    "completionMode": "one_tap",
+    "contentMode": "follow_along",
+    "followPlan": {
+      "afterCompletionPolicy": "continue_last_level",
+      "levels": [
+        {
+          "title": "肩倒立深蹲",
+          "description": "减轻下肢承重，熟悉膝髋屈伸。",
+          "targetSessions": 6,
+          "promotionCriterion": "能完成3组，每组30-50次，髋膝动作顺畅且颈部无不适。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "仰卧后抬腿，让下背和髋部离地，双手托住腰背。缓慢弯曲膝盖靠近胸口，再伸直双腿。重量留在上背和手臂支撑，不把压力压到颈部；颈部不舒服时立即停止。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/0f268ed4e2670cfa4221380b89d0da19d57ac7b377d030828846fa79ad22f34d.jpg",
+              "caption": "轻柔屈伸，双手托腰；注意不要把重量压到颈部。"
+            }
+          ]
+        },
+        {
+          "title": "折刀深蹲",
+          "description": "用手扶稳固支撑分担体重，练习下蹲路径。",
+          "targetSessions": 6,
+          "promotionCriterion": "能完成3组，每组30-40次，手只用于平衡。",
+          "estMinutes": 8,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "站在稳固桌沿或栏杆前，双手轻扶支撑物。臀部向后下方坐，膝盖沿脚尖方向弯曲，下降到舒适深度后站起。手只辅助平衡，不要把身体硬拉起来。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/392bcdcb643d45466637a80d282c0888a4f6f1be06cf0020bf9f38b25d0dcb75.jpg",
+              "caption": "扶稳支撑，臀向后坐；注意手只辅助、不硬拉。"
+            }
+          ]
+        },
+        {
+          "title": "辅助深蹲",
+          "description": "降低手部帮助，开始承担更多体重。",
+          "targetSessions": 7,
+          "promotionCriterion": "能完成3组，每组25-30次，底部不失控。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双脚与肩同宽，手轻扶门框、柱子或吊带。慢慢蹲下，保持脚跟稳定、膝盖沿脚尖方向；到底部后主要靠腿和臀站起。逐渐减少手臂拉力。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/fca9dca2fbb9f911812a2c8534a0d806e66b49aa8ddf1e88270d3594c7640ddf.jpg",
+              "caption": "轻扶门框，膝随脚尖；注意脚跟踩稳、膝不内扣。"
+            }
+          ]
+        },
+        {
+          "title": "半程深蹲",
+          "description": "在无辅助站姿下建立基础力量。",
+          "targetSessions": 7,
+          "promotionCriterion": "能完成2-3组，每组25次，膝盖轨迹稳定。",
+          "estMinutes": 10,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双脚稳定站立，双臂前伸或抱胸。下蹲到大腿接近半程位置，再平稳站起。保持脊柱自然、脚跟不抬，膝盖不要向内扣。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/a0bc5c513005f851ba7357662627d984296a3c1b17396a20715f96362c5f9282.jpg",
+              "caption": "半程控制，膝髋同向；注意不塌腰、不内扣。"
+            }
+          ]
+        },
+        {
+          "title": "标准深蹲",
+          "description": "完成完整范围的双腿深蹲。",
+          "targetSessions": 8,
+          "promotionCriterion": "能完成2-3组，每组20-30次，深度和节奏稳定。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "站稳后臀部向后下方坐，下降到大腿接近或低于水平的个人可控深度，胸口保持打开。底部短暂停顿后站起，脚掌均匀发力，避免膝内扣或腰背塌陷。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/39741ae21eba86fa26d9ece90dfd48f75efc046d24eeb37cbb9c3b57b9b32e99.jpg",
+              "caption": "臀向后下，胸口打开；注意脚跟稳定、膝不内扣。"
+            }
+          ]
+        },
+        {
+          "title": "窄距深蹲",
+          "description": "缩小站距，提高踝、膝、髋协同要求。",
+          "targetSessions": 8,
+          "promotionCriterion": "能完成2组，每组20次，脚跟不抬且无痛。",
+          "estMinutes": 12,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "双脚并拢或接近并拢站立，双臂前伸。缓慢下蹲并站起，膝盖沿脚尖方向移动。踝部活动受限时先降低深度，任何疼痛都立即停止。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/398775c54b8788f1a6c87478803e71178a3f87ad1ce627e5ce01ff1971a3b189.jpg",
+              "caption": "双脚收窄，动作慢控；踝部不适时减小深度。"
+            }
+          ]
+        },
+        {
+          "title": "偏重深蹲",
+          "description": "一脚主力承重，另一脚在低支撑物上辅助。",
+          "targetSessions": 9,
+          "promotionCriterion": "左右两侧都能完成2组，每组15次，骨盆保持稳定。",
+          "estMinutes": 14,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "主力脚踩稳，辅助脚放在身前的稳固低台上。主力腿下蹲，辅助腿只帮助平衡。站起时把重量留在主力脚中部，左右两侧交替完成。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/0d83152425d998c0fbc48fea5f9c19584b61dd386e2c37802db19ee7a27d6fd1.jpg",
+              "caption": "主脚发力，辅脚平衡；注意左右都练、不歪髋。"
+            }
+          ]
+        },
+        {
+          "title": "半程单腿深蹲",
+          "description": "进入单腿控制，先训练半程力量与平衡。",
+          "targetSessions": 10,
+          "promotionCriterion": "左右两侧都能完成2组，每组8-10次，膝盖沿脚尖方向。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "单脚站立，另一腿向前抬起。只下蹲到半程后站起，主力脚跟保持稳定，膝盖沿脚尖方向。旁边可放安全支撑物，但不要用手拉起身体。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/69b2d6fc3d30c3d8510bea85fba89681a2dd4b3d29bfd48ebcf01c53f25e7ebc.jpg",
+              "caption": "单脚站稳，只做半程；注意膝盖不要内扣。"
+            }
+          ]
+        },
+        {
+          "title": "辅助单腿深蹲",
+          "description": "用轻扶支撑完成更深的单腿动作范围。",
+          "targetSessions": 10,
+          "promotionCriterion": "左右两侧都能完成2组，每组8-10次，辅助逐渐减少。",
+          "estMinutes": 15,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "单脚站立，另一腿向前伸，手轻扶门框或栏杆。缓慢下降到可控深度，再主要靠主力腿站起。扶手只防止失衡，不抢走腿部发力。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/434106ee6d4f1e753781876663a440f1e72d018ce043eff24ffdd3eba01c3013.jpg",
+              "caption": "轻扶支撑，主腿发力；注意扶手不硬拉。"
+            }
+          ]
+        },
+        {
+          "title": "单腿深蹲",
+          "description": "综合考验单腿力量、活动度与平衡。",
+          "targetSessions": 12,
+          "promotionCriterion": "左右两侧都能完成2组，每组5-10次，完整范围可控。",
+          "estMinutes": 16,
+          "contentBlocks": [
+            {
+              "blockType": "text",
+              "textContent": "单脚站稳，另一腿向前伸，双臂前伸保持平衡。慢慢下蹲到个人最大可控深度，再平稳站起。脚跟保持稳定、膝盖不内扣；一旦失去控制，退回辅助单腿深蹲。"
+            },
+            {
+              "blockType": "image",
+              "mediaUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/803fe3b52b43a5e067483ff8df3916b978d6dd3998d629550928652377927dcc.jpg",
+              "caption": "单腿下蹲，全程控稳；失控时立即退阶。"
+            }
+          ]
+        }
+      ],
+      "checkpoints": [
+        {
+          "levelIndex": 2,
+          "title": "基础蹲起路径建立",
+          "description": "能完成辅助深蹲，掌握膝髋协同和安全下蹲方向。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 4,
+          "title": "标准深蹲达标",
+          "description": "完成完整双腿深蹲，为窄距和单腿路线打基础。",
+          "isKey": true
+        },
+        {
+          "levelIndex": 7,
+          "title": "单腿控制入门",
+          "description": "半程单腿深蹲稳定，平衡和单侧力量开始成形。",
+          "isKey": false
+        },
+        {
+          "levelIndex": 9,
+          "title": "深蹲十式通关",
+          "description": "能完成可控单腿深蹲，保留最后练阶继续巩固。",
+          "isKey": true
+        }
+      ]
+    }
+  },
+  "actionType": "follow_along",
+  "planSummary": {
+    "levelCount": 10,
+    "targetSessions": 83,
+    "estMinutes": 1046
+  },
+  "coverImageUrl": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/cover/5242c3d6b5781aecf7f3c23d535d4caa1648cbea0c3b53adea978e6b73c0556d.jpg",
+  "clientRequestId": "convict-conditioning-squats-v1-prepub-20260820",
+  "assets": [
+    {
+      "assetId": "cover",
+      "role": "cover",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/cover/5242c3d6b5781aecf7f3c23d535d4caa1648cbea0c3b53adea978e6b73c0556d.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 265447,
+      "sha256": "5242c3d6b5781aecf7f3c23d535d4caa1648cbea0c3b53adea978e6b73c0556d"
+    },
+    {
+      "assetId": "step-01",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/0f268ed4e2670cfa4221380b89d0da19d57ac7b377d030828846fa79ad22f34d.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 164583,
+      "sha256": "0f268ed4e2670cfa4221380b89d0da19d57ac7b377d030828846fa79ad22f34d"
+    },
+    {
+      "assetId": "step-02",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/392bcdcb643d45466637a80d282c0888a4f6f1be06cf0020bf9f38b25d0dcb75.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 186337,
+      "sha256": "392bcdcb643d45466637a80d282c0888a4f6f1be06cf0020bf9f38b25d0dcb75"
+    },
+    {
+      "assetId": "step-03",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/fca9dca2fbb9f911812a2c8534a0d806e66b49aa8ddf1e88270d3594c7640ddf.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 180525,
+      "sha256": "fca9dca2fbb9f911812a2c8534a0d806e66b49aa8ddf1e88270d3594c7640ddf"
+    },
+    {
+      "assetId": "step-04",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/a0bc5c513005f851ba7357662627d984296a3c1b17396a20715f96362c5f9282.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 171665,
+      "sha256": "a0bc5c513005f851ba7357662627d984296a3c1b17396a20715f96362c5f9282"
+    },
+    {
+      "assetId": "step-05",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/39741ae21eba86fa26d9ece90dfd48f75efc046d24eeb37cbb9c3b57b9b32e99.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 192009,
+      "sha256": "39741ae21eba86fa26d9ece90dfd48f75efc046d24eeb37cbb9c3b57b9b32e99"
+    },
+    {
+      "assetId": "step-06",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/398775c54b8788f1a6c87478803e71178a3f87ad1ce627e5ce01ff1971a3b189.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 148618,
+      "sha256": "398775c54b8788f1a6c87478803e71178a3f87ad1ce627e5ce01ff1971a3b189"
+    },
+    {
+      "assetId": "step-07",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/0d83152425d998c0fbc48fea5f9c19584b61dd386e2c37802db19ee7a27d6fd1.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 185856,
+      "sha256": "0d83152425d998c0fbc48fea5f9c19584b61dd386e2c37802db19ee7a27d6fd1"
+    },
+    {
+      "assetId": "step-08",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/69b2d6fc3d30c3d8510bea85fba89681a2dd4b3d29bfd48ebcf01c53f25e7ebc.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 191989,
+      "sha256": "69b2d6fc3d30c3d8510bea85fba89681a2dd4b3d29bfd48ebcf01c53f25e7ebc"
+    },
+    {
+      "assetId": "step-09",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/434106ee6d4f1e753781876663a440f1e72d018ce043eff24ffdd3eba01c3013.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 185415,
+      "sha256": "434106ee6d4f1e753781876663a440f1e72d018ce043eff24ffdd3eba01c3013"
+    },
+    {
+      "assetId": "step-10",
+      "role": "content",
+      "url": "https://wancai-beijing.oss-cn-beijing.aliyuncs.com/public-action/219XpPH6t1SNE3AMSMdc5r/content/803fe3b52b43a5e067483ff8df3916b978d6dd3998d629550928652377927dcc.jpg",
+      "contentType": "image/jpeg",
+      "sizeBytes": 175110,
+      "sha256": "803fe3b52b43a5e067483ff8df3916b978d6dd3998d629550928652377927dcc"
+    }
+  ],
+  "sourceType": "user",
+  "sourceAccountId": 100004,
+  "status": "draft",
+  "viewCount": 0,
+  "importCount": 0,
+  "publicationRequestId": "pr_2Jn58QFaxR75I9reVDup32",
+  "reusedExisting": false
+}
