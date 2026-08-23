@@ -33,11 +33,13 @@ Server 只在 Open API handler 增加最终 URL 约束，不修改共享 follow-
 Manifest 使用 `pracmo-action-images@v1`，每个 asset 记录：
 
 - `assetId`、`localPath`、`altText`、`provenance`、`license`、`factuality`。
-- `claims[].resourceIds`。
-- `expectedVisibleText`、`containsNumbers`、`expectedValues`。
-- `expectedRelations`：姿态、关节、方向、步骤或器材关系。
+- 顶层 `resources[]`：唯一 `resourceId`、标题、发布者、HTTPS URL、检索时间、版本/发布日期和 `sourceType`。`sourceType` 只允许 `primary`、`official`、`standard`、`peer_reviewed`、`reputable_secondary`。
+- `claims[]`：唯一 `claimId`、图片准确表达的完整事实文本和至少一个 `resourceIds`；引用必须存在。
+- `expectedVisibleText[]`：逐字预期文本。
+- `containsNumbers` 与 `expectedValues[]`：每项记录 label、精确 `displayValue`、单位和 `resourceIds`。
+- `expectedRelations[]`：结构化记录主体、关系、客体和说明，用于姿态、关节、方向、步骤或器材关系。
 - `usedBy`：`levelIndex` 与 `blockIndex`。
-- review：来源、像素、文字、数字、动作逻辑、计划一致性、安全性、手机可读性和误导检查。
+- review：来源、像素、文字、数字、动作逻辑、计划一致性、安全性、手机可读性和误导检查，以及绑定最终审阅文件的 `reviewedSha256`。
 
 最终请求保留当前 `pracmo-track-action@v1` 合同，只将 `mediaUrl` 替换为 HTTPS URL，不携带 manifest 或 `assetId`。
 
@@ -47,20 +49,28 @@ Manifest 使用 `pracmo-action-images@v1`，每个 asset 记录：
 
 - 行动 envelope、模式组合、日期和跟练结构的基础校验。
 - image block 与 manifest 一一对应，不允许未声明或未使用 asset。
-- 图片真实可读、格式合法、大小不超过 512 KiB。
+- `localPath` 只能是包内相对路径；拒绝绝对路径、`..`、越界 symlink，并要求 resolve 后仍位于 manifest 目录。
+- 图片真实可读、格式合法、大小不超过 512 KiB；reviewed 校验和最终化都重新计算 SHA-256，并要求与 `review.reviewedSha256` 相同。
 - 事实图片有来源；数值图片登记精确显示值。
 - 所有 review flag 为真且 notes 非空。
 - finalized 请求不含 `asset://`、`file://`、data URL 或非 HTTPS 图片。
 
 任何失败都返回非零并阻止上传或创建。上传成功后若远端哈希不一致，不输出最终请求。
 
-Open API handler 在业务 Create 前遍历 follow plan；仅当 `contentMode=follow_along` 且 block 为 image 时要求 `mediaUrl` 是合法 HTTPS URL。共享 action service 仍接受 App 私有对象 ID。
+Open API handler 在业务 Create 前遍历 follow plan。比较前对 `contentMode` 和 `blockType` 使用 `strings.TrimSpace`，避免带空白的值绕过 handler 后又被共享 service 接受；当归一化值为 `follow_along`/`image` 时，要求 `mediaUrl` 是绝对 HTTPS URL，scheme 必须精确为 `https` 且 host 非空。共享 action service 仍接受 App 私有对象 ID。
+
+## 幂等、续传与部分失败
+
+- OSS object key 由 `practiceAssets` 前缀、`clientRequestId`、`assetId` 和 reviewed SHA-256 确定，不使用时间戳或随机数。相同图片重试覆盖/复用同一对象与 URL。
+- 最终化成功后写出 `action-images.finalized.json` 上传台账和不可变的 `action.json`。创建超时或失败时必须重用同一份 `action.json`，不得重新最终化或改变 URL。
+- 多图上传中断时，重跑会按确定性 key 复用已上传对象并继续；每个对象仍重新下载校验哈希。
+- 未被行动引用的私人对象暂不主动删除，以保证失败恢复和避免误删；它们位于账号隔离的 request 目录，可由后续生命周期清理。该残留不允许被当作“创建成功”。
 
 ## 测试策略
 
-- Skill RED/GREEN：缺少来源、审阅失败、错误 block 映射、数值未登记、非法图片、占位符替换、最终非 HTTPS URL。
-- Server RED/GREEN：Open API 拒绝 `asset://`、HTTP 和私有对象 ID，接受 HTTPS；验证 service 未被非法请求调用。
-- 回归：现有私人行动、私人练习 skill 测试；Server handler 定向测试及 action service 测试。
+- Skill RED/GREEN：缺少/未知/不可信来源、claim 缺少完整文本、审阅失败、reviewed SHA 不匹配、越界路径或 symlink、错误 block 映射、数值未登记、非法图片、占位符替换、最终非 HTTPS URL，以及最终输出不包含 manifest 字段或 `assetId`。
+- Server RED/GREEN：Open API 拒绝 `asset://`、HTTP、无 host 的伪 HTTPS、私有对象 ID 和带空白的绕过形式，接受绝对 HTTPS；验证 service 未被非法请求调用。
+- 兼容回归：共享 action service 仍接受 App 私有对象 ID；现有私人行动、私人练习 skill 测试；Server handler 定向测试及 action service 测试。
 
 ## 非目标
 

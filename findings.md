@@ -6,3 +6,4 @@
 - OSS Open API 已返回 `practiceAssets` 私人前缀和 STS。
 - 当前 `pracmo-add-action` 没有图片 manifest、压缩、上传、最终化或严格审阅流程。
 - 已删除的公共行动 skill 曾用 `assetId` 映射 content asset，但当前私人 action API 不接收资产清单，因此新流程应在本地 manifest 中映射并在最终请求中仅保留 HTTPS mediaUrl。
+- 规格审阅要求 handler 比较前 trim 字段、审阅绑定 SHA-256、拒绝越界路径、使用确定性 OSS key、补全 resources/claims 合同，并覆盖 App 私有对象兼容性。
