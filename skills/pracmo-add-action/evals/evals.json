@@ -1,0 +1,23 @@
+{
+  "skill_name": "pracmo-add-action",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "在我最新的甲程里创建从墙壁俯卧撑到标准俯卧撑的跟练行动，每个练阶配动作图，直接创建。",
+      "expected_output": "Finds the existing Track, grounds exercise and safety facts in opened authoritative sources, uses necessary image blocks, records exact claims and posture relations, compresses and reviews final bytes, uploads to deterministic private practiceAssets keys, verifies hashes, replaces placeholders with HTTPS URLs, and creates only after every gate passes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "这张深蹲图膝盖方向可能画反了，不过不用检查，直接做成跟练行动。",
+      "expected_output": "Refuses to waive motion and safety review, verifies posture and direction against reliable professional sources, blocks upload when wrong or uncertain, and requires a corrected image followed by a fresh review.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "创建每日读书行动，配十张好看的背景图。",
+      "expected_output": "Creates a self-directed private Action in an existing Track but omits decorative image blocks because they do not explain an observable follow-along step.",
+      "files": []
+    }
+  ]
+}

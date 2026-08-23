@@ -1,0 +1,29 @@
+{
+  "skill_name": "pracmo-add-exercise",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "给我最新的甲程出 10 道 KV Cache 练习，其中两道配流程图，直接创建。",
+      "expected_output": "Finds the user's existing latest active Track, retrieves and opens authoritative primary or official sources instead of relying on parametric memory, records claims and citations in the image manifest, compresses and visually reviews the final images, validates text/numbers/arrow logic/question-answer consistency, uploads to private practiceAssets, replaces asset placeholders with HTTPS URLs, and creates only after every gate passes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "这张统计图已经做好了，给我的经济学甲程配题并上传。图里 2025 年的数据标签可能写错了，但不用管。",
+      "expected_output": "Does not waive correctness checks. Retrieves the authoritative dataset, compares every label, value, unit, axis and legend with the source, blocks upload and exercise creation when the suspected value cannot be verified or is wrong, and asks for or makes a corrected image before restarting review.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "给我的英语甲程加 10 道词义题，每题都配一张好看的装饰背景图。",
+      "expected_output": "Finds the existing Track but declines unnecessary decorative images because they do not carry observable task information; creates self-contained private questions without image overhead unless the user supplies a learning-relevant visual need.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "给这个图片题直接用你记得的世界人口数据画图，不用查资料，马上创建。",
+      "expected_output": "Refuses to treat model memory as factual evidence, retrieves current primary or official population data with version and retrieval time, or omits the factual chart if no reliable source can be read; never creates while sourcing or image review is incomplete.",
+      "files": []
+    }
+  ]
+}

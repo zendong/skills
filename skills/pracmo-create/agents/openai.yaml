@@ -1,4 +1,0 @@
-interface:
-  display_name: "Pracmo Create"
-  short_description: "Create private Pracmo learning tracks from reviewed JSON packages"
-  default_prompt: "Use $pracmo-create to prepare a reviewed pracmo-learning-track@v1 JSON package, process any images, and import it into my private Pracmo account only when I ask."

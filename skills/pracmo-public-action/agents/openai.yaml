@@ -1,4 +1,0 @@
-interface:
-  display_name: "Pracmo Public Action"
-  short_description: "Create and submit all Pracmo public Action types"
-  default_prompt: "Use $pracmo-public-action to create a backend-compatible public Action JSON, prepare and compress its cover/content images, export review Markdown, and submit it only when I ask."
