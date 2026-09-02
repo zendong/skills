@@ -26,8 +26,14 @@ REVIEW_FLAGS = (
     "questionAnswerVerified",
     "mobileReadabilityVerified",
     "answerLeakageChecked",
+    "authenticityVerified",
+    "scenePlausibilityVerified",
+    "deviceNeutralityVerified",
+    "privacyVerified",
 )
 SOURCE_TYPES = {"primary", "official", "standard", "peer_reviewed", "reputable_secondary"}
+SOURCE_MODES = {"web_downloaded", "real_scene_generated"}
+SHA256_RE = re.compile(r"^[a-f0-9]{64}$")
 
 
 class ContractError(ValueError):
@@ -83,7 +89,7 @@ def iter_image_fields(request):
                     yield index, f"options[{option_index}].content", option.get("content", "")
 
 
-def validate_request_shape(request):
+def validate_request_shape(request, require_collection=False):
     if not isinstance(request, dict):
         fail("request must be an object")
     allowed = {"schemaVersion", "clientRequestId", "exercise"}
@@ -98,14 +104,24 @@ def validate_request_shape(request):
     if not isinstance(exercise, dict):
         fail("exercise must be an object")
     require_nonempty(exercise.get("title"), "exercise.title")
+    collection_id = exercise.get("collectionId")
+    if collection_id is None:
+        if require_collection:
+            fail("exercise.collectionId is required for finalized requests")
+    else:
+        require_nonempty(collection_id, "exercise.collectionId")
+        if collection_id != collection_id.strip() or len(collection_id) > 64:
+            fail("exercise.collectionId must be 1 to 64 characters without surrounding whitespace")
     questions = exercise.get("questions")
     if not isinstance(questions, list) or not 10 <= len(questions) <= 100:
         fail("exercise.questions must contain 10 to 100 questions")
     for index, question in enumerate(questions):
         if not isinstance(question, dict):
             fail(f"exercise.questions[{index}] must be an object")
-        for field in ("questionType", "questionContent", "testableClaim", "explanation"):
+        for field in ("questionType", "questionContent", "testableClaim"):
             require_nonempty(question.get(field), f"exercise.questions[{index}].{field}")
+        if "explanation" in question:
+            fail(f"exercise.questions[{index}].explanation is not allowed; use options[].explanation")
         question_type = question.get("questionType")
         if question_type not in {"single_choice", "multiple_choice", "true_false", "short_answer"}:
             fail(f"exercise.questions[{index}].questionType is unsupported")
@@ -118,18 +134,31 @@ def validate_request_shape(request):
         if question.get("bloomLevel") not in {1, 2, 3, 4}:
             fail(f"exercise.questions[{index}].bloomLevel must be 1 to 4")
         options = question.get("options", [])
+        if not isinstance(options, list):
+            fail(f"exercise.questions[{index}].options must be an array")
+        if question_type == "short_answer":
+            if len(options) != 1:
+                fail(f"exercise.questions[{index}] short_answer requires exactly one reference answer option")
+        elif len(options) < 2:
+            fail(f"exercise.questions[{index}].options must contain at least two options")
+        correct_count = 0
+        for option_index, option in enumerate(options):
+            if not isinstance(option, dict):
+                fail(f"exercise.questions[{index}].options[{option_index}] must be an object")
+            require_nonempty(option.get("content"), f"exercise.questions[{index}].options[{option_index}].content")
+            require_nonempty(option.get("explanation"), f"exercise.questions[{index}].options[{option_index}].explanation")
+            if option.get("isCorrect") is True:
+                correct_count += 1
+            elif option.get("isCorrect") is not False:
+                fail(f"exercise.questions[{index}].options[{option_index}].isCorrect must be boolean")
         if question_type != "short_answer":
-            if not isinstance(options, list) or len(options) < 2:
-                fail(f"exercise.questions[{index}].options must contain at least two options")
-            correct_count = 0
-            for option_index, option in enumerate(options):
-                if not isinstance(option, dict):
-                    fail(f"exercise.questions[{index}].options[{option_index}] must be an object")
-                require_nonempty(option.get("content"), f"exercise.questions[{index}].options[{option_index}].content")
-                if option.get("isCorrect") is True:
-                    correct_count += 1
-                elif option.get("isCorrect") is not False:
-                    fail(f"exercise.questions[{index}].options[{option_index}].isCorrect must be boolean")
+            explanations = [option["explanation"].strip() for option in options]
+            if len(set(explanations)) != len(explanations):
+                fail(f"exercise.questions[{index}] option explanations must be distinct and option-specific")
+        if question_type == "short_answer":
+            if correct_count != 1:
+                fail(f"exercise.questions[{index}] short_answer reference answer option must be correct")
+        else:
             expected = "exactly one" if question_type in {"single_choice", "true_false"} else "at least two"
             if (question_type in {"single_choice", "true_false"} and correct_count != 1) or (
                 question_type == "multiple_choice" and correct_count < 2
@@ -192,6 +221,29 @@ def validate_package(request, manifest, base_dir, stage="reviewed"):
         require_nonempty(asset.get("altText"), f"{prefix}.altText")
         require_nonempty(asset.get("provenance"), f"{prefix}.provenance")
         require_nonempty(asset.get("license"), f"{prefix}.license")
+        source_mode = asset.get("sourceMode")
+        if source_mode not in SOURCE_MODES:
+            fail(f"{prefix}.sourceMode must be web_downloaded or real_scene_generated")
+        source_details = asset.get("sourceDetails")
+        if not isinstance(source_details, dict):
+            fail(f"{prefix}.sourceDetails must be an object")
+        source_refs = source_details.get("resourceIds")
+        if not isinstance(source_refs, list) or not source_refs:
+            fail(f"{prefix}.sourceDetails.resourceIds must cite at least one resource")
+        unknown_source_refs = set(source_refs) - resource_ids
+        if unknown_source_refs:
+            fail(f"{prefix}.sourceDetails cites unknown resources: {sorted(unknown_source_refs)}")
+        if source_mode == "web_downloaded":
+            if not is_https(str(source_details.get("originalUrl", ""))):
+                fail(f"{prefix}.sourceDetails.originalUrl must be HTTPS")
+            if not SHA256_RE.fullmatch(str(source_details.get("downloadSha256", ""))):
+                fail(f"{prefix}.sourceDetails.downloadSha256 must be lowercase SHA-256")
+        else:
+            require_nonempty(source_details.get("generationMethod"), f"{prefix}.sourceDetails.generationMethod")
+            if source_details.get("wholeImageGenerated") is not True:
+                fail(f"{prefix}.sourceDetails.wholeImageGenerated must be true")
+            if source_details.get("localLayoutApplied") is not False:
+                fail(f"{prefix}.sourceDetails.localLayoutApplied must be false")
         if asset.get("factuality") not in {"factual", "non_factual"}:
             fail(f"{prefix}.factuality must be factual or non_factual")
         local = safe_local_path(Path(base_dir), asset.get("localPath"), f"{prefix}.localPath")
@@ -267,7 +319,7 @@ def validate_package(request, manifest, base_dir, stage="reviewed"):
 
 
 def validate_final_request(request):
-    validate_request_shape(request)
+    validate_request_shape(request, require_collection=True)
     encoded = json.dumps(request, ensure_ascii=False)
     if "asset://" in encoded or "file://" in encoded or "data:image/" in encoded:
         fail("final request contains a local or embedded image reference")

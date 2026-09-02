@@ -20,6 +20,7 @@ ASSET_URL_RE = re.compile(r"^asset://([A-Za-z0-9][A-Za-z0-9._-]{0,63})$")
 SHA256_RE = re.compile(r"^[a-f0-9]{64}$")
 MAX_IMAGE_BYTES = 512 * 1024
 SOURCE_TYPES = {"primary", "official", "standard", "peer_reviewed", "reputable_secondary"}
+SOURCE_MODES = {"web_downloaded", "real_scene_generated"}
 REVIEW_FLAGS = (
     "sourceVerified",
     "pixelInspected",
@@ -223,6 +224,26 @@ def validate_package(request, manifest, base_dir, stage="reviewed"):
         asset_ids.add(asset_id)
         for field in ("altText", "provenance", "license"):
             require_text(asset.get(field), f"{path}.{field}")
+        source_mode = asset.get("sourceMode")
+        if source_mode not in SOURCE_MODES:
+            fail(f"{path}.sourceMode must be web_downloaded or real_scene_generated")
+        source_details = asset.get("sourceDetails")
+        if not isinstance(source_details, dict):
+            fail(f"{path}.sourceDetails must be an object")
+        source_refs = source_details.get("resourceIds")
+        if not isinstance(source_refs, list) or not source_refs or set(source_refs) - resource_ids:
+            fail(f"{path}.sourceDetails.resourceIds must cite known resources")
+        if source_mode == "web_downloaded":
+            if not is_https(str(source_details.get("originalUrl", ""))):
+                fail(f"{path}.sourceDetails.originalUrl must be HTTPS")
+            if not SHA256_RE.fullmatch(str(source_details.get("downloadSha256", ""))):
+                fail(f"{path}.sourceDetails.downloadSha256 must be lowercase SHA-256")
+        else:
+            require_text(source_details.get("generationMethod"), f"{path}.sourceDetails.generationMethod")
+            if source_details.get("wholeImageGenerated") is not True:
+                fail(f"{path}.sourceDetails.wholeImageGenerated must be true")
+            if source_details.get("localLayoutApplied") is not False:
+                fail(f"{path}.sourceDetails.localLayoutApplied must be false")
         if asset.get("factuality") not in {"factual", "non_factual"}:
             fail(f"{path}.factuality must be factual or non_factual")
         local = safe_local_path(Path(base_dir), asset.get("localPath"), f"{path}.localPath")

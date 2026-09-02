@@ -43,6 +43,13 @@
   "altText": "KV 缓存复用流程",
   "factuality": "factual",
   "provenance": "generated_from_sources",
+  "sourceMode": "real_scene_generated",
+  "sourceDetails": {
+    "generationMethod": "使用图片生成工具直接生成整张完整成图",
+    "resourceIds": ["resource-1"],
+    "wholeImageGenerated": true,
+    "localLayoutApplied": false
+  },
   "license": "original",
   "claims": [
     {
@@ -73,8 +80,17 @@
 
 `usedBy.field` 使用 `questionContent` 或 `options[n].content`，必须与实际 `asset://` 出现位置完全一致。
 
+### 来源模式合同
+
+- `web_downloaded`：`sourceDetails` 必须包含 `resourceIds`、与登记资源一致的 HTTPS `originalUrl`、原下载文件的 `downloadSha256`；`license` 必须说明可使用依据。
+- `real_scene_generated`：`sourceDetails` 必须包含 `generationMethod`、支撑场景与事实的 `resourceIds`、`wholeImageGenerated: true` 和 `localLayoutApplied: false`。整张完整成图必须直接来自图片生成工具。
+- 不允许其它来源模式。无法证明真实来源或真实场景时，删除图片引用，改用纯文字题。
+
 ## 3. 制作要求
 
+- 默认禁止本地排版。不得使用 Pillow、Canvas、SVG、HTML/CSS、截图拼贴、后期贴字、透视合成或代码绘图改变可见内容；不得先生成底图再把文字、数字、UI、箭头、人物或背景叠上去。
+- 只允许不改变可见内容的压缩、格式转换、元数据清理和透明通道处理。用户明确要求本地排版/合成时才可例外，并在 `generationMethod`、审阅 notes 和交付说明中记录。
+- 生图结果有错字、伪字、数字错误、逻辑错误、姿态错误、品牌/机型泄露或真实性不足时，整图重新生成；禁止用局部覆盖或后期排版修补。
 - 优先使用原始高分辨率资料或从证据重新绘制，禁止反复转存的模糊图。
 - 图片只包含作答所需信息；不要通过高亮、文件名、角标或图中文字直接暴露答案。
 - 以手机屏幕为基准设计字号、线宽、留白和对比度；色彩不能是区分答案的唯一手段。
@@ -89,7 +105,7 @@
 - 数值：逐项核对数值、单位、量纲、比例、百分号、日期、精度、坐标刻度和图例。
 - 结构：核对节点、箭头、顺序、方向、层级、集合关系、空间对应和颜色映射。
 - 事实：每个 `claim` 都能从其 `resourceIds` 对应来源直接支持，不把推测画成事实。
-- 题目：只看图片和题干独立作答，复算结果，再对照选项、正确答案和解析。
+- 题目：只看图片和题干独立作答，复算结果，再逐项对照选项、正确答案和各 option 的解析。
 - 教学：难度与 Bloom 层级匹配，干扰项有诊断价值，图片没有额外歧义或答案泄漏。
 - 呈现：按手机宽度查看仍清楚，压缩无明显伪影，色弱或灰度下仍能理解关键区别。
 
@@ -107,9 +123,15 @@ OCR 可用于发现漏字，但不能证明文字正确；自动图像相似度�
   "questionAnswerVerified": true,
   "mobileReadabilityVerified": true,
   "answerLeakageChecked": true,
+  "authenticityVerified": true,
+  "scenePlausibilityVerified": true,
+  "deviceNeutralityVerified": true,
+  "privacyVerified": true,
   "reviewedAt": "ISO-8601 timestamp",
   "notes": "具体记录核对了哪些文字、数字、关系以及独立作答结果"
 }
 ```
 
 不得为了通过脚本虚填 `true`。任何一项不能确认时必须保持失败状态，修正或删除图片，不能继续上传和创建。
+
+其中真实性与隐私复核还必须确认：画面不是低保真卡片或占位 UI；真实场景中的布局、透视与操作合理；手机不带特定厂商或机型特征；图中没有真实姓名、手机号、账号、订单号、地址、可路由链接、二维码、银行卡或可识别品牌。图片若表达客观知识，所有文字、数字和状态都要回到资源逐项核对。

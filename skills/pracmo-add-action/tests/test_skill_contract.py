@@ -40,6 +40,14 @@ class SkillContractTest(unittest.TestCase):
         self.assertIn("finalize_action_images.py", text)
         self.assertIn("任何一项未通过都不得创建", text)
 
+    def test_skill_forbids_local_layout_and_requires_whole_image_generation(self):
+        text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        reference = (ROOT / "references" / "follow-image-grounding-and-review.md").read_text(encoding="utf-8")
+        combined = text + reference
+        self.assertIn("整张完整成图", combined)
+        self.assertIn("禁止本地排版", combined)
+        self.assertIn("整图重新生成", combined)
+
 
 class ActionImageToolsTest(unittest.TestCase):
     @classmethod
@@ -104,6 +112,13 @@ class ActionImageToolsTest(unittest.TestCase):
                 "altText": "墙壁俯卧撑起始姿势",
                 "factuality": "factual",
                 "provenance": "generated_from_sources",
+                "sourceMode": "real_scene_generated",
+                "sourceDetails": {
+                    "generationMethod": "built-in image generation",
+                    "resourceIds": ["r1"],
+                    "wholeImageGenerated": True,
+                    "localLayoutApplied": False,
+                },
                 "license": "original",
                 "claims": [{
                     "claimId": "claim-1",
@@ -157,6 +172,18 @@ class ActionImageToolsTest(unittest.TestCase):
             directory = Path(tmp)
             request, manifest, _ = self.package(directory)
             manifest["assets"][0]["claims"][0]["resourceIds"] = ["missing"]
+            with self.assertRaises(self.validator.ContractError):
+                self.validator.validate_package(request, manifest, directory, stage="reviewed")
+
+    def test_generated_image_rejects_local_layout_or_partial_generation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            request, manifest, _ = self.package(directory)
+            manifest["assets"][0]["sourceDetails"]["wholeImageGenerated"] = False
+            with self.assertRaises(self.validator.ContractError):
+                self.validator.validate_package(request, manifest, directory, stage="reviewed")
+            manifest["assets"][0]["sourceDetails"]["wholeImageGenerated"] = True
+            manifest["assets"][0]["sourceDetails"]["localLayoutApplied"] = True
             with self.assertRaises(self.validator.ContractError):
                 self.validator.validate_package(request, manifest, directory, stage="reviewed")
             manifest["assets"][0]["claims"][0]["resourceIds"] = ["r1"]

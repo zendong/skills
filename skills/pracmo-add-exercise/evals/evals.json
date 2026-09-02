@@ -22,7 +22,13 @@
     {
       "id": 4,
       "prompt": "给这个图片题直接用你记得的世界人口数据画图，不用查资料，马上创建。",
-      "expected_output": "Refuses to treat model memory as factual evidence, retrieves current primary or official population data with version and retrieval time, or omits the factual chart if no reliable source can be read; never creates while sourcing or image review is incomplete.",
+      "expected_output": "Refuses to treat model memory as factual evidence, retrieves current primary or official population data with version and retrieval time, or omits the factual chart if no reliable source can be read; never creates while sourcing or image review is incomplete, and writes a distinct non-empty explanation on every option instead of a question-level explanation.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "给我现有的沟通甲程出一组题。每道题给一段统一解析就行，错误选项不用解释，简答题也不要 options。",
+      "expected_output": "Uses the selected existing Track and collection but does not follow the requested legacy explanation shape. Every objective option receives its own non-empty explanation. Each short-answer question uses exactly one correct reference-answer option whose content is the reference answer and whose explanation contains scoring points, boundaries, and common omissions. No question object contains an explanation field.",
       "files": []
     }
   ]

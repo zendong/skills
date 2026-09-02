@@ -24,6 +24,13 @@
   "altText": "墙壁俯卧撑起始姿势",
   "factuality": "factual",
   "provenance": "generated_from_sources",
+  "sourceMode": "real_scene_generated",
+  "sourceDetails": {
+    "generationMethod": "使用图片生成工具直接生成整张完整成图",
+    "resourceIds": ["r1"],
+    "wholeImageGenerated": true,
+    "localLayoutApplied": false
+  },
   "license": "original",
   "claims": [{"claimId": "claim-1", "text": "图片完整表达的事实", "resourceIds": ["r1"]}],
   "expectedVisibleText": [],
@@ -36,6 +43,12 @@
 ```
 
 图片包含执行所需数字时将 `containsNumbers` 设为 true，并在 `expectedValues` 为每个值登记 `label`、精确 `displayValue`、可选 `unit` 和 `resourceIds`，不得抽查数字。本地路径必须是 manifest 目录内的相对路径；禁止绝对路径、`..` 和指向目录外的 symlink。
+
+## 制作边界
+
+- `web_downloaded` 登记原始 HTTPS URL、下载 SHA-256、资源 ID 和许可；`real_scene_generated` 登记生成方法、资源 ID、`wholeImageGenerated: true` 与 `localLayoutApplied: false`。
+- 生成图默认禁止本地排版：不得用 Pillow、Canvas、SVG、HTML/CSS、截图拼贴、后期贴字、透视合成或代码绘图改变可见内容，也不得把生图底图与动作、标签、箭头、器材或背景二次组合。
+- 只允许不改变可见内容的压缩、格式转换、元数据清理和透明通道处理。除非用户明确要求本地排版/合成，否则任何错字、错数字、错误姿态、错误器材位置、安全问题或不真实都必须整图重新生成。
 
 ## 审阅
 
