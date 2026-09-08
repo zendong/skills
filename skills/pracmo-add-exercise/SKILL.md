@@ -1,6 +1,6 @@
 ---
 name: pracmo-add-exercise
-description: "在用户已有的璞奇甲程和指定练习册中创建一组私人练习，也支持创建练习册，以及为题干或选项制作、检索、校验并上传事实可靠的图片、图表和示意图。用户说练一下、把内容做成练习、给某个甲程或练习册出题、补练习、看图出题时使用。必须先读取 API Key 所属用户的存量甲程；不得创建甲程。没有存量甲程时，提示用户先到璞奇手机端创建甲程。"
+description: "在用户已有的多练甲程和指定练习册中创建一组私人练习，也支持创建练习册，以及为题干或选项制作、检索、校验并上传事实可靠的图片、图表和示意图。用户说练一下、把内容做成练习、给某个甲程或练习册出题、补练习、看图出题时使用。必须先读取 API Key 所属用户的存量甲程；不得创建甲程。没有存量甲程时，提示用户先到多练手机端创建甲程。"
 ---
 
 # Pracmo Add Exercise
@@ -14,12 +14,12 @@ description: "在用户已有的璞奇甲程和指定练习册中创建一组私
 
 ## 强制前置步骤：确认甲程 + 练习册
 
-写题前检查 `PRACMO_APIKEY`，不要让用户把 Key 发到聊天里。缺少时提示用户从 `https://www.zendong.com.cn/app/api-key` 获取并在本地设置。
+写题前先确认登录：运行 `pracmocli auth status`，或以环境变量 `PRACMO_API_KEY`（旧名 `PRACMO_APIKEY`）提供 Key。未登录时提示用户运行 `pracmocli auth login`（或到 `https://www.pracmo.com/app/api-key` 获取 Key）；不要让用户把 Key 发到聊天里。`pracmocli` 安装：`npm install -g @pracmo/pracmo-cli`（无 Python/Pillow/oss2 依赖）。
 
 调用 `GET /open/v1/learning-tracks?state=active&pageSize=100`；用户给了名称时同时传 `keyword`。也可使用：
 
 ```bash
-scripts/pracmo-open-api.sh list-tracks "甲程关键词"
+pracmocli tracks list "甲程关键词"
 ```
 
 甲程选择规则：
@@ -29,7 +29,7 @@ scripts/pracmo-open-api.sh list-tracks "甲程关键词"
 3. 没有 active 甲程，或搜索结果为空且不存在其他合理候选时，停止并原样提示：
 
 ```text
-没有找到可用的存量甲程。请先到璞奇手机端创建甲程，创建后告诉我，我就能读取到并继续添加练习。
+没有找到可用的存量甲程。请先到多练手机端创建甲程，创建后告诉我，我就能读取到并继续添加练习。
 ```
 
 不得创建甲程，也不得调用任何 import、`with-exercise` 或甲程创建接口。用户明确要求“新建甲程”时同样使用上面的手机端提示。
@@ -37,7 +37,7 @@ scripts/pracmo-open-api.sh list-tracks "甲程关键词"
 选定甲程后必须调用 `GET /open/v1/learning-tracks/:trackId/exercise-collections`，或使用：
 
 ```bash
-scripts/pracmo-open-api.sh list-collections <trackId>
+pracmocli collections list <trackId>
 ```
 
 练习册选择规则：
@@ -69,7 +69,8 @@ scripts/pracmo-open-api.sh list-collections <trackId>
 实际创建时调用 `POST /open/v1/learning-tracks/:trackId/exercise-collections`，或使用：
 
 ```bash
-scripts/pracmo-open-api.sh create-collection <trackId> output/<slug>/collection.json
+pracmocli validate collection output/<slug>/collection.json   # 提交前先校验
+pracmocli collections create <trackId> output/<slug>/collection.json
 ```
 
 以创建响应中的 `collectionId` 作为后续练习目的地。网络超时或结果未知时，以同一个 `clientRequestId` 和完全相同的 JSON 重试；用户修改名称或描述后，这是新意图，必须生成新的 ID。
@@ -156,12 +157,12 @@ scripts/pracmo-open-api.sh create-collection <trackId> output/<slug>/collection.
 先把原图放入 `source-assets/`，再压缩到独立审阅目录：
 
 ```bash
-python3 scripts/compress_exercise_images.py \
-  output/<slug>/exercise-images.json \
+pracmocli images compress output/<slug>/exercise.authoring.json \
+  --manifest output/<slug>/exercise-images.json \
   -o output/<slug>/reviewed/exercise-images.json
 ```
 
-压缩脚本会删除旧的 `review`，因为必须针对压缩后的实际文件重新审阅。缺少依赖时只在本地安装 `Pillow`，不得降低校验。
+压缩会删除旧的 `review`（压缩后必须针对实际文件重新审阅）。CLI 内置全部能力，无需 Python/Pillow 依赖。
 
 ## 图片正确性硬门禁
 
@@ -182,24 +183,21 @@ python3 scripts/compress_exercise_images.py \
 复核后运行硬校验：
 
 ```bash
-python3 scripts/validate_exercise_package.py \
-  output/<slug>/exercise.authoring.json \
+pracmocli images validate output/<slug>/exercise.authoring.json \
   --manifest output/<slug>/reviewed/exercise-images.json \
   --stage reviewed
 ```
 
 ## 上传与最终化
 
-只有 reviewed 校验通过后才能上传。下面的命令会使用私人 `practiceAssets` OSS 前缀上传、重新下载并校验上传内容哈希，再把所有 `asset://` 替换成 HTTPS URL；内部证据清单不会进入 API 请求。缺少上传依赖时在本地安装 `oss2`，不得绕过最终化脚本手工拼 URL：
+只有 reviewed 校验通过后才能上传。下面的命令会经 CLI 使用私人 `practiceAssets` 前缀 OSS 直传、重新下载并校验上传内容哈希，再把所有 `asset://` 替换成 HTTPS URL；内部证据清单不会进入 API 请求。不得绕过最终化命令手工拼 URL：
 
 ```bash
-python3 scripts/finalize_exercise_images.py \
-  output/<slug>/exercise.authoring.json \
+pracmocli images finalize output/<slug>/exercise.authoring.json \
   --manifest output/<slug>/reviewed/exercise-images.json \
   -o output/<slug>/exercise.json
 
-python3 scripts/validate_exercise_package.py \
-  output/<slug>/exercise.json --stage finalized
+pracmocli images validate output/<slug>/exercise.json --stage finalized
 ```
 
 最终 JSON 不得含本地路径、`asset://`、`file://`、base64 图片或不安全 URL。图片只允许 HTTPS Markdown URL。
@@ -209,7 +207,7 @@ python3 scripts/validate_exercise_package.py \
 用户要求实际创建、目标甲程和练习册都明确且所有适用门禁通过时：
 
 ```bash
-scripts/pracmo-open-api.sh add-exercise <trackId> output/<slug>/exercise.json
+pracmocli exercises add <trackId> output/<slug>/exercise.json
 ```
 
 这会调用 `POST /open/v1/learning-tracks/:trackId/exercises`。`trackId` 和 `exercise.collectionId` 都只能来自刚读取或刚创建的 API 响应，不可臆造或从别人的分享内容复制。无图片时也应以 `--stage finalized` 校验最终请求。
@@ -229,7 +227,7 @@ scripts/pracmo-open-api.sh add-exercise <trackId> output/<slug>/exercise.json
 }
 ```
 
-使用 `scripts/pracmo-open-api.sh replace-image <trackId> <exerciseId> <questionId> <json-file>`。服务端只允许同一可信 OSS host、当前账户私人 `practiceAssets` 前缀，并以旧 URL 恰好出现一次作为乐观锁；只修改指定题目的图片 URL并递增练习版本，不重建题目或选项。同一请求重试保持相同 ID 和 JSON；回滚使用新的稳定 ID 反向替换。
+使用 `pracmocli exercises image-replace <trackId> <exerciseId> <questionId> <json-file>`（提交前可先 `pracmocli validate replace-image <json-file>`）。服务端只允许同一可信 OSS host、当前账户私人 `practiceAssets` 前缀，并以旧 URL 恰好出现一次作为乐观锁；只修改指定题目的图片 URL并递增练习版本，不重建题目或选项。同一请求重试保持相同 ID 和 JSON；回滚使用新的稳定 ID 反向替换。
 
 多张图片逐项维护台账并回读。必须确认 exerciseId、questionId、optionId、题型、题干非图片文字、选项、正确答案、逐选项解析、顺序、计划和概念关联均未改变。旧图片需保留，以兼容进行中 play 的冻结投影。
 

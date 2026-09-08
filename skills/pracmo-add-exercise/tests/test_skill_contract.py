@@ -23,7 +23,7 @@ class SkillContractTest(unittest.TestCase):
         self.assertIn("name: pracmo-add-exercise", text)
         self.assertIn("GET /open/v1/learning-tracks", text)
         self.assertIn("POST /open/v1/learning-tracks/:trackId/exercises", text)
-        self.assertIn("请先到璞奇手机端创建甲程", text)
+        self.assertIn("请先到多练手机端创建甲程", text)
         self.assertIn("不得创建甲程", text)
         self.assertNotIn("/learning-tracks/import", text)
         self.assertNotIn("/learning-tracks/with-exercise", text)
@@ -55,8 +55,10 @@ class SkillContractTest(unittest.TestCase):
         text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("不得依赖模型参数记忆", text)
         self.assertIn("references/image-grounding-and-review.md", text)
-        self.assertIn("validate_exercise_package.py", text)
-        self.assertIn("finalize_exercise_images.py", text)
+        self.assertIn("pracmocli images validate", text)
+        self.assertIn("pracmocli images finalize", text)
+        self.assertIn("pracmocli exercises add", text)
+        self.assertIn("pracmocli exercises image-replace", text)
         self.assertIn("任何一项未通过都不得创建", text)
 
     def test_skill_requires_authentic_or_omitted_images(self):

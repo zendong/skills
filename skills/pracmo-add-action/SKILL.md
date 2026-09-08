@@ -1,6 +1,6 @@
 ---
 name: pracmo-add-action
-description: "在用户已有的璞奇甲程中创建私人行动，包括自行完成、小璞准备和带文字/图片 block 的分层跟练计划。用户说创建行动、每日任务、轻阅读、快问答、跟练计划、动作示范图或分阶段训练时使用。必须读取并选择 API Key 用户的存量甲程；不得创建甲程或公开行动。跟练图片必须经过可靠来源取证、动作与安全审阅、私人上传和 HTTPS 最终化。"
+description: "在用户已有的多练甲程中创建私人行动，包括自行完成、小璞准备和带文字/图片 block 的分层跟练计划。用户说创建行动、每日任务、轻阅读、快问答、跟练计划、动作示范图或分阶段训练时使用。必须读取并选择 API Key 用户的存量甲程；不得创建甲程或公开行动。跟练图片必须经过可靠来源取证、动作与安全审阅、私人上传和 HTTPS 最终化。"
 ---
 
 # Pracmo Add Action
@@ -11,16 +11,16 @@ description: "在用户已有的璞奇甲程中创建私人行动，包括自行
 
 ## 强制前置：读取并选择甲程
 
-检查 `PRACMO_APIKEY`，不要让用户把 Key 发到聊天里。调用 `GET /open/v1/learning-tracks?state=active&pageSize=100`；用户给出名称时传 `keyword`：
+检查 `PRACMO_APIKEY`，不要让用户把 Key 发到聊天里。调用 `GET /open/v1/learning-tracks?state=active&pageSize=100`（用 `pracmocli tracks list`）；`pracmocli` 安装：`npm install -g @pracmo/pracmo-cli`（无 Python/Pillow/oss2 依赖）。先确认登录：`pracmocli auth status` 或以 `PRACMO_API_KEY`/`PRACMO_APIKEY` 提供 Key，不要让用户把 Key 发到聊天里。
 
 ```bash
-scripts/pracmo-open-api.sh list-tracks "甲程关键词"
+pracmocli tracks list "甲程关键词"
 ```
 
 只有一个明确匹配项时使用，并在创建前说明甲程名称。多个合理匹配项时列出标题和 `trackId` 请用户选择，不要猜。没有 active 甲程时停止并原样提示：
 
 ```text
-没有找到可用的存量甲程。请先到璞奇手机端创建甲程，创建后告诉我，我就能读取到并继续添加行动。
+没有找到可用的存量甲程。请先到多练手机端创建甲程，创建后告诉我，我就能读取到并继续添加行动。
 ```
 
 不得创建甲程。用户要求新建甲程时也只提示手机端创建。
@@ -55,8 +55,8 @@ scripts/pracmo-open-api.sh list-tracks "甲程关键词"
 先压缩到独立审阅目录：
 
 ```bash
-python3 scripts/compress_action_images.py \
-  output/<slug>/action-images.json \
+pracmocli images compress output/<slug>/action.authoring.json \
+  --manifest output/<slug>/action-images.json \
   -o output/<slug>/reviewed/action-images.json
 ```
 
@@ -76,8 +76,7 @@ python3 scripts/compress_action_images.py \
 OCR 和视觉模型只能辅助，不能代替逐项比较。任何不确定、来源冲突、姿态歧义或安全问题都必须先修正并重新审阅。任何一项未通过都不得创建。
 
 ```bash
-python3 scripts/validate_action_package.py \
-  output/<slug>/action.authoring.json \
+pracmocli images validate output/<slug>/action.authoring.json \
   --manifest output/<slug>/reviewed/action-images.json \
   --stage reviewed
 ```
@@ -87,16 +86,14 @@ python3 scripts/validate_action_package.py \
 reviewed 校验通过后运行：
 
 ```bash
-python3 scripts/finalize_action_images.py \
-  output/<slug>/action.authoring.json \
+pracmocli images finalize output/<slug>/action.authoring.json \
   --manifest output/<slug>/reviewed/action-images.json \
   -o output/<slug>/action.json
 
-python3 scripts/validate_action_package.py \
-  output/<slug>/action.json --stage finalized
+pracmocli images validate output/<slug>/action.json --stage finalized
 ```
 
-最终化使用 `clientRequestId + assetId + reviewedSha256` 构造确定性私人 `practiceAssets` key，上传后重新下载比较哈希，再将 `asset://` 替换为 HTTPS `mediaUrl`。缺少依赖时仅在本地安装 `Pillow`、`oss2`，不得绕过脚本。
+最终化使用 `clientRequestId + assetId + reviewedSha256` 构造确定性私人 `practiceAssets` key，上传后重新下载比较哈希，再将 `asset://` 替换为 HTTPS `mediaUrl`。CLI 内置全部能力，无需 Python/Pillow/oss2 依赖，不得绕过最终化命令。
 
 创建失败或超时后重用同一份 `action.json`；不要重新最终化、改变 URL 或请求 ID。`action-images.finalized.json` 是续传台账，不得发送给行动 API。
 
@@ -105,7 +102,7 @@ python3 scripts/validate_action_package.py \
 用户要求实际创建、目标甲程明确且所有适用门禁通过时：
 
 ```bash
-scripts/pracmo-open-api.sh add-action <trackId> output/<slug>/action.json
+pracmocli actions add <trackId> output/<slug>/action.json
 ```
 
 这会调用 `POST /open/v1/learning-tracks/:trackId/actions`。`trackId` 必须来自当前 API Key 刚读取到的 active 甲程。严禁调用公开行动投稿接口。
