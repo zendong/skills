@@ -1,6 +1,12 @@
 ---
 name: pracmo-add-action
-description: "在用户已有的多练甲程中创建私人行动，包括自行完成、小璞准备和带文字/图片 block 的分层跟练计划。用户说创建行动、每日任务、轻阅读、快问答、跟练计划、动作示范图或分阶段训练时使用。必须读取并选择 API Key 用户的存量甲程；不得创建甲程或公开行动。跟练图片必须经过可靠来源取证、动作与安全审阅、私人上传和 HTTPS 最终化。"
+display_name: 练成行动
+description: "在用户已有的练成甲程中创建私人行动，包括自行完成、小璞准备和带文字/图片 block 的分层跟练计划。用户说创建行动、每日任务、轻阅读、快问答、跟练计划、动作示范图或分阶段训练时使用。必须读取并选择 API Key 用户的存量甲程；不得创建甲程或公开行动。跟练图片必须经过可靠来源取证、动作与安全审阅、私人上传和 HTTPS 最终化。"
+description_zh: "在用户已有的甲程中创建私人行动：自行完成、小璞准备的分层内容或带文字/图片 block 的逐一跟练，并支持图片取证、审阅与上传。"
+category: productivity
+version: 0.1.7
+author: 练成（evertrain）
+user-invocable: true
 ---
 
 # Pracmo Add Action
@@ -11,16 +17,16 @@ description: "在用户已有的多练甲程中创建私人行动，包括自行
 
 ## 强制前置：读取并选择甲程
 
-检查 `PRACMO_APIKEY`，不要让用户把 Key 发到聊天里。调用 `GET /open/v1/learning-tracks?state=active&pageSize=100`（用 `pracmocli tracks list`）；`pracmocli` 安装：`npm install -g @pracmo/pracmo-cli`（无 Python/Pillow/oss2 依赖）。先确认登录：`pracmocli auth status` 或以 `PRACMO_API_KEY`/`PRACMO_APIKEY` 提供 Key，不要让用户把 Key 发到聊天里。
+调用 `GET /open/v1/learning-tracks?state=active&pageSize=100`（用 `pracmocli --env prod tracks list`）；`pracmocli` 安装：`npm install -g @pracmo/pracmo-cli`（无 Python/Pillow/oss2 依赖）。先确认登录：`pracmocli --env prod auth status`，或以环境变量 `PRACMO_API_KEY` 提供 Key。未登录时提示用户运行 `pracmocli --env prod auth login`（或到 `https://www.pracmo.com/app/api-key` 获取 Key）；不要让用户把 Key 发到聊天里。
 
 ```bash
-pracmocli tracks list "甲程关键词"
+pracmocli --env prod tracks list "甲程关键词"
 ```
 
 只有一个明确匹配项时使用，并在创建前说明甲程名称。多个合理匹配项时列出标题和 `trackId` 请用户选择，不要猜。没有 active 甲程时停止并原样提示：
 
 ```text
-没有找到可用的存量甲程。请先到多练手机端创建甲程，创建后告诉我，我就能读取到并继续添加行动。
+没有找到可用的存量甲程。请先到练成手机端创建甲程，创建后告诉我，我就能读取到并继续添加行动。
 ```
 
 不得创建甲程。用户要求新建甲程时也只提示手机端创建。
@@ -55,9 +61,10 @@ pracmocli tracks list "甲程关键词"
 先压缩到独立审阅目录：
 
 ```bash
-pracmocli images compress output/<slug>/action.authoring.json \
+pracmocli --env prod images compress \
   --manifest output/<slug>/action-images.json \
-  -o output/<slug>/reviewed/action-images.json
+  -o output/<slug>/reviewed/action-images.json \
+  output/<slug>/action.authoring.json
 ```
 
 压缩会清除旧 `review`。必须打开 `reviewed/assets/` 中的实际文件重新检查，并把实际 SHA-256 写入 `review.reviewedSha256`。
@@ -76,9 +83,11 @@ pracmocli images compress output/<slug>/action.authoring.json \
 OCR 和视觉模型只能辅助，不能代替逐项比较。任何不确定、来源冲突、姿态歧义或安全问题都必须先修正并重新审阅。任何一项未通过都不得创建。
 
 ```bash
-pracmocli images validate output/<slug>/action.authoring.json \
+pracmocli --env prod images validate \
+  --stage reviewed \
+  --type action \
   --manifest output/<slug>/reviewed/action-images.json \
-  --stage reviewed
+  output/<slug>/action.authoring.json
 ```
 
 ## 私人上传与最终化
@@ -86,11 +95,13 @@ pracmocli images validate output/<slug>/action.authoring.json \
 reviewed 校验通过后运行：
 
 ```bash
-pracmocli images finalize output/<slug>/action.authoring.json \
+pracmocli --env prod images finalize \
   --manifest output/<slug>/reviewed/action-images.json \
-  -o output/<slug>/action.json
+  --type action \
+  -o output/<slug>/action.json \
+  output/<slug>/action.authoring.json
 
-pracmocli images validate output/<slug>/action.json --stage finalized
+pracmocli --env prod images validate --stage finalized --type action output/<slug>/action.json
 ```
 
 最终化使用 `clientRequestId + assetId + reviewedSha256` 构造确定性私人 `practiceAssets` key，上传后重新下载比较哈希，再将 `asset://` 替换为 HTTPS `mediaUrl`。CLI 内置全部能力，无需 Python/Pillow/oss2 依赖，不得绕过最终化命令。
@@ -102,7 +113,7 @@ pracmocli images validate output/<slug>/action.json --stage finalized
 用户要求实际创建、目标甲程明确且所有适用门禁通过时：
 
 ```bash
-pracmocli actions add <trackId> output/<slug>/action.json
+pracmocli --env prod actions add <trackId> output/<slug>/action.json
 ```
 
 这会调用 `POST /open/v1/learning-tracks/:trackId/actions`。`trackId` 必须来自当前 API Key 刚读取到的 active 甲程。严禁调用公开行动投稿接口。
@@ -113,3 +124,23 @@ pracmocli actions add <trackId> output/<slug>/action.json
 - 用户只要求草稿时保存/展示草稿并停止，不上传、不调用创建接口。
 - 成功后报告甲程、`trackId`、行动标题、`actionId`、模式和图片数，并明确这是私人行动。
 - 甲程不存在、已结束或不属于当前用户时停止；不要自动改投其他甲程。
+
+## 退出码与恢复动作
+
+写操作默认**不自动重试**。提交前可用 `--dry-run` 只做本地结构校验、不发请求。
+
+| 码 | 含义 | 恢复动作 |
+|----|------|----------|
+| 0 | 成功 | 解析 stdout JSON |
+| 1 | 参数/用法错误 | 查看 `pracmocli help` 后修正命令；不要改 JSON 内容 |
+| 2 | 未登录/凭证失效 | 引导用户 `pracmocli --env prod auth login`（或到 `https://www.pracmo.com/app/api-key` 取 Key） |
+| 3 | 业务错误（后端 4xx 非冲突） | 按 stderr 错误信息处理；甲程越权或已结束时重新读取列表让用户重新确认 |
+| 4 | 网络/超时 | **用相同 `clientRequestId` 与完全相同的 JSON 重试**，不得生成新 ID |
+| 5 | 冲突（409 幂等冲突） | 内容未改 → 核对此前结果；内容已实质修改 → 生成新 `clientRequestId` |
+| 6 | 本地门禁未过（校验失败） | 修图/改动作说明后**重新完整校验**；**不得创建** |
+
+> 行动的图片流水线**必须带 `--type action`**。省略它会拿练习的校验器去校验行动 JSON，
+> 表现为 `request top-level keys must be exactly schemaVersion, clientRequestId, exercise`。
+> 另外请确认校验输出里的 `stage` 与 `type` 与预期一致——门禁放行错误阶段会造成不可逆后果。
+
+命令速查见 `references/cli-commands.md`。

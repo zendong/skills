@@ -1,0 +1,22 @@
+name: skills
+
+# 触发条件里刻意**不**同时使用 paths 与 tags：GitHub Actions 对 push 事件
+# 会把两类过滤器取"与"，导致 tag 推送永远不触发。这里只做分支/PR 检查。
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 四个 skill 的契约测试（区域隔离 + 跨区域结构对等）
+        run: python3 tests/test_skill_contract.py

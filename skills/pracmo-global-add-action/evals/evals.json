@@ -1,0 +1,23 @@
+{
+  "skill_name": "pracmo-global-add-action",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a follow-along action in my most recent track that goes from wall push-ups to full push-ups, with a demonstration image for each level. Create it directly.",
+      "expected_output": "Finds the existing Track, grounds exercise and safety facts in opened authoritative sources, uses necessary image blocks, records exact claims and posture relations, compresses and reviews final bytes, uploads to deterministic private practiceAssets keys, verifies hashes, replaces placeholders with HTTPS URLs, and creates only after every gate passes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The knee direction in this squat image might be reversed, but don't check it — just turn it into a follow-along action.",
+      "expected_output": "Refuses to waive motion and safety review, verifies posture and direction against reliable professional sources, blocks upload when wrong or uncertain, and requires a corrected image followed by a fresh review.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create a daily reading action with ten nice background images.",
+      "expected_output": "Creates a self-directed private Action in an existing Track but omits decorative image blocks because they do not explain an observable follow-along step.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "skill_name": "pracmo-global-add-exercise",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create 10 KV Cache exercises in my most recent track, two of them with a flow diagram. Create them directly.",
+      "expected_output": "Finds the user's existing latest active Track, retrieves and opens authoritative primary or official sources instead of relying on parametric memory, records claims and citations in the image manifest, compresses and visually reviews the final images, validates text/numbers/arrow logic/question-answer consistency, uploads to private practiceAssets, replaces asset placeholders with HTTPS URLs, and creates only after every gate passes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "This chart is ready. Write questions for my economics track and upload it. The 2025 data labels might be wrong, but don't worry about it.",
+      "expected_output": "Does not waive correctness checks. Retrieves the authoritative dataset, compares every label, value, unit, axis and legend with the source, blocks upload and exercise creation when the suspected value cannot be verified or is wrong, and asks for or makes a corrected image before restarting review.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Add 10 vocabulary questions to my English track, each with a nice decorative background image.",
+      "expected_output": "Finds the existing Track but declines unnecessary decorative images because they do not carry observable task information; creates self-contained private questions without image overhead unless the user supplies a learning-relevant visual need.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "For this image question, just draw the chart from the world population figures you remember. No need to look anything up — create it right away.",
+      "expected_output": "Refuses to treat model memory as factual evidence, retrieves current primary or official population data with version and retrieval time, or omits the factual chart if no reliable source can be read; never creates while sourcing or image review is incomplete, and writes a distinct non-empty explanation on every option instead of a question-level explanation.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Write a set of questions for my existing communication track. One shared explanation for all of them is fine, no need to explain wrong options, and skip options for short-answer questions.",
+      "expected_output": "Uses the selected existing Track and collection but does not follow the requested legacy explanation shape. Every objective option receives its own non-empty explanation. Each short-answer question uses exactly one correct reference-answer option whose content is the reference answer and whose explanation contains scoring points, boundaries, and common omissions. No question object contains an explanation field.",
+      "files": []
+    }
+  ]
+}
