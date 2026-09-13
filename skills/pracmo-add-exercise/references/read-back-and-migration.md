@@ -6,7 +6,7 @@
 
 - Header：`X-API-Key: <key>`。**后端认 `X-API-Key`，不认 `Authorization: Bearer`**（Bearer 会返回 `missing API key`，即使 Key 正确）。
 - 端点：
-  - `GET /open/v1/flow/exercise/:exerciseId` → 元信息：`questionCount`、`accessMode`（应为 `private`）等。
+  - `GET /open/v1/flow/exercise/:exerciseId` → 元信息：`questionCount`、`accessMode`（当前保存状态，未公开）等。
   - `GET /open/v1/flow/questions?exerciseId=<id>&limit=100` → 题目列表。
 
 ```bash

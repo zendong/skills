@@ -1,4 +1,4 @@
-# 私人甲程行动 JSON 合同
+# 甲程行动 JSON 合同
 
 顶层只允许 `schemaVersion`、`clientRequestId`、`action`。版本固定为 `pracmo-track-action@v1`。
 

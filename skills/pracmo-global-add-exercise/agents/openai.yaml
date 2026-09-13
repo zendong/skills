@@ -1,4 +1,4 @@
 interface:
   display_name: "Pracmo Add Exercise"
-  short_description: "Add grounded private exercises to an existing Pracmo Track"
-  default_prompt: "Use $pracmo-global-add-exercise to find one of my existing Pracmo Tracks and add a private exercise without creating a Track. If images are useful, ground factual content in retrieved high-quality sources and strictly verify all text, numbers, visual logic, and answers before upload."
+  short_description: "Add grounded exercises to an existing Pracmo Track"
+  default_prompt: "Use $pracmo-global-add-exercise to find one of my existing Pracmo Tracks and add an exercise without creating a Track. If images are useful, ground factual content in retrieved high-quality sources and strictly verify all text, numbers, visual logic, and answers before upload."

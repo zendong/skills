@@ -1,17 +1,17 @@
 ---
 name: pracmo-add-action
 display_name: 练成行动
-description: "在用户已有的练成甲程中创建私人行动，包括自行完成、小璞准备和带文字/图片 block 的分层跟练计划。用户说创建行动、每日任务、轻阅读、快问答、跟练计划、动作示范图或分阶段训练时使用。必须读取并选择 API Key 用户的存量甲程；不得创建甲程或公开行动。跟练图片必须经过可靠来源取证、动作与安全审阅、私人上传和 HTTPS 最终化。"
-description_zh: "在用户已有的甲程中创建私人行动：自行完成、小璞准备的分层内容或带文字/图片 block 的逐一跟练，并支持图片取证、审阅与上传。"
+description: "在用户已有的练成甲程中创建行动，包括自行完成、小璞准备和带文字/图片 block 的分层跟练计划。用户说创建行动、每日任务、轻阅读、快问答、跟练计划、动作示范图或分阶段训练时使用。必须读取并选择 API Key 用户的存量甲程；不得创建甲程。跟练图片必须经过可靠来源取证、动作与安全审阅、账号内上传和 HTTPS 最终化。"
+description_zh: "在用户已有的甲程中创建行动：自行完成、小璞准备的分层内容或带文字/图片 block 的逐一跟练，并支持图片取证、审阅与上传。"
 category: productivity
-version: 0.1.7
+version: 0.1.9
 author: 练成（evertrain）
 user-invocable: true
 ---
 
 # Pracmo Add Action
 
-在用户选定的存量甲程中创建私人行动。这个 skill 不创建甲程，不调用公开行动投稿或审核接口，也不生成公开模板。
+在用户选定的存量甲程中创建行动。内容创建后归用户所有，后续如需公开可在公开内容流程中继续推进；这个 skill 不创建甲程，也不含公开行动投稿/审核操作。
 
 开始前完整阅读 `references/action-json-contract.md`。涉及跟练图片、事实性动作规范、次数/时长或健康安全内容时，再完整阅读 `references/follow-image-grounding-and-review.md`。
 
@@ -90,7 +90,7 @@ pracmocli --env prod images validate \
   output/<slug>/action.authoring.json
 ```
 
-## 私人上传与最终化
+## 图片上传与最终化
 
 reviewed 校验通过后运行：
 
@@ -104,7 +104,7 @@ pracmocli --env prod images finalize \
 pracmocli --env prod images validate --stage finalized --type action output/<slug>/action.json
 ```
 
-最终化使用 `clientRequestId + assetId + reviewedSha256` 构造确定性私人 `practiceAssets` key，上传后重新下载比较哈希，再将 `asset://` 替换为 HTTPS `mediaUrl`。CLI 内置全部能力，无需 Python/Pillow/oss2 依赖，不得绕过最终化命令。
+最终化使用 `clientRequestId + assetId + reviewedSha256` 构造确定性 `practiceAssets` key，上传后重新下载比较哈希，再将 `asset://` 替换为 HTTPS `mediaUrl`。CLI 内置全部能力，无需 Python/Pillow/oss2 依赖，不得绕过最终化命令。
 
 创建失败或超时后重用同一份 `action.json`；不要重新最终化、改变 URL 或请求 ID。`action-images.finalized.json` 是续传台账，不得发送给行动 API。
 
@@ -116,13 +116,16 @@ pracmocli --env prod images validate --stage finalized --type action output/<slu
 pracmocli --env prod actions add <trackId> output/<slug>/action.json
 ```
 
-这会调用 `POST /open/v1/learning-tracks/:trackId/actions`。`trackId` 必须来自当前 API Key 刚读取到的 active 甲程。严禁调用公开行动投稿接口。
+这会调用 `POST /open/v1/learning-tracks/:trackId/actions`。`trackId` 必须来自当前 API Key 刚读取到的 active 甲程。本 skill 不含公开行动投稿/审核操作。
+
+该接口创建的行动默认状态为「已暂停」：不会生成打卡实例、不会发出提醒，也不占启用行动额度。`clientRequestId` 幂等重试返回的是同一份已暂停行动，不要重复创建。
 
 ## 幂等与反馈
 
 - 同一内容重试保持相同 `clientRequestId` 和最终 JSON；相同 ID 换内容会冲突。
 - 用户只要求草稿时保存/展示草稿并停止，不上传、不调用创建接口。
-- 成功后报告甲程、`trackId`、行动标题、`actionId`、模式和图片数，并明确这是私人行动。
+- 成功后报告甲程、`trackId`、行动标题、`actionId`、模式和图片数，并说明行动默认「已暂停」；内容归用户所有、后续可自行推进公开。
+- **创建完成后的固定提醒**：告知用户行动已在「<甲程名>」中创建但默认暂停，需要到练成 App「甲程详情 → 行动」，打开该行动并点击「开启」后才会开始打卡与提醒。若用户表示开启完成或要求重新创建，再继续后续操作。
 - 甲程不存在、已结束或不属于当前用户时停止；不要自动改投其他甲程。
 
 ## 退出码与恢复动作

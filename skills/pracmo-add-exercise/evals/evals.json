@@ -16,7 +16,7 @@
     {
       "id": 3,
       "prompt": "给我的英语甲程加 10 道词义题，每题都配一张好看的装饰背景图。",
-      "expected_output": "Finds the existing Track but declines unnecessary decorative images because they do not carry observable task information; creates self-contained private questions without image overhead unless the user supplies a learning-relevant visual need.",
+      "expected_output": "Finds the existing Track but declines unnecessary decorative images because they do not carry observable task information; creates self-contained questions without image overhead unless the user supplies a learning-relevant visual need.",
       "files": []
     },
     {

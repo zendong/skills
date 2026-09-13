@@ -1,17 +1,17 @@
 ---
 name: pracmo-add-exercise
 display_name: 练成出题
-description: "在用户已有的练成甲程和指定练习册中创建一组私人练习，也支持创建练习册，以及为题干或选项制作、检索、校验并上传事实可靠的图片、图表和示意图。用户说练一下、把内容做成练习、给某个甲程或练习册出题、补练习、看图出题时使用。必须先读取 API Key 所属用户的存量甲程；不得创建甲程。没有存量甲程时，提示用户先到练成手机端创建甲程。"
-description_zh: "把对话、资料或目标整理成一组私人练习，加入用户已有的甲程与指定练习册；支持为题干/选项制作、检索、校验并上传事实可靠的图片。"
+description: "在用户已有的练成甲程和指定练习册中创建一组练习（也支持创建练习册），以及为题干或选项制作、检索、校验并上传事实可靠的图片、图表和示意图。用户说练一下、把内容做成练习、给某个甲程或练习册出题、补练习、看图出题时使用。必须先读取 API Key 所属用户的存量甲程；不得创建甲程。没有存量甲程时，提示用户先到练成手机端创建甲程。"
+description_zh: "把对话、资料或目标整理成一组练习，加入用户已有的甲程与指定练习册；支持为题干/选项制作、检索、校验并上传事实可靠的图片。"
 category: productivity
-version: 0.1.9
+version: 0.1.10
 author: 练成（evertrain）
 user-invocable: true
 ---
 
 # Pracmo Add Exercise
 
-把对话、资料或目标整理成一组完整题目，并添加到用户选定的存量甲程和练习册。这个 skill 只创建私人练习，可以在选定甲程内创建练习册，但不创建甲程、不公开练习、不创建分享链接。
+把对话、资料或目标整理成一组完整题目，并添加到用户选定的存量甲程和练习册。内容创建后归用户所有，后续如需公开可在公开内容流程中继续推进。这个 skill 可以在选定甲程内创建练习册，但不创建甲程。
 
 开始前必须完整阅读：
 
@@ -137,7 +137,7 @@ pracmocli --env prod collections create <trackId> output/<slug>/collection.json
 }
 ```
 
-不要输出或依赖 `accessMode`、`createShare`；即使传入，Server 也会强制为 private 且不会分享。
+创建接口暂不接受 `accessMode`、`createShare`，请求中不要携带；内容后续如需公开，另行走公开内容流程。
 
 ## 图片创作包
 
@@ -204,7 +204,7 @@ pracmocli --env prod images validate \
 
 ## 上传与最终化
 
-只有 reviewed 校验通过后才能上传。下面的命令会经 CLI 使用私人 `practiceAssets` 前缀 OSS 直传、重新下载并校验上传内容哈希，再把所有 `asset://` 替换成 HTTPS URL；内部证据清单不会进入 API 请求。不得绕过最终化命令手工拼 URL：
+只有 reviewed 校验通过后才能上传。下面的命令会经 CLI 使用当前账号的 `practiceAssets` 前缀 OSS 直传、重新下载并校验上传内容哈希，再把所有 `asset://` 替换成 HTTPS URL；内部证据清单不会进入 API 请求。不得绕过最终化命令手工拼 URL：
 
 ```bash
 pracmocli --env prod images finalize \
@@ -242,7 +242,7 @@ pracmocli --env prod exercises add <trackId> output/<slug>/exercise.json
 }
 ```
 
-使用 `pracmocli --env prod exercises image-replace <trackId> <exerciseId> <questionId> <json-file>`（提交前可先 `pracmocli --env prod validate replace-image <json-file>`）。服务端只允许同一可信 OSS host、当前账户私人 `practiceAssets` 前缀，并以旧 URL 恰好出现一次作为乐观锁；只修改指定题目的图片 URL并递增练习版本，不重建题目或选项。同一请求重试保持相同 ID 和 JSON；回滚使用新的稳定 ID 反向替换。
+使用 `pracmocli --env prod exercises image-replace <trackId> <exerciseId> <questionId> <json-file>`（提交前可先 `pracmocli --env prod validate replace-image <json-file>`）。服务端只允许同一可信 OSS host、当前账户的 `practiceAssets` 前缀，并以旧 URL 恰好出现一次作为乐观锁；只修改指定题目的图片 URL并递增练习版本，不重建题目或选项。同一请求重试保持相同 ID 和 JSON；回滚使用新的稳定 ID 反向替换。
 
 多张图片逐项维护台账并回读。必须确认 exerciseId、questionId、optionId、题型、题干非图片文字、选项、正确答案、逐选项解析、顺序、计划和概念关联均未改变。旧图片需保留，以兼容进行中 play 的冻结投影。
 
@@ -251,7 +251,7 @@ pracmocli --env prod exercises add <trackId> output/<slug>/exercise.json
 - 同一份内容重试必须保持相同 `clientRequestId` 和 JSON。
 - 相同 ID 换内容会返回冲突；内容实质修改后生成新 ID。
 - 超时后先用相同请求重试，不要换 ID 制造重复练习。写命令默认 HTTP 超时 120s（`PRACMO_HTTP_TIMEOUT_SECONDS`），`exercises add` 实测可能 1–5 分钟，**建议提交循环里设 `PRACMO_HTTP_TIMEOUT_SECONDS=300`**；退出码 4 时后端可能已建好，重试命中幂等在响应里能看到 **`reusedExisting: true`** 并返回同一 `exerciseId`。
-- 成功后报告甲程标题、`trackId`、练习册名称、`collectionId`、练习标题、`exerciseId`、题目数和图片数，并明确它是用户自己的私人练习。
+- 成功后报告甲程标题、`trackId`、练习册名称、`collectionId`、练习标题、`exerciseId`、题目数和图片数，并说明内容归用户所有、后续可自行推进公开。
 - 甲程不存在、已结束或不属于 API Key 用户时停止；不要自动换到其他甲程。
 
 ## 退出码与恢复动作

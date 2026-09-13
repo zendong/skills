@@ -17,7 +17,7 @@ All business commands print JSON to stdout (`exit 0` on success); error messages
 | `pracmocli collections create <trackId> <file>` | Create an exercise collection (JSON: `name`/`clientRequestId`/optional `description`) | trackId + file |
 | `pracmocli exercises add <trackId> <file>` | Create a finished exercise → `POST /open/v1/learning-tracks/:id/exercises` | trackId + file |
 | `pracmocli exercises image-replace <trackId> <exerciseId> <questionId> <file>` | Replace a question image in place (`PATCH …/image-url`) | 3 IDs + file |
-| `pracmocli actions add <trackId> <file>` | Create a private action → `POST /open/v1/learning-tracks/:id/actions` | trackId + file |
+| `pracmocli actions add <trackId> <file>` | Create an action → `POST /open/v1/learning-tracks/:id/actions` | trackId + file |
 | `pracmocli validate exercise\|action\|collection\|replace-image <file>` | Pre-submit structural validation (`--manifest`/`--stage` below) | file |
 | `pracmocli images compress --manifest <m> [-o out] <authoring.json>` | Compress images to ≤512 KiB and clear `review` pending re-review | manifest + authoring |
 | `pracmocli images validate --stage reviewed\|finalized [--manifest <m>] [--type exercise\|action] <file>` | Hard gate validation | file (the reviewed stage also requires a manifest) |

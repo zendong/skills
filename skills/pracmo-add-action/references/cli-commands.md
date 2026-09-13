@@ -17,7 +17,7 @@
 | `pracmocli collections create <trackId> <file>` | 新建练习册（JSON：`name`/`clientRequestId`/可选 `description`） | trackId + file |
 | `pracmocli exercises add <trackId> <file>` | 创建成品练习 → `POST /open/v1/learning-tracks/:id/exercises` | trackId + file |
 | `pracmocli exercises image-replace <trackId> <exerciseId> <questionId> <file>` | 原位替换题目图片（`PATCH …/image-url`） | 3 个 ID + file |
-| `pracmocli actions add <trackId> <file>` | 创建私人行动 → `POST /open/v1/learning-tracks/:id/actions` | trackId + file |
+| `pracmocli actions add <trackId> <file>` | 创建行动 → `POST /open/v1/learning-tracks/:id/actions` | trackId + file |
 | `pracmocli validate exercise\|action\|collection\|replace-image <file>` | 提交前结构校验（`--manifest`/`--stage` 见下） | file |
 | `pracmocli images compress --manifest <m> [-o out] <authoring.json>` | 压缩图片到 ≤512 KiB，清空 `review` 待重新审阅 | manifest + authoring |
 | `pracmocli images validate --stage reviewed\|finalized [--manifest <m>] [--type exercise\|action] <file>` | 硬门禁校验 | file（reviewed 阶段还需 manifest） |

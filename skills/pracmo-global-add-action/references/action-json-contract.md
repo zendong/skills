@@ -1,4 +1,4 @@
-# Private Track Action JSON Contract
+# Track Action JSON Contract
 
 The top level allows only `schemaVersion`, `clientRequestId` and `action`. The version is fixed at `pracmo-track-action@v1`.
 

@@ -1,4 +1,4 @@
-# 私人甲程练习 JSON 合同
+# 甲程练习 JSON 合同
 
 顶层只允许 `schemaVersion`、`clientRequestId`、`exercise`。版本固定为 `pracmo-track-exercise@v1`。
 
@@ -12,7 +12,7 @@
 
 `concept` 是包含非空 `name` 或 `conceptId` 的对象，不是字符串。单选和判断恰好一个正确 option，多选至少两个正确 option；这些题型的每个 option 都必须包含 `content`、布尔值 `isCorrect` 和非空 `explanation`。简答题必须有且只有一个参考答案 option：`content` 为可判定的参考答案，`isCorrect` 为 `true`，`explanation` 为评分要点、成立边界和常见遗漏。总题数 10–100。
 
-Server 始终以 API Key 账号为 owner，并把练习强制保存为 private。
+Server 以 API Key 账号为 owner 保存练习；创建接口暂不接受公开/分享参数，后续公开可走公开内容流程。
 
 ## 目的地合同
 

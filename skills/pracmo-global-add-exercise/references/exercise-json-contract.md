@@ -1,4 +1,4 @@
-# Private Track Exercise JSON Contract
+# Track Exercise JSON Contract
 
 The top level allows only `schemaVersion`, `clientRequestId` and `exercise`. The version is fixed at `pracmo-track-exercise@v1`.
 
@@ -12,7 +12,7 @@ Every question MUST have `questionType`, `questionContent`, `concept`, `testable
 
 `concept` is an object containing a non-empty `name` or `conceptId`, not a string. Single-choice and true/false questions have exactly one correct option, multiple-choice questions have at least two correct options; for these question types every option MUST contain `content`, a boolean `isCorrect` and a non-empty `explanation`. A short-answer question MUST have exactly one reference-answer option: `content` is an answer that can be graded deterministically, `isCorrect` is `true`, and `explanation` gives the grading points, the conditions under which it holds, and common omissions. The total number of questions is 10–100.
 
-The Server always uses the API Key account as the owner and forces the exercise to be saved as private.
+The Server saves exercises with the API Key account as the owner; the create API does not accept public/share parameters — public promotion happens through the public-content flow.
 
 ## Destination Contract
 

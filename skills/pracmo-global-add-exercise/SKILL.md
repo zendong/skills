@@ -1,17 +1,17 @@
 ---
 name: pracmo-global-add-exercise
 display_name: Pracmo Exercise Authoring
-description: "Create a set of private exercises in the user's existing Pracmo track and a specified exercise collection; it also supports creating an exercise collection, and creating, retrieving, validating and uploading factually reliable images, charts and diagrams for question stems or options. Use when the user says practice this, turn this content into exercises, write questions for a track or exercise collection, add more exercises, or make questions from an image. You MUST first read the existing tracks owned by the API Key's user; you MUST NOT create a track. When no existing track is available, tell the user to create one in the Pracmo mobile app first."
-description_en: "Turn a conversation, material or goal into a set of private exercises and add it to the user's existing track and a specified exercise collection; supports creating, retrieving, validating and uploading factually reliable images for question stems and options."
+description: "Create a set of exercises in the user's existing Pracmo track and a specified exercise collection; it also supports creating an exercise collection, and creating, retrieving, validating and uploading factually reliable images, charts and diagrams for question stems or options. Use when the user says practice this, turn this content into exercises, write questions for a track or exercise collection, add more exercises, or make questions from an image. You MUST first read the existing tracks owned by the API Key's user; you MUST NOT create a track. When no existing track is available, tell the user to create one in the Pracmo mobile app first."
+description_en: "Turn a conversation, material or goal into a set of exercises and add it to the user's existing track and a specified exercise collection; supports creating, retrieving, validating and uploading factually reliable images for question stems and options."
 category: productivity
-version: 0.1.7
+version: 0.1.8
 author: Pracmo (evertrain)
 user-invocable: true
 ---
 
 # Pracmo Add Exercise
 
-Turn a conversation, material or goal into a complete set of questions and add them to a track and exercise collection that the user selects from what already exists. This skill only creates private exercises; it may create an exercise collection inside the selected track, but it does not create tracks, does not make exercises public, and does not create share links.
+Turn a conversation, material or goal into a complete set of questions and add them to a track and exercise collection that the user selects from what already exists. Created content belongs to the user and may later be promoted to public through the public-content flow. This skill may create an exercise collection inside the selected track, but it does not create tracks.
 
 Before starting you MUST read in full:
 
@@ -134,7 +134,7 @@ Base request format:
 }
 ```
 
-Do not output or rely on `accessMode` or `createShare`; even if they are passed, the Server forces private and will not share.
+The create API does not accept `accessMode` or `createShare`; do not include them in requests. Content may later be promoted to public through the public-content flow.
 
 ## Image Authoring Package
 
@@ -200,7 +200,7 @@ pracmocli --env global images validate \
 
 ## Upload and Finalization
 
-Upload only after the reviewed validation passes. The command below goes through the CLI to upload directly to OSS under the private `practiceAssets` prefix, re-download and verify the hash of the uploaded content, and then replace every `asset://` with an HTTPS URL; the internal evidence list does not enter the API request. You MUST NOT bypass the finalization command and assemble URLs by hand:
+Upload only after the reviewed validation passes. The command below goes through the CLI to upload directly to OSS under the account `practiceAssets` prefix, re-download and verify the hash of the uploaded content, and then replace every `asset://` with an HTTPS URL; the internal evidence list does not enter the API request. You MUST NOT bypass the finalization command and assemble URLs by hand:
 
 ```bash
 pracmocli --env global images finalize \
@@ -238,7 +238,7 @@ When you are only replacing the image of an existing question, you MUST NOT re-c
 }
 ```
 
-Use `pracmocli --env global exercises image-replace <trackId> <exerciseId> <questionId> <json-file>` (before submitting you may first run `pracmocli --env global validate replace-image <json-file>`). The server allows only the same trusted OSS host and the current account's private `practiceAssets` prefix, and uses the old URL appearing exactly once as an optimistic lock; it modifies only the specified question's image URL and increments the exercise version, without rebuilding questions or options. Retrying the same request keeps the same ID and JSON; a rollback uses a new stable ID to replace in reverse.
+Use `pracmocli --env global exercises image-replace <trackId> <exerciseId> <questionId> <json-file>` (before submitting you may first run `pracmocli --env global validate replace-image <json-file>`). The server allows only the same trusted OSS host and the current account's `practiceAssets` prefix, and uses the old URL appearing exactly once as an optimistic lock; it modifies only the specified question's image URL and increments the exercise version, without rebuilding questions or options. Retrying the same request keeps the same ID and JSON; a rollback uses a new stable ID to replace in reverse.
 
 For multiple images, maintain a ledger item by item and read back. You MUST confirm that exerciseId, questionId, optionId, question type, the non-image text of the question stem, options, correct answer, per-option explanations, order, plan and concept associations are all unchanged. The old images MUST be retained, to stay compatible with the frozen projection of in-progress plays.
 
@@ -247,7 +247,7 @@ For multiple images, maintain a ledger item by item and read back. You MUST conf
 - Retrying the same content MUST keep the same `clientRequestId` and JSON.
 - Reusing the same ID with different content returns a conflict; after the content is substantially modified, generate a new ID.
 - After a timeout, first retry with the same request; do not change the ID and manufacture duplicate exercises.
-- After success, report the track title, `trackId`, exercise collection name, `collectionId`, exercise title, `exerciseId`, question count and image count, and make clear that it is the user's own private exercise.
+- After success, report the track title, `trackId`, exercise collection name, `collectionId`, exercise title, `exerciseId`, question count and image count, and note that the content belongs to the user and may later be promoted to public.
 - Stop when the track does not exist, has ended, or does not belong to the API Key user; do not automatically switch to another track.
 
 ## Exit Codes and Recovery Actions

@@ -1,4 +1,4 @@
 interface:
   display_name: "Pracmo Add Action"
-  short_description: "Add grounded private Actions to an existing Pracmo Track"
-  default_prompt: "Use $pracmo-add-action to find one of my existing Pracmo Tracks and add a private Action. For follow-along images, retrieve reliable sources, verify posture, sequence, text, numbers and safety, then upload privately and finalize HTTPS media URLs before creation."
+  short_description: "Add grounded Actions to an existing Pracmo Track"
+  default_prompt: "Use $pracmo-add-action to find one of my existing Pracmo Tracks and add an Action. For follow-along images, retrieve reliable sources, verify posture, sequence, text, numbers and safety, then upload to the account practiceAssets prefix and finalize HTTPS media URLs before creation."

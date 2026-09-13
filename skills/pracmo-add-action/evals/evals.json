@@ -16,7 +16,7 @@
     {
       "id": 3,
       "prompt": "创建每日读书行动，配十张好看的背景图。",
-      "expected_output": "Creates a self-directed private Action in an existing Track but omits decorative image blocks because they do not explain an observable follow-along step.",
+      "expected_output": "Creates a self-directed Action in an existing Track but omits decorative image blocks because they do not explain an observable follow-along step.",
       "files": []
     }
   ]

@@ -1,17 +1,17 @@
 ---
 name: pracmo-global-add-action
 display_name: Pracmo Action Authoring
-description: "Create private actions in the user's existing Pracmo track, including self-directed completion, Puki-prepared content and layered follow-along plans with text/image blocks. Use when the user says create an action, daily task, light reading, quick Q&A, follow-along plan, movement demonstration image or staged training. You MUST read and select an existing track owned by the API Key's user; you MUST NOT create a track or a public action. Follow-along images MUST go through reliable-source grounding, movement and safety review, private upload and HTTPS finalization."
-description_en: "Create private actions in an existing track: self-directed, Puki-prepared layered content, or step-by-step follow-along with text/image blocks, including image grounding, review and upload."
+description: "Create actions in the user's existing Pracmo track, including self-directed completion, Puki-prepared content and layered follow-along plans with text/image blocks. Use when the user says create an action, daily task, light reading, quick Q&A, follow-along plan, movement demonstration image or staged training. You MUST read and select an existing track owned by the API Key's user; you MUST NOT create a track. Content may later be promoted to public through the public-content flow. Follow-along images MUST go through reliable-source grounding, movement and safety review, account upload and HTTPS finalization."
+description_en: "Create actions in an existing track: self-directed, Puki-prepared layered content, or step-by-step follow-along with text/image blocks, including image grounding, review and upload."
 category: productivity
-version: 0.1.7
+version: 0.1.9
 author: Pracmo (evertrain)
 user-invocable: true
 ---
 
 # Pracmo Add Action
 
-Create private actions in a track that the user selects from what already exists. This skill does not create tracks, does not call the public action submission or review endpoints, and does not generate public templates.
+Create actions in a track that the user selects from what already exists. Created content belongs to the user and may later be promoted to public through the public-content flow; this skill does not create tracks and does not include public action submission/review operations.
 
 Before starting, read `references/action-json-contract.md` in full. When follow-along images, factual movement specifications, repetitions/duration or health-safety content are involved, also read `references/follow-image-grounding-and-review.md` in full.
 
@@ -90,7 +90,7 @@ pracmocli --env global images validate \
   output/<slug>/action.authoring.json
 ```
 
-## Private Upload and Finalization
+## Image Upload and Finalization
 
 After the reviewed validation passes, run:
 
@@ -104,7 +104,7 @@ pracmocli --env global images finalize \
 pracmocli --env global images validate --stage finalized --type action output/<slug>/action.json
 ```
 
-Finalization uses `clientRequestId + assetId + reviewedSha256` to build a deterministic private `practiceAssets` key, re-downloads the uploaded content and compares the hash, and then replaces `asset://` with an HTTPS `mediaUrl`. The CLI has all of this built in, with no Python/Pillow/oss2 dependencies; you MUST NOT bypass the finalization command.
+Finalization uses `clientRequestId + assetId + reviewedSha256` to build a deterministic `practiceAssets` key, re-downloads the uploaded content and compares the hash, and then replaces `asset://` with an HTTPS `mediaUrl`. The CLI has all of this built in, with no Python/Pillow/oss2 dependencies; you MUST NOT bypass the finalization command.
 
 After a creation failure or timeout, reuse the same `action.json`; do not finalize again, change the URL or change the request ID. `action-images.finalized.json` is a resumable ledger and MUST NOT be sent to the action API.
 
@@ -118,11 +118,14 @@ pracmocli --env global actions add <trackId> output/<slug>/action.json
 
 This calls `POST /open/v1/learning-tracks/:trackId/actions`. `trackId` MUST come from an active track that was just read with the current API Key. Calling the public action submission endpoint is strictly forbidden.
 
+This endpoint creates the action **paused** by default: no check-in occurrences are generated, no reminders are delivered, and it does not count against the active-action quota. An idempotent retry with the same `clientRequestId` returns the same paused action; do not create another one.
+
 ## Idempotency and Feedback
 
 - Retrying the same content keeps the same `clientRequestId` and final JSON; reusing the same ID with different content conflicts.
 - When the user only asks for a draft, save/display the draft and stop; do not upload and do not call the creation endpoint.
-- After success, report the track, `trackId`, action title, `actionId`, mode and image count, and make clear that this is a private action.
+- After success, report the track, `trackId`, action title, `actionId`, mode and image count, and note that the action starts **paused**; the content belongs to the user and may later be promoted to public.
+- **Mandatory post-creation reminder**: tell the user the action was created in the "<track name>" track but starts paused, and that they need to open the Pracmo app ("Track detail → Action"), open this action and tap **Enable** before check-ins and reminders start. Only continue further operations after the user confirms they enabled it or asks you to recreate it.
 - Stop when the track does not exist, has ended, or does not belong to the current user; do not automatically submit to another track.
 
 ## Exit Codes and Recovery Actions
