@@ -44,6 +44,7 @@
   "factuality": "factual",
   "provenance": "generated_from_sources",
   "sourceMode": "real_scene_generated",
+  "sourceType": "official",
   "sourceDetails": {
     "generationMethod": "使用图片生成工具直接生成整张完整成图",
     "resourceIds": ["resource-1"],
@@ -74,6 +75,8 @@
 }
 ```
 
+`sourceType` 对每个 asset 必填：与 `resources[].sourceType` 同一套取值口径（`primary`/`official`/`standard`/`peer_reviewed`/`reputable_secondary`），CLI 只校验非空，但填错会让复核无从对齐。
+
 `factuality` 为 `factual` 时必须有 `claims`，每条 claim 至少引用一个已登记资源。纯几何装饰或不表达外部事实的操作示意可以用 `non_factual`，但仍必须复核文字、逻辑和题目答案。
 
 `containsNumbers` 必须显式声明。为 `true` 时，图中每个用于理解或作答的数字都应登记到 `expectedValues`，用 `displayValue` 保留小数点、百分号等精确显示形式，并引用来源；数字很多时可以按数据系列登记并在 `notes` 说明逐项比对方法，不得只抽查。
@@ -83,6 +86,7 @@
 ### 来源模式合同
 
 - `web_downloaded`：`sourceDetails` 必须包含 `resourceIds`、与登记资源一致的 HTTPS `originalUrl`、原下载文件的 `downloadSha256`；`license` 必须说明可使用依据。
+  asset 顶层还必须写 `sourceUrl`（与 `sourceDetails.originalUrl` 同一 HTTPS 地址）与 `resourceId`（`resources[]` 中已登记的、描述该图片来源的那条资源 ID；CLI 会校验它确实存在）。
 - `real_scene_generated`：`sourceDetails` 必须包含 `generationMethod`、支撑场景与事实的 `resourceIds`、`wholeImageGenerated: true` 和 `localLayoutApplied: false`。整张完整成图必须直接来自图片生成工具。
 - 不允许其它来源模式。无法证明真实来源或真实场景时，删除图片引用，改用纯文字题。
 
