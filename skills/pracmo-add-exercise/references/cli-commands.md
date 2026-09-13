@@ -84,14 +84,13 @@
 > （例如未知/过期的绑定码返回 `NOT_FOUND`）。CLI 已按 `success` 与 `code` 正确分类，
 > 直接读退出码即可，不要只看 HTTP 状态。
 
-## 已知问题与排障（重要，先看）
+## 排障与经验
+
+> CLI 请使用**最新版**（历史版本的已知问题均已修复）：`npm install -g @pracmo/pracmo-cli@latest --registry=https://registry.npmjs.org`；遇到异常先升级再排查。
 
 | 症状 | 原因 | 处理 |
 |---|---|---|
-| `images finalize` OSS 上传 403 `AccessDenied`（`EC 0003-00000905`） | **pracmocli 0.1.7 的 URL 构造 bug**：上传地址没带 bucket 三级域名，objectKey 首段被当成 bucket 名 | 升级到 **≥0.1.8**；未发布前可本地构建修复版：`cd private-skills/cli/pracmocli && go build -o /tmp/pracmocli ./cmd/pracmocli` |
-| `pracmocli tracks --help` 返回一个空列表 | 0.1.7 把 `--help` 当关键词查询了（0.1.8 起打印用法） | 帮助用 `pracmocli --help`；**不要把空结果当成"无甲程"**，用 `pracmocli tracks list` 再确认 |
-| 换环境后 `invalid API key` | prod/pre/global 的 API Key **不通用** | 先 `pracmocli doctor` 看 `baseUrl`；用目标环境的 Key（或 `--base`/`--env` 指定） |
-| 发布判断偏差 | 本机 npm registry 指向镜像（如 `registry.npmmirror.com`），版本滞后 | 以官方源为准：`npm view @pracmo/pracmo-cli version --registry=https://registry.npmjs.org` |
+| 换环境后 `invalid API key` | prod/pre/global 的 API Key **不通用** | 先 `pracmocli --env prod doctor` 看 `baseUrl`；用目标环境的 Key |
 | `exercises add` 客户端超时（退出码 4） | 服务端建题/概念关联耗时可能 1–5 分钟，默认 120s 不够 | `PRACMO_HTTP_TIMEOUT_SECONDS=300`；超时用**相同 clientRequestId 与相同 JSON** 重试，响应出现 `reusedExisting: true` 表示命中幂等、无重复 |
 | 回读时发现 options 没有 `explanation` | 读接口把逐选项解析**动态组合**成题目级 `question.explanation`，这是设计行为 | 按 `references/read-back-and-migration.md` 的组合规则逐题比对，不要误报解析丢失 |
 | 旧 manifest 迁移到当前合同被 `images validate --stage reviewed` 拒 | asset 缺 `sourceType`（primary/official/standard/peer_reviewed/reputable_secondary） | 补上再校验 |

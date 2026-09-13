@@ -4,7 +4,7 @@ display_name: 练成出题
 description: "在用户已有的练成甲程和指定练习册中创建一组私人练习，也支持创建练习册，以及为题干或选项制作、检索、校验并上传事实可靠的图片、图表和示意图。用户说练一下、把内容做成练习、给某个甲程或练习册出题、补练习、看图出题时使用。必须先读取 API Key 所属用户的存量甲程；不得创建甲程。没有存量甲程时，提示用户先到练成手机端创建甲程。"
 description_zh: "把对话、资料或目标整理成一组私人练习，加入用户已有的甲程与指定练习册；支持为题干/选项制作、检索、校验并上传事实可靠的图片。"
 category: productivity
-version: 0.1.8
+version: 0.1.9
 author: 练成（evertrain）
 user-invocable: true
 ---
@@ -20,12 +20,10 @@ user-invocable: true
 
 ## 强制前置步骤：确认甲程 + 练习册
 
-写题前先确认登录：运行 `pracmocli --env prod auth status`，或以环境变量 `PRACMO_API_KEY` 提供 Key。未登录时提示用户运行 `pracmocli --env prod auth login`（或到 `https://www.pracmo.com/app/api-key` 获取 Key）；不要让用户把 Key 发到聊天里。`pracmocli` 安装：`npm install -g @pracmo/pracmo-cli`（无 Python/Pillow/oss2 依赖）。
+写题前先确认登录：运行 `pracmocli --env prod auth status`，或以环境变量 `PRACMO_API_KEY` 提供 Key。未登录时提示用户运行 `pracmocli --env prod auth login`（或到 `https://www.pracmo.com/app/api-key` 获取 Key）；不要让用户把 Key 发到聊天里。`pracmocli` 安装/升级到最新版：`npm install -g @pracmo/pracmo-cli@latest --registry=https://registry.npmjs.org`（无 Python/Pillow/oss2 依赖）。
 
 排障前置：
-- `pracmocli --env prod doctor` 看 `baseUrl`/`httpTimeoutSeconds`——**prod/pre/global 的 API Key 不通用**，`invalid API key` 先查环境。
-- **不要用 `tracks --help` 判断无甲程**：0.1.7 会把 `--help` 当关键词查询（返回空列表）；0.1.8 起才打印用法。帮助统一用 `pracmocli --env prod --help`。
-- 版本判断以官方源为准（镜像会滞后）：`npm view @pracmo/pracmo-cli version --registry=https://registry.npmjs.org`。
+- 跨环境（prod/pre/global）API Key **不通用**：`invalid API key` 时先 `pracmocli --env prod doctor` 看 `baseUrl`。
 
 调用 `GET /open/v1/learning-tracks?state=active&pageSize=100`；用户给了名称时同时传 `keyword`。也可使用：
 
@@ -272,11 +270,12 @@ pracmocli --env prod exercises add <trackId> output/<slug>/exercise.json
 
 > `images validate` 的输出里带 `stage` 字段。**若 `stage` 与你要的阶段不一致，说明参数没被正确接受**——放行带 `asset://` 的请求会造成不可逆后果，必须停下来检查命令。
 
-## 已知坑（先看这里）
+## 版本要求
 
-1. **图片上传必须用 CLI ≥0.1.8**：0.1.7 的 `images finalize` 有 OSS URL 构造 bug，生产直传稳定报 403 `AccessDenied`（`EC 0003-00000905`）。升级后重试；紧急情况可用源码构建修复版（构建命令见 `references/cli-commands.md` 的排障表）。
-2. **回读解析是"组合视图"**：`GET /open/v1/flow/questions` 不返回 `options[].explanation`，而是把逐选项解析组合成题目级 `explanation`（客观题 `- **A** √/× …` 空行连接；简答取参考答案 option 的解析）。审计要按此规则比对，**不要误报解析丢失**；完整规则与审计骨架见 `references/read-back-and-migration.md`。
-3. **迁移既有练习册到新环境/新账号**：必须换 `clientRequestId`、用目标环境真实 `collectionId`、图片重新 `images finalize`（旧 URL 指向旧账号前缀不可复用）；旧 manifest 需补 `sourceType`。详见 `references/read-back-and-migration.md`。
-4. **公开详情接口只有预览**（options 为字符串、无答案/解析），不要从公开详情反推答案；完整内容用源提交包或管理端。
+请使用**最新版** CLI（历史版本的已知问题均已修复，以最新版为准）：
 
-命令速查见 `references/cli-commands.md`；已知问题与排障表见同文件的「已知问题与排障（重要，先看）」小节。
+```bash
+npm install -g @pracmo/pracmo-cli@latest --registry=https://registry.npmjs.org
+```
+
+命令与退出码速查见 `references/cli-commands.md`；回读审计、跨环境迁移既有练习册、公开内容与源包的关系见 `references/read-back-and-migration.md`。
