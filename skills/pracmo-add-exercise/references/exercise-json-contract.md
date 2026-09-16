@@ -10,7 +10,7 @@
 
 每题须有 `questionType`、`questionContent`、`concept`、`testableClaim`、`bloomLevel` 和 `options`。题目对象不得包含解析字段；所有解析统一写入非空的 `options[].explanation`，并且必须针对对应 option 分别说明其成立或不成立的理由，不能使用一段通用解析覆盖整题。
 
-`concept` 是包含非空 `name` 或 `conceptId` 的对象，不是字符串。单选和判断恰好一个正确 option，多选至少两个正确 option；这些题型的每个 option 都必须包含 `content`、布尔值 `isCorrect` 和非空 `explanation`。简答题必须有且只有一个参考答案 option：`content` 为可判定的参考答案，`isCorrect` 为 `true`，`explanation` 为评分要点、成立边界和常见遗漏。总题数 10–100。
+`concept` 是包含非空 `name` 或 `conceptId` 的对象，不是字符串。单选和判断恰好一个正确 option，多选至少两个正确 option；这些题型的每个 option 都必须包含 `content`、布尔值 `isCorrect` 和非空 `explanation`。简答题必须有且只有一个参考答案 option：`content` 为可判定的参考答案，`isCorrect` 为 `true`，`explanation` 为评分要点、成立边界和常见遗漏。总题数 3–100。
 
 Server 以 API Key 账号为 owner 保存练习；创建接口暂不接受公开/分享参数，后续公开可走公开内容流程。
 
