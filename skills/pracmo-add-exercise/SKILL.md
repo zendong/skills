@@ -278,4 +278,4 @@ pracmocli --env prod exercises add <trackId> output/<slug>/exercise.json
 npm install -g @pracmo/pracmo-cli@latest --registry=https://registry.npmjs.org
 ```
 
-命令与退出码速查见 `references/cli-commands.md`；回读审计、跨环境迁移既有练习册、公开内容与源包的关系见 `references/read-back-and-migration.md`。
+命令与退出码速查见 `references/cli-commands.md`；回读审计、同区内换环境/换账号重提、公开内容与源包的关系见 `references/read-back-and-migration.md`。

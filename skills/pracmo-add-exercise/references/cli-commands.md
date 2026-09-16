@@ -96,4 +96,4 @@
 | 旧 manifest 迁移到当前合同被 `images validate --stage reviewed` 拒 | asset 缺 `sourceType`（primary/official/standard/peer_reviewed/reputable_secondary） | 补上再校验 |
 | 公开详情接口拿不到答案/解析 | 公开预览只给 options 字符串 | 用源提交包或管理端；不要从公开详情反推 |
 
-> 回读审计、跨环境迁移、公开内容与源包的关系详见 `references/read-back-and-migration.md`。
+> 回读审计、同区内换环境/换账号重提、公开内容与源包的关系详见 `references/read-back-and-migration.md`。
