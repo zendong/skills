@@ -83,7 +83,7 @@ Use the `collectionId` in the creation response as the destination for the follo
 
 ## Material Grounding and Question Writing
 
-- Generate 10–100 complete, answerable questions; the default is 10–15 unless the user specifies otherwise.
+- Generate 3–100 complete, answerable questions; the default is 10–15 unless the user specifies otherwise.
 - Single choice, multiple choice, true/false and short answer are supported; each question includes a Bloom level from 1–4, a concept and a testable claim, and each option includes an answer marker and an explanation specific to that option.
 - Read the material the user provides first. When the factual content is insufficient, actively search and actually open high-quality sources; prefer first-hand material, official documentation, standards, raw data and peer-reviewed papers.
 - You MUST NOT rely on model parameter memory to assert facts, numbers, quotations, time-sensitive status or professional relationships. Search snippets may only be used to locate a source, and cannot serve as the sole evidence.
