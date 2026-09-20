@@ -36,6 +36,8 @@ All business commands print JSON to stdout (`exit 0` on success); error messages
 
 ## Exit codes
 
+> This table is kept in sync with the "Exit Codes and Recovery Actions" section in SKILL.md.
+
 | Code | Meaning | Handling |
 |----|------|----------|
 | 0 | Success | Parse the stdout JSON |
@@ -63,13 +65,17 @@ Priority: command-line flags > environment variables > preset > built-in default
 | `PRACMO_ENV` | `prod` | Preset: `prod` (China production) / `pre` (China pre-release) / `global` (global production) / `local` |
 | `PRACMO_API_KEY` | empty | API Key (takes priority over the credentials file) |
 | `PRACMO_CREDENTIALS_DIR` | `~/.pracmo` | Credentials directory (0600, valid across restarts, isolated per environment as `credentials.<env>.json`) |
-| `PRACMO_HTTP_TIMEOUT_SECONDS` | 30 | HTTP timeout |
+| `PRACMO_HTTP_TIMEOUT_SECONDS` | 120 | HTTP timeout; write commands such as `exercises add` can exceed 30s in practice |
 | `PRACMO_LOG_LEVEL` | `info` | Log level `debug`/`info`/`warn`/`error` |
 | `PRACMO_OSS_ENDPOINT` / `PRACMO_OSS_BUCKET` | taken from backend STS | Integration overrides only (such as a local minio) |
 
 > The CLI's built-in default for `PRACMO_ENV` is `prod` (China production). Every command in
 > this skill passes `--env global` explicitly, so a different `PRACMO_ENV` on your machine
 > cannot send requests to the wrong region.
+
+## Write-command timeout recovery
+
+If `exercises add` returns exit code 4 (client timeout), **the backend may already have created it**. Retry with the **same `clientRequestId` + exactly the same JSON**: an idempotency hit returns the same `exerciseId` (measured in practice); only changing the ID creates duplicate exercises. If it keeps timing out, increase `PRACMO_HTTP_TIMEOUT_SECONDS`.
 
 ## Common response shape
 
@@ -80,3 +86,17 @@ Priority: command-line flags > environment variables > preset > built-in default
 > Note: the backend also returns HTTP 200 for **business errors**, expressing failure through `success:false` + `code`
 > (for example, an unknown or expired binding code returns `NOT_FOUND`). The CLI already classifies correctly by `success` and `code`,
 > so simply read the exit code — do not look only at the HTTP status.
+
+## Troubleshooting and Experience
+
+> Use the **latest** CLI (known issues in older versions are all fixed): `npm install -g @pracmo/pracmo-cli@latest --registry=https://registry.npmjs.org`; upgrade first before troubleshooting.
+
+| Symptom | Cause | Handling |
+|---|---|---|
+| `invalid API key` after switching environments | API Keys are **not interchangeable** across prod/pre/global | First run `pracmocli --env global doctor` to check `baseUrl`; use the Key for the target environment |
+| `exercises add` client timeout (exit code 4) | Server-side question creation and concept association can take 1–5 minutes, so the default 120s is not enough | `PRACMO_HTTP_TIMEOUT_SECONDS=300`; on timeout retry with the **same clientRequestId and the same JSON** — `reusedExisting: true` in the response means the idempotency hit and nothing was duplicated |
+| Read-back shows options without `explanation` | The read endpoint **dynamically composes** the per-option explanations into a question-level `question.explanation`, which is by design | Compare question by question using the composition rules in `references/read-back-and-migration.md`; do not report a missing explanation |
+| An old manifest is rejected by `images validate --stage reviewed` after migrating to the current contract | The asset is missing `sourceType` (primary/official/standard/peer_reviewed/reputable_secondary) | Add it and validate again |
+| The public detail endpoint has no answers or explanations | The public preview provides only the options strings | Use the source submission package or the admin review side; do not infer answers from public detail pages |
+
+> Read-back auditing, re-submitting after an environment or account change within the same region, and the relationship between public content and the source package are covered in `references/read-back-and-migration.md`.

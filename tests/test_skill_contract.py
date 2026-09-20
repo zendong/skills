@@ -86,6 +86,9 @@ def all_docs(region: Region):
     刻意不只读 SKILL.md 与 references/：agents/openai.yaml 与 evals/evals.json
     也含 skill 名、区域域名与用户提问样例 —— 曾经就因为只检查 markdown，
     导致这两个文件被原样拷成中文版而没被发现。
+
+    唯一的排除项是 .gitignore 里的本地产物（output/、__pycache__、.DS_Store）：
+    它们不进仓库、CI 中也不存在，扫描它们只会让本地结果与 CI 不一致。
     """
     docs = []
     for path in sorted(region.path.rglob("*")):
@@ -94,6 +97,9 @@ def all_docs(region: Region):
         if path.suffix.lower() not in {".md", ".json", ".yaml", ".yml", ".txt"}:
             continue
         if "__pycache__" in path.parts or path.name == ".DS_Store":
+            continue
+        # output/ 是本地运行草稿产物（.gitignore 已排除），不算对外交付的 skill 文档
+        if path.relative_to(region.path).parts[0] == "output":
             continue
         docs.append((str(path.relative_to(region.path)), path.read_text(encoding="utf-8")))
     if not docs:

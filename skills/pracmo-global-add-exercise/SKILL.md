@@ -22,6 +22,9 @@ Before starting you MUST read in full:
 
 Before writing questions, confirm login: run `pracmocli --env global auth status`, or supply the Key through the environment variable `PRACMO_API_KEY`. When not logged in, tell the user to run `pracmocli --env global auth login` (or get a Key at `https://www.pracmo.app/app/api-key`); do not let the user send the Key into the chat. Installing `pracmocli`: `npm install -g @pracmo/pracmo-cli` (no Python/Pillow/oss2 dependencies).
 
+Troubleshooting prerequisite:
+- API Keys are **not interchangeable** across environments (prod/pre/global): on `invalid API key`, first run `pracmocli --env global doctor` to check `baseUrl`.
+
 Call `GET /open/v1/learning-tracks?state=active&pageSize=100`; when the user gave a name, also pass `keyword`. You may also use:
 
 ```bash
@@ -50,9 +53,9 @@ Exercise collection selection rules:
 
 1. Identify the system default collection only from `isDefault` in the response; do not guess from display names such as "Uncategorized".
 2. If the list contains only the system default collection, you may select it automatically; before creating, you MUST still tell the user the track and collection names together.
-3. As long as any named exercise collection exists, you MUST list the candidates and let the user choose explicitly; do not infer one yourself from the exercise topic. The default collection is still an option.
+3. 🔴 STOP: as long as any named exercise collection exists, you MUST list the candidates and let the user choose explicitly; do not infer one yourself from the exercise topic, and do not continue creating until the user confirms. The default collection is still an option.
 4. Disambiguate exercise collections with the same name by description and `collectionId`; in the end use only the real ID returned by the API, and do not construct an ID from a name.
-5. When the list is still loading, failed to load, is empty, or the choice is ambiguous, stop; you MUST NOT silently fall back to the default collection by omitting `collectionId`.
+5. 🛑 When the list is still loading, failed to load, is empty, or the choice is ambiguous, stop; you MUST NOT silently fall back to the default collection by omitting `collectionId`.
 
 The user may also choose to create a new exercise collection inside the confirmed track. First confirm one complete destination, for example:
 
@@ -89,7 +92,7 @@ Use the `collectionId` in the creation response as the destination for the follo
 - You MUST NOT rely on model parameter memory to assert facts, numbers, quotations, time-sensitive status or professional relationships. Search snippets may only be used to locate a source, and cannot serve as the sole evidence.
 - The question stem, the answer, the per-option explanations and the facts in images MUST all be traceable to material actually read; when no reliable basis can be found, delete that claim, change it into a question without factual assertions, or ask the user for material.
 - The question stem and the per-option explanations MUST be self-contained for App users, and MUST NOT depend on the Agent context or local paths.
-- When the user only asks to "take a look first", output or save a draft and stop; do not call any write endpoint.
+- 🛑 When the user only asks to "take a look first", output or save a draft and stop; do not call any write endpoint.
 
 ## Per-Option Explanation Hard Contract
 
@@ -187,7 +190,7 @@ Inspect every actual image in `reviewed/assets/` pixel by pixel, comparing it it
 8. The phone interface stays device-neutral; names, phone numbers, accounts, order numbers, addresses, links, QR codes, bank cards and recognizable brands are all absent, or are explicitly registered and non-routable fictitious values.
 9. When an image reflects objective knowledge, check numbers, text, states and logic item by item; anything that cannot be confirmed from a source MUST be deleted, or the image withdrawn.
 
-Write every actual result into `review` in the manifest. Whenever there is any uncertainty, anything unreadable, conflicting sources or logical ambiguity, fix the image and re-check from the beginning. If any single item does not pass, you MUST NOT create.
+Write every actual result into `review` in the manifest. Whenever there is any uncertainty, anything unreadable, conflicting sources or logical ambiguity, fix the image and re-check from the beginning. 🛑 If any single item does not pass, you MUST NOT create.
 
 After re-checking, run the hard validation:
 
@@ -214,6 +217,8 @@ pracmocli --env global images validate --stage finalized output/<slug>/exercise.
 The final JSON MUST NOT contain local paths, `asset://`, `file://`, base64 images or unsafe URLs. Images are allowed only as HTTPS Markdown URLs.
 
 ## Creation
+
+🛑 Before creating, confirm every item: the target track and exercise collection come from a response just read or just created in this session, all applicable gates have passed, and the user has authorized the actual creation — if any of these does not hold, stop immediately and do not create.
 
 When the user asks for actual creation, the target track and exercise collection are both unambiguous, and all applicable gates pass:
 
@@ -250,6 +255,15 @@ For multiple images, maintain a ledger item by item and read back. You MUST conf
 - After success, report the track title, `trackId`, exercise collection name, `collectionId`, exercise title, `exerciseId`, question count and image count, and note that the content belongs to the user and may later be promoted to public.
 - Stop when the track does not exist, has ended, or does not belong to the API Key user; do not automatically switch to another track.
 
+## Red Lines (Never Do)
+
+- Creating a track, or calling any track-creation/`import`/`with-exercise` endpoint.
+- Using model parameter memory, search snippets or a re-post that was not actually opened as factual evidence.
+- Local layout/compositing of generated images (except when the user explicitly requests it, and it MUST be recorded).
+- Filling in `review` falsely to pass validation, or skipping the compress → re-check → validate flow.
+- Assembling URLs by hand and bypassing `images finalize`; silently falling back to the default collection by omitting `collectionId`.
+- Inferring answers from public detail pages; creating while a gate has not passed.
+
 ## Exit Codes and Recovery Actions
 
 Write operations are **not retried automatically** by default. Before submitting, you may use `--dry-run` to perform only local structural validation without sending a request.
@@ -264,6 +278,14 @@ Write operations are **not retried automatically** by default. Before submitting
 | 5 | Conflict (409 idempotency conflict) | Content unchanged → check the earlier result; content substantially modified → generate a new `clientRequestId` |
 | 6 | Local gate not passed (validation failure) | After fixing the image/question stem, **re-run the full validation**; **MUST NOT create** |
 
-> The output of `images validate` carries a `stage` field. **If `stage` does not match the stage you want, the arguments were not accepted correctly** — letting a request containing `asset://` through causes irreversible consequences, so you MUST stop and check the command.
+> The output of `images validate` carries a `stage` field. **🛑 If `stage` does not match the stage you want, the arguments were not accepted correctly** — letting a request containing `asset://` through causes irreversible consequences, so you MUST stop and check the command.
 
-For a command cheat sheet see `references/cli-commands.md`.
+## Version Requirement
+
+Use the **latest** CLI (known issues in older versions are all fixed; treat the latest version as authoritative):
+
+```bash
+npm install -g @pracmo/pracmo-cli@latest --registry=https://registry.npmjs.org
+```
+
+For the command and exit-code cheat sheet see `references/cli-commands.md`; for read-back auditing, re-submitting after an environment or account change within the same region, and the relationship between public content and the source package, see `references/read-back-and-migration.md`.

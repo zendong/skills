@@ -36,6 +36,8 @@ All business commands print JSON to stdout (`exit 0` on success); error messages
 
 ## Exit codes
 
+> This table is kept in sync with the "Exit Codes and Recovery Actions" section in SKILL.md.
+
 | Code | Meaning | Handling |
 |----|------|----------|
 | 0 | Success | Parse the stdout JSON |

@@ -23,7 +23,7 @@ Call `GET /open/v1/learning-tracks?state=active&pageSize=100` (with `pracmocli -
 pracmocli --env global tracks list "track keyword"
 ```
 
-When there is exactly one unambiguous match, use it, and state the track name before creating. When there are several reasonable matches, list the titles and the `trackId` values and ask the user to choose; do not guess. When there is no active track, stop and prompt exactly as follows:
+When there is exactly one unambiguous match, use it, and state the track name before creating. 🔴 STOP: when there are several reasonable matches, list the titles and the `trackId` values and ask the user to choose; do not guess, and do not continue until the user confirms. When there is no active track, stop and prompt exactly as follows:
 
 ```text
 No existing track is available. Please create a track in the Pracmo mobile app first, then tell me once it is created, and I will be able to read it and continue adding actions.
@@ -39,6 +39,24 @@ You MUST NOT create a track. When the user asks to create a new track, likewise 
 
 Make the title, the minimum observable behaviour, the frequency, the timezone, the dates, the deadline, the completion criteria, the progression criteria and the safety boundaries explicit. Do not generate accounts, track ownership, check-in records, guardian relationships, review status or public category fields.
 
+Minimal complete request for a no-image `self_directed` action (`follow_along` additionally adds `followPlan.levels` inside `action`):
+
+```json
+{
+  "schemaVersion": "pracmo-track-action@v1",
+  "clientRequestId": "action-20260919-daily-plank",
+  "action": {
+    "title": "Bedtime plank",
+    "scheduleType": "daily",
+    "timezone": "Asia/Shanghai",
+    "startDate": "2026-09-19",
+    "deadlineLocalTime": "23:00",
+    "completionMode": "one_tap",
+    "contentMode": "self_directed"
+  }
+}
+```
+
 Factual movement specifications, health and safety, repetitions, duration and professional relationships MUST come from the user's material or from reliable material that was actually opened. Prefer official guidelines, formal standards, professional organizations, original papers and first-hand explanations; you MUST NOT rely on model parameter memory. Search snippets can only locate material, and cannot serve as the sole evidence. When you cannot confirm something, delete that assertion, reduce it to a non-factual statement, or ask the user for material.
 
 ## Follow-Along Image Authoring Package
@@ -46,6 +64,8 @@ Factual movement specifications, health and safety, repetitions, duration and pr
 Use images only when they can explain posture, direction, steps, equipment position or a comparison; do not add purely decorative images. Author with two files:
 
 Images may only be downloaded from a web page in their original form, or generated from a real scene. The whole complete generated image MUST be produced directly by the image generation tool, and local layout is forbidden by default: Pillow, Canvas, SVG, HTML/CSS, screenshot collages, post-production text overlay, perspective compositing or code drawing MUST NOT be used to place movements, text, numbers, arrows, equipment or backgrounds onto the image. Only compression, format conversion, metadata stripping and alpha-channel handling that do not change the visible content are allowed. When a typo, a wrong number, a wrong posture, a safety problem or inauthenticity appears, regenerate the whole image; the only exception is when the user explicitly requests local layout or compositing, and it MUST be recorded.
+
+When image generation fails repeatedly or makes no progress for a long time, stop retrying (never more than 3 attempts for the same image), report progress to the user and offer options: switch the source mode, adjust the scene description, or retry later.
 
 - `action.authoring.json`: keeps the final API structure, with image blocks temporarily using `asset://<assetId>`.
 - `action-images.json`: uses `pracmo-action-images@v1`, recording sources, facts, exact text/numbers, movement relations, block positions, license and review.
@@ -80,7 +100,7 @@ Compare each image against the source, the caption, the text blocks, the level g
 5. Check whether cropping, mirroring, arrows or highlighting is misleading, and whether it is still clear when scaled down on a phone.
 6. Sources and licenses are complete; the claims, values and relations in a factual image are all traceable.
 
-OCR and vision models can only assist; they cannot replace the item-by-item comparison. Any uncertainty, conflicting source, ambiguous posture or safety problem MUST first be corrected and reviewed again. If any single item does not pass, you MUST NOT create.
+OCR and vision models can only assist; they cannot replace the item-by-item comparison. Any uncertainty, conflicting source, ambiguous posture or safety problem MUST first be corrected and reviewed again. 🛑 If any single item does not pass, you MUST NOT create.
 
 ```bash
 pracmocli --env global images validate \
@@ -106,9 +126,17 @@ pracmocli --env global images validate --stage finalized --type action output/<s
 
 Finalization uses `clientRequestId + assetId + reviewedSha256` to build a deterministic `practiceAssets` key, re-downloads the uploaded content and compares the hash, and then replaces `asset://` with an HTTPS `mediaUrl`. The CLI has all of this built in, with no Python/Pillow/oss2 dependencies; you MUST NOT bypass the finalization command.
 
+Actions with no image block skip compression, review and finalization: write `output/<slug>/action.json` directly (without going through `action.authoring.json`), and create once the same command validates it:
+
+```bash
+pracmocli --env global images validate --stage finalized --type action output/<slug>/action.json
+```
+
 After a creation failure or timeout, reuse the same `action.json`; do not finalize again, change the URL or change the request ID. `action-images.finalized.json` is a resumable ledger and MUST NOT be sent to the action API.
 
 ## Creation
+
+🛑 Before creating, confirm every item: the target track comes from the active list just read in this session, all applicable gates have passed, and the user has authorized the actual creation — if any of these does not hold, stop immediately and do not create.
 
 When the user asks for actual creation, the target track is unambiguous, and all applicable gates pass:
 
@@ -123,10 +151,19 @@ This endpoint creates the action **paused** by default: no check-in occurrences 
 ## Idempotency and Feedback
 
 - Retrying the same content keeps the same `clientRequestId` and final JSON; reusing the same ID with different content conflicts.
-- When the user only asks for a draft, save/display the draft and stop; do not upload and do not call the creation endpoint.
+- 🛑 When the user only asks for a draft, save/display the draft and stop; do not upload and do not call the creation endpoint.
 - After success, report the track, `trackId`, action title, `actionId`, mode and image count, and note that the action starts **paused**; the content belongs to the user and may later be promoted to public.
 - **Mandatory post-creation reminder**: tell the user the action was created in the "<track name>" track but starts paused, and that they need to open the Pracmo app ("Track detail → Action"), open this action and tap **Enable** before check-ins and reminders start. Only continue further operations after the user confirms they enabled it or asks you to recreate it.
 - Stop when the track does not exist, has ended, or does not belong to the current user; do not automatically submit to another track.
+
+## Red Lines (Never Do)
+
+- Creating a track, or calling any track-creation/import endpoint.
+- Using model parameter memory, search snippets or a re-post that was not actually opened as factual evidence.
+- Local layout/compositing of generated images (except when the user explicitly requests it, and it MUST be recorded).
+- Filling in the `review` field falsely to pass validation, or skipping the compress → review → validate flow.
+- Assembling URLs by hand and bypassing `images finalize`; changing the `clientRequestId` or modifying the JSON on a retry.
+- Creating while a gate has not passed or the user has not authorized it.
 
 ## Exit Codes and Recovery Actions
 
