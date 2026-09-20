@@ -99,6 +99,3 @@ python3 tests/test_skill_contract.py
 
 > 语言不同导致两套无法逐字比对，所以第 2 条是能拿到的最强一致性保证。
 > 修改任何一侧时，记得同步另一侧并跑这个测试。
-
-行为测试（图片校验/最终化、路径逃逸、审阅门禁等）随实现放在 CLI 仓库：
-`private-skills/cli/pracmocli/internal/{images,contract,connector}`。
