@@ -50,7 +50,7 @@ Minimal complete request for a no-image `self_directed` action (`follow_along` a
     "scheduleType": "daily",
     "timezone": "Asia/Shanghai",
     "startDate": "2026-09-19",
-    "deadlineLocalTime": "23:00",
+    "deadlineLocalTime": "22:00",
     "completionMode": "one_tap",
     "contentMode": "self_directed"
   }
@@ -58,6 +58,60 @@ Minimal complete request for a no-image `self_directed` action (`follow_along` a
 ```
 
 Factual movement specifications, health and safety, repetitions, duration and professional relationships MUST come from the user's material or from reliable material that was actually opened. Prefer official guidelines, formal standards, professional organizations, original papers and first-hand explanations; you MUST NOT rely on model parameter memory. Search snippets can only locate material, and cannot serve as the sole evidence. When you cannot confirm something, delete that assertion, reduce it to a non-factual statement, or ask the user for material.
+
+## Deadline and Reminders (Hard Requirements)
+
+`deadlineLocalTime` decides when that day's occurrence becomes due, and it anchors the `defaultBeforeDeadlineMinutes` reminder (the reminder fires that many minutes before the deadline). **The default MUST NOT be 23:59**: it pushes completion to the last minute of the day and drops the reminder late at night, which amounts to encouraging a pre-sleep rush.
+
+- `23:59` is forbidden, as is `00:00–05:00`; use whole or half hours, never a boundary value.
+- By default the deadline MUST NOT be later than 22:00; a genuinely pre-sleep action may go as late as 22:30, with the reason stated in the action description.
+- The deadline SHOULD sit slightly after the moment the action naturally happens, leaving a buffer without hugging the user's bedtime.
+- Order of decisions: read the track's `targetUserDescription` and `requirements` to judge the user's daily rhythm, then the nature of the action itself, and take the earlier of the two.
+- Prefer `two_hours` grace as the safety net rather than pushing the deadline itself into the night.
+- Reminder times MUST be clearly earlier than the deadline; do not remind only minutes before it, and do not use all five slots.
+
+### By the Nature of the Action
+
+| Nature | Typical examples | Suggested deadline |
+| --- | --- | --- |
+| Morning | Early rising, morning exercise, planning the day | around 09:00 |
+| Daytime | A walk, outdoor activity, chores | 12:00–18:00 |
+| Wrap-up | End-of-work review, counting the day | 18:00–20:00 |
+| Pre-sleep | Stretching, meditation, a good-night note | 21:00–22:00 |
+| All-day flexible | Noting one discovery, drinking water | around 20:00 |
+
+### By the Person the Action Serves
+
+| Who it serves | Suggested window |
+| --- | --- |
+| Older adults, retirees | 17:00–20:00, shifted earlier |
+| Office workers, commuters | 19:00–21:30, not into pre-sleep |
+| Students and children | 20:00–21:00, without cutting sleep |
+| Night shifts, cross-timezone | Take their real rhythm and state the basis |
+
+A `weekly_quota` deadline falls on the Sunday of the quota week (the server sets the due date to Sunday and only fires reminders on that due date); take the value from the tables above and do not write 23:59 just because the action is weekly.
+
+**Self-check before creating**: the deadline is not 23:59; it is not later than 22:00 (pre-sleep at most 22:30); it matches the user's rhythm and the action's nature; reminders come earlier than the deadline; grace is the `two_hours` safety net.
+
+## Action Output and Grounding (Hard Requirements)
+
+An action MUST NOT only ask the user to "think about it" or "pay attention". This section carries the same weight as action design and the safety gate: if any one is not satisfied, you MUST NOT deliver the content and you MUST NOT create it.
+
+- **Every run produces an output**: one run MUST leave an observable result — a record, a number, a conclusion the user can say out loud, or a before-and-after comparison. An action that only asks the user to notice, recall or feel relaxed without producing any result is empty content.
+- **State the completion criteria**: the minimum observable behaviour, the completion criteria and the progression criteria MUST all be explicit, so the user can say what they finished rather than a vague "it felt different".
+- **Puki-prepared content carries knowledge density**: the generation instruction MUST require each run to contain one repeatable number, conversion or mechanism, and MUST state the safety boundaries, forbid invented sources, and switch topics when something cannot be stated reliably.
+- **Built to last**: an action MUST be sustainable and varied (rotating topics, comparing numbers, staged progression), not a one-off task; frequency, duration, repetitions and movement specifications come from the user's material or from reliable material actually opened.
+- **Concrete safety boundaries**: for health and exercise content give general information, stopping conditions and when to see a professional, never individualised prescriptions; do not sell fear, and do not promise cures or outcomes.
+
+### Factual Grounding Ledger
+
+Every factual assertion (numbers, conversions, mechanisms, institutional conclusions, dates, quotations, professional relationships) MUST be tied to a source that was **actually opened**, not to model impression.
+
+- Record for each assertion: the source URL, the quoted passage and the boundary of what it supports, mapped to the specific content of the action; deliver the ledger together with the content.
+- Search snippets, reprints, second-hand retellings and model parameter memory can never be the sole basis; search only locates a source, which you MUST then actually open.
+- When no reliable source can be found there are only three fallbacks: delete the assertion, reduce it to a non-factual statement, or ask the user for material. Do not paper over it with untraceable phrasing such as "studies show".
+- Time-sensitive content (prices, markets, policy, model versions, tool lists, rankings) is excluded by default; when it must be included, base it on a first-hand page you actually opened and state the date you checked it.
+- Self-check before delivery: every action run has an output and completion criteria; the content has a repeatable anchor; every factual assertion has a source in the ledger; and no unverifiable assertion has been kept.
 
 ## Follow-Along Image Authoring Package
 
